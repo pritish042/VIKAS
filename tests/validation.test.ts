@@ -1,0 +1,5 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {profileSchema,taskSchema,resourceSchema,urlSchema} from '../lib/validation';
+test('task rejects ownership injection and impossible durations',()=>{assert.equal(taskSchema.safeParse({title:'Learn',notes:'',minutes:25,userId:'someone-else'}).success,false);assert.equal(taskSchema.safeParse({title:'Learn',notes:'',minutes:-1}).success,false);});
+test('links reject executable protocols',()=>{assert.equal(urlSchema.safeParse('javascript:alert(1)').success,false);assert.equal(urlSchema.safeParse('https://example.org/resource').success,true);});
+test('profile constrains student state',()=>{assert.equal(profileSchema.safeParse({stage:'school',level:'Class 9',stream:'',interests:[],goal:'',weeklyHours:900,bio:'',onboardingComplete:true}).success,false);});
+test('resource publishing cannot be injected by a submitter',()=>{assert.equal(resourceSchema.safeParse({title:'Resource',description:'An educational resource',url:'https://example.org',stage:'all',stream:'',minutes:20,status:'published'}).success,false);});

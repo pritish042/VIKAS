@@ -1,0 +1,17 @@
+import {MongoClient} from 'mongodb';
+if(!process.env.MONGODB_URI)throw new Error('Set MONGODB_URI in .env.local.');
+const client=new MongoClient(process.env.MONGODB_URI);
+try{await client.connect();const db=client.db(process.env.MONGODB_DB||'vikas');
+await db.collection('user').createIndex({email:1},{unique:true});
+await db.collection('session').createIndex({token:1},{unique:true});
+await db.collection('session').createIndex({expiresAt:1},{expireAfterSeconds:0});
+await db.collection('session').createIndex({userId:1});
+await db.collection('account').createIndex({providerId:1,accountId:1},{unique:true});
+await db.collection('verification').createIndex({identifier:1});
+await db.collection('profiles').createIndex({userId:1},{unique:true});
+for(const name of ['tasks','records','messages'])await db.collection(name).createIndex({userId:1,createdAt:-1});
+await db.collection('resources').createIndex({status:1,stage:1,createdAt:-1});
+await db.collection('resources').createIndex({userId:1});
+await db.collection('app_limits').createIndex({expiresAt:1},{expireAfterSeconds:0});
+console.log('VIKAS indexes are ready. No sample data was inserted.');
+}finally{await client.close();}

@@ -1,0 +1,4 @@
+import {identity,body,json,failure,objectId,HttpError} from '@/lib/api';import {db} from '@/lib/db';import {recordSchema} from '@/lib/validation';
+type Context={params:Promise<{id:string}>};
+export async function PATCH(req:Request,c:Context){try{const u=await identity(req);const p=await body(req,recordSchema);const d=await db();const r=await d.collection('records').updateOne({_id:objectId((await c.params).id),userId:u.id},{$set:{...p,updatedAt:new Date()}});if(!r.matchedCount)throw new HttpError(404,'Entry not found.');return json({ok:true});}catch(e){return failure(e);}}
+export async function DELETE(req:Request,c:Context){try{const u=await identity(req);const d=await db();const r=await d.collection('records').deleteOne({_id:objectId((await c.params).id),userId:u.id});if(!r.deletedCount)throw new HttpError(404,'Entry not found.');return json({ok:true});}catch(e){return failure(e);}}
