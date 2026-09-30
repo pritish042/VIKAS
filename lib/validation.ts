@@ -15,5 +15,11 @@ export const taskSchema = z.object({title:text(150).min(1),notes:text(2000),minu
 export const recordSchema = z.object({type:z.enum(['skill','project','certification','achievement']),title:text(150).min(1),description:text(2000),url:urlSchema}).strict();
 export const resourceSchema = z.object({title:text(150).min(1),description:text(1500).min(10),url:urlSchema.refine(v=>!!v,'Add a resource link.'),stage:z.union([stageSchema,z.literal('all')]),stream:text(150),minutes:z.number().int().min(0).max(600)}).strict();
 export const statusSchema = z.object({status:z.enum(['todo','done'])}).strict();
+export const feedbackSchema = z.object({outcome:z.enum(['completed','need_help','irrelevant']),feeling:z.enum(['easy','about_right','difficult']),reflection:text(500)}).strict();
+export const proposalDecisionSchema = z.discriminatedUnion('decision',[
+ z.object({decision:z.literal('accept')}).strict(),
+ z.object({decision:z.literal('edit'),title:text(150).min(1),notes:text(2000),minutes:z.number().int().min(5).max(600)}).strict(),
+ z.object({decision:z.literal('reject')}).strict(),
+]);
 export const publicationSchema = z.object({status:z.enum(['published','pending'])}).strict();
 export const messageSchema = z.object({message:text(2000).min(1)}).strict();

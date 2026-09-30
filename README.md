@@ -25,6 +25,7 @@ Without the database settings, the screens remain browsable but signup and savin
 - Optional SMTP-backed verification and password-reset screens.
 - Editable student profile, board/class/subjects or degree/program/branch/year, goal, interests and available time.
 - Personal task creation, completion/reopen, and deletion.
+- Student-reviewed step feedback and deterministic next-step suggestions that require explicit acceptance, editing, or rejection.
 - Personal skills/projects/certifications/achievements journal.
 - Shared resource submission and verified-editor publication queue.
 - Empty states throughout; data appears when people add it.

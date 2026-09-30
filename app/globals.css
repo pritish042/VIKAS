@@ -71,7 +71,6 @@ input[type=checkbox] { accent-color: var(--primary); }
 .header { height: 76px; position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--line); }
 .header-inner { max-width: 1240px; height: 100%; margin: auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 9px; padding: 0; font-size: 22px; font-weight: 750; letter-spacing: -.6px; flex-shrink: 0; }
-.brand-mark { display: grid; place-items: center; width: 31px; height: 33px; border-radius: 9px; background: var(--primary); color: var(--on-primary); font-size: 22px; }
 .brand-divider { width: 1px; height: 18px; background: var(--line); margin: 0 3px; }
 .brand-tag { font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--muted); }
 .header-actions { display: flex; align-items: center; gap: 16px; }
@@ -205,6 +204,25 @@ progress::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
 .task.done h3 { text-decoration: line-through; color: var(--muted); }
 .task-check { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--control-border); border-radius: 7px; flex-shrink: 0; }
 .done .task-check { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.task-review-button { display: flex; width: fit-content; margin-top: 8px; }
+.task-state { display: block; width: fit-content; margin-top: 8px; color: var(--muted); font-size: 12px; }
+.plan-review { max-width: 710px; margin: 0 0 28px; padding: 24px; border: 1px solid var(--line); border-left: 3px solid var(--primary); border-radius: var(--radius); background: var(--surface); }
+.progress-flow { min-width: 0; }
+.progress-flow h3 { margin: 8px 0 12px; font-size: 21px; font-family: Georgia,"Times New Roman",serif; font-weight: 500; }
+.progress-flow p { margin: 10px 0; font-size: 14px; white-space: pre-wrap; }
+.progress-flow p strong { color: var(--text); }
+.progress-flow .proposal-time { font-size: 12px; }
+.progress-flow fieldset { min-width: 0; border: 0; padding: 0; margin: 20px 0; }
+.progress-flow legend { color: var(--text); font-size: 14px; font-weight: 600; margin-bottom: 9px; }
+.feedback-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.feedback-choices label { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 8px 11px; border: 1px solid var(--control-border); border-radius: 8px; color: var(--text); font-size: 13px; cursor: pointer; }
+.feedback-choices label:has(input:checked) { border-color: var(--primary); background: var(--tint); color: var(--primary); }
+.feedback-choices input { width: 16px; min-height: 16px; height: 16px; margin: 0; accent-color: var(--primary); }
+.progress-fields .field { margin: 18px 0; }
+.progress-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin-top: 20px; }
+.progress-flow > .text-button { margin-top: 8px; }
+.progress-flow .primary { margin-top: 12px; }
+.progress-actions .primary { margin-top: 0; }
 .plan-aside { border: 0; border-left: 1px solid var(--line); padding: 0 0 0 28px; }
 .plan-aside .icon-box { display: none; }
 .plan-aside p { font-size: 14px; margin: 12px 0; }
@@ -369,6 +387,7 @@ progress::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
   .card-actions { grid-column: 1; grid-row: auto; justify-content: flex-start; max-width: none; margin-top: 4px; }
   .plan-summary { flex-direction: column; gap: 12px; }
   .plan-aside,.account-card { padding: 20px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  .plan-review { padding: 20px; }
   .profile-layout > aside { position: static; }
   .auth-layout { margin: 0; }
   .auth-aside { display: none; }
@@ -392,7 +411,6 @@ progress::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
   .header-inner { padding-inline: 16px; gap: 8px; }
   .header-actions { gap: 8px; }
   .brand { gap: 6px; font-size: 19px; }
-  .brand-mark { width: 28px; height: 30px; font-size: 20px; }
   .theme { gap: 0; padding: 2px; }
   .theme button { width: 28px; height: 30px; }
   .header-actions .small-button { padding-inline: 9px; }

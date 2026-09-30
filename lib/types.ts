@@ -2,7 +2,14 @@ export type Stage = 'school' | 'senior' | 'vocational' | 'undergraduate' | 'post
 export interface Education { board: string; className: string; program: string; discipline: string; stream: string; subjects: string[]; period: string }
 export interface Profile { education?: Education; stage: Stage | ''; level: string; stream: string; interests: string[]; goal: string; weeklyHours: number; bio: string; onboardingComplete: boolean }
 export const emptyProfile: Profile = { stage: '', level: '', stream: '', interests: [], goal: '', weeklyHours: 3, bio: '', onboardingComplete: false };
-export interface Task { _id: string; title: string; notes: string; minutes: number; status: 'todo' | 'done'; createdAt: string }
+export type StepOutcome = 'completed' | 'need_help' | 'irrelevant';
+export type StepFeeling = 'easy' | 'about_right' | 'difficult';
+export interface StepFeedback {
+ taskRef: string; goalRef: string; goalTitle: string; outcome: StepOutcome; feeling: StepFeeling;
+ reflection: string; createdAt: string; updatedAt: string;
+ proposal: { title: string; notes: string; minutes: number; explanation: string; status: 'pending' | 'accepted' | 'rejected'; acceptedStep?: { taskRef: string; title: string; notes: string; minutes: number }; updatedAt: string };
+}
+export interface Task { _id: string; title: string; notes: string; minutes: number; status: 'todo' | 'done' | 'needs_help' | 'irrelevant'; goalRef?: string; goalTitle?: string; feedback?: StepFeedback; createdAt: string }
 export interface RecordItem { _id: string; type: 'skill' | 'project' | 'certification' | 'achievement'; title: string; description: string; url: string; createdAt: string }
 export interface Resource { _id: string; title: string; description: string; url: string; stage: Stage | 'all'; stream: string; minutes: number; status: 'pending' | 'published'; owned?: boolean }
 export interface ChatMessage { _id: string; role: 'user' | 'assistant'; content: string }
