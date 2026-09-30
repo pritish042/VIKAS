@@ -28,6 +28,9 @@ The first frontend file is intentionally self-contained for handoff speed. Extra
 - Add self-service account export/deletion and retention enforcement.
 - Add pagination and richer editing if real usage needs it.
 - Add reviewed knowledge, bounded mentor tools, proposed plan revisions, and agent evaluations.
+
+## Adaptive progress maintenance
+The initial progress loop embeds feedback and proposal history on owned task documents. It uses deterministic rules in `lib/progress.ts`; no AI service changes plans. Keep proposal creation separate from task creation, and require a student decision before adding a follow-up. The additive API contract and retry behavior are in `docs/API.md`.
 - Add external opportunities only with provenance, expiry and review.
 
 ## Education form maintenance
