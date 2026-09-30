@@ -71,7 +71,6 @@ input[type=checkbox] { accent-color: var(--primary); }
 .header { height: 76px; position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--line); }
 .header-inner { max-width: 1240px; height: 100%; margin: auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 9px; padding: 0; font-size: 22px; font-weight: 750; letter-spacing: -.6px; flex-shrink: 0; }
-.brand-mark { display: grid; place-items: center; width: 31px; height: 33px; border-radius: 9px; background: var(--primary); color: var(--on-primary); font-size: 22px; }
 .brand-divider { width: 1px; height: 18px; background: var(--line); margin: 0 3px; }
 .brand-tag { font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--muted); }
 .header-actions { display: flex; align-items: center; gap: 16px; }
@@ -412,7 +411,6 @@ progress::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
   .header-inner { padding-inline: 16px; gap: 8px; }
   .header-actions { gap: 8px; }
   .brand { gap: 6px; font-size: 19px; }
-  .brand-mark { width: 28px; height: 30px; font-size: 20px; }
   .theme { gap: 0; padding: 2px; }
   .theme button { width: 28px; height: 30px; }
   .header-actions .small-button { padding-inline: 9px; }
