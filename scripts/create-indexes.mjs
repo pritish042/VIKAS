@@ -12,6 +12,16 @@ await db.collection('profiles').createIndex({userId:1},{unique:true});
 for(const name of ['tasks','records','messages'])await db.collection(name).createIndex({userId:1,createdAt:-1});
 await db.collection('resources').createIndex({status:1,stage:1,createdAt:-1});
 await db.collection('resources').createIndex({userId:1});
+await db.collection('resources').createIndex({'catalogue.sourceId':1},{unique:true,partialFilterExpression:{'catalogue.sourceId':{$type:'string'}}});
+await db.collection('topic_assessments').createIndex({version:1},{unique:true});
+await db.collection('topic_assessments').createIndex({status:1,'topic.id':1,createdAt:-1});
+await db.collection('topic_attempts').createIndex({userId:1,createdAt:-1});
+await db.collection('topic_attempts').createIndex({userId:1,topicId:1,'feedback.createdAt':-1});
+await db.collection('mentor_knowledge').createIndex({status:1,stage:1,language:1,topicId:1});
+await db.collection('mentor_knowledge').createIndex({version:1},{unique:true});
+await db.collection('mentor_chunks').createIndex({text:'text',heading:'text',title:'text'},{default_language:'none',language_override:'indexLanguage'});
+await db.collection('mentor_chunks').createIndex({knowledgeRef:1,status:1});
+await db.collection('mentor_memories').createIndex({userId:1,topicId:1,updatedAt:-1});
 await db.collection('app_limits').createIndex({expiresAt:1},{expireAfterSeconds:0});
 console.log('VIKAS indexes are ready. No sample data was inserted.');
 }finally{await client.close();}

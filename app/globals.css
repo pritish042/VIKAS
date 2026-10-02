@@ -1,4 +1,42 @@
 /* VIKAS workspace: paper, ink, and a restrained forest-green accent. */
+.topic-learning { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 12px; }
+.topic-flow { padding-top: 16px; display: grid; gap: 18px; min-width: 0; }
+.topic-flow h3:focus { outline: none; }
+.topic-flow h4 { margin: 0 0 8px; font-size: 16px; }
+.topic-flow summary { cursor: pointer; color: var(--primary); padding: 8px 0; }
+.topic-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.topic-options,.topic-feedback { border: 0; padding: 0; margin: 0; min-width: 0; }
+.topic-options { display: grid; gap: 10px; }
+.topic-options label { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--control-border); border-radius: 10px; cursor: pointer; }
+.topic-options input { width: 18px; height: 18px; min-height: 18px; flex: 0 0 18px; accent-color: var(--primary); }
+.topic-feedback legend { margin-bottom: 12px; }
+.topic-feedback [aria-pressed=true] { background: var(--tint); border-color: var(--primary); }
+.topic-recommendations article { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; gap: 12px; }
+.topic-recommendations dl { margin: 0; }
+.topic-recommendations dt { font-weight: 600; }
+.topic-recommendations dd { margin: 0 0 8px; color: var(--muted); overflow-wrap: anywhere; }
+.topic-concepts,.topic-history ul { list-style: none; margin: 0; padding: 0; }
+.topic-concepts li,.topic-history li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.topic-history time { display: block; font-size: 12px; color: var(--muted); }
+.topic-flow li { overflow-wrap: anywhere; }
+.resource-task { margin: 12px 0; display: grid; gap: 8px; }
+.resource-task summary { cursor: pointer; color: var(--primary); }
+.resource-task .topic-actions { margin-top: 8px; }
+.mentor-controls { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 18px; }
+.mentor-result { display: grid; gap: 18px; margin-top: 20px; }
+.mentor-result .field > span { color: var(--text); font-size: 14px; }
+.mentor-result summary,.mentor-memory summary,.knowledge-review summary { cursor: pointer; padding: 8px 0; color: var(--primary); }
+.mentor-list { list-style: none; margin: 0; padding: 0; }
+.mentor-list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.mentor-list .pill { margin-left: 8px; }
+.mentor-list small,.mentor-result small { display: block; color: var(--muted); overflow-wrap: anywhere; }
+.mentor-proposal { border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 12px; }
+.mentor-result p,.knowledge-text { white-space: pre-wrap; }
+.mentor-memory,.knowledge-review { display: grid; gap: 16px; margin-bottom: 24px; }
+.knowledge-review fieldset { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin: 16px 0; min-width: 0; }
+.knowledge-review form > h3 { margin-top: 20px; }
+@media (max-width: 600px) { .mentor-controls { grid-template-columns: 1fr; }.mentor-result .topic-actions > button { width: 100%; }.mentor-list .pill { display: table; margin: 8px 0; } }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 :root {
   color-scheme: light;
   --bg: #F7F5EF;
