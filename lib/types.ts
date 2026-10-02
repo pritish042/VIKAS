@@ -9,7 +9,7 @@ export interface StepFeedback {
  reflection: string; createdAt: string; updatedAt: string;
  proposal: { title: string; notes: string; minutes: number; explanation: string; status: 'pending' | 'accepted' | 'rejected'; acceptedStep?: { taskRef: string; title: string; notes: string; minutes: number }; updatedAt: string };
 }
-export interface Task { _id: string; title: string; notes: string; minutes: number; status: 'todo' | 'done' | 'needs_help' | 'irrelevant'; goalRef?: string; goalTitle?: string; feedback?: StepFeedback; createdAt: string }
+export interface Task { _id: string; title: string; notes: string; minutes: number; status: 'todo' | 'done' | 'needs_help' | 'irrelevant'; goalRef?: string; goalTitle?: string; feedback?: StepFeedback; createdAt: string; resourceRef?:string; resourceUrl?:string; topicAttemptRef?:string }
 export interface RecordItem { _id: string; type: 'skill' | 'project' | 'certification' | 'achievement'; title: string; description: string; url: string; createdAt: string }
 export interface Resource { _id: string; title: string; description: string; url: string; stage: Stage | 'all'; stream: string; minutes: number; status: 'pending' | 'published'; owned?: boolean }
 export interface ChatMessage { _id: string; role: 'user' | 'assistant'; content: string }

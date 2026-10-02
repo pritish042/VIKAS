@@ -26,10 +26,11 @@ Without the database settings, the screens remain browsable but signup and savin
 - Editable student profile, board/class/subjects or degree/program/branch/year, goal, interests and available time.
 - Personal task creation, completion/reopen, and deletion.
 - Student-reviewed step feedback and deterministic next-step suggestions that require explicit acceptance, editing, or rejection.
+- Optional unvalidated topic checks and deterministic resource suggestions, with explicit task acceptance and saved resource feedback. The supplied catalogue is imported without a manual review gate at the operator's request; see docs/TOPIC-LEARNING.md for supported topics and limitations.
 - Personal skills/projects/certifications/achievements journal.
 - Shared resource submission and verified-editor publication queue.
 - Empty states throughout; data appears when people add it.
-- Optional Gemini-backed DISHA conversation and clearing saved history. It is a context-aware assistant, not a completed autonomous agent system. It cannot change plans or access external tools.
+- DISHA mentor workflow with saved-context provenance, reviewed prerequisite checks, approved-text retrieval and optional Gemini explanations. Memory and task changes require explicit student confirmation; this is not an autonomous agent system.
 - Server validation, ownership-scoped queries, mutation origin checks, database-backed throttling, index setup script, and focused validation tests.
 
 ## Free cloud setup
@@ -56,13 +57,13 @@ Set CONTENT_EDITOR_EMAILS to a comma-separated list of your content reviewers. E
 
 ## Optional AI
 
-Set GEMINI_API_KEY and GEMINI_MODEL to a model available to your Google API project. A Gemini consumer subscription does not configure this API. Without these settings, DISHA is honestly unavailable. AI costs and provider data handling are separate from hosting/database.
+Set GEMINI_API_KEY and GEMINI_MODEL to a model available to your Google API project. A Gemini consumer subscription does not configure this API. Without these settings, AI explanations are unavailable, but deterministic context/prerequisite checks, approved excerpts and explicit step choices still work. AI costs and provider data handling are separate from hosting/database.
 
-The optional route sends the question, recent messages and relevant profile/plan to Google. It does not send account passwords or email. A notice is shown before use. Broader agent tools and retrieval are future work.
+When approved passages are available, the optional route sends the question, relevant allowlisted evidence and those passages to Google. It does not send account passwords, email or past chat history. A notice is shown before use. See [docs/DISHA.md](docs/DISHA.md) for knowledge ingestion, verified-editor approval, confirmation controls, retrieval limits and missing-settings checks.
 
 ## Before public/student launch
 
-This is a source foundation, not a certification of production readiness. No live Atlas connection was provided for verification.
+This is a source foundation, not a certification of production readiness. Database connectivity and indexes have been checked; full authenticated pilot journeys still need verification with authorized accounts.
 
 - Set a real support contact, retention/deletion policy and mail delivery.
 - Have the institution/operator review child-account and guardian-consent requirements before inviting minors. No guardian verification has been implemented; do not collect junior/minor data until it is ready. Initially test with consenting adults.
@@ -80,6 +81,7 @@ This is a source foundation, not a certification of production readiness. No liv
 - `npm run db:indexes`
 
 See docs/HANDOFF.md for team boundaries and docs/API.md for the backend contract.
+See [docs/TOPIC-LEARNING.md](docs/TOPIC-LEARNING.md) for the catalogue importer, routing rules, publication policy and manual verification steps.
 
 Sources checked 2026-09-29:
 - https://www.mongodb.com/docs/atlas/reference/free-shared-limitations/

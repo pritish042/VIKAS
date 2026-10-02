@@ -27,6 +27,25 @@ Integration tests to run with an actual test database: create two users, create 
 
 No mock login or mock storage is included. No future API should trust a userId/email supplied by the browser as identity.
 
+## DISHA mentor extension
+
+The existing `/api/mentor` history and `{message}` POST contract remain supported. Optional POST fields select a topic, language and refresher/continue choice; responses add evidence, cited passages and a pending task proposal. The model cannot write profiles, memories or plans. New owned memory and proposal-confirmation routes, verified-editor knowledge ingestion/review routes, collections and bounded contracts are documented in [DISHA.md](DISHA.md#data-and-api). No imported catalogue resource is automatically treated as approved lesson text.
+
+## Topic checks and resources (additive)
+
+| Route | Methods | Behavior |
+| --- | --- | --- |
+| /api/topics | GET | Matching topics from published catalogue resources; active check IDs where available |
+| /api/topics/checks/:id | GET | Active version's prompts/options only, checked against the saved profile; no keys |
+| /api/topics/attempts | GET/POST | Last 20 owned attempts; submit/skip a check and save concept results and up to 3 suggestions |
+| /api/topics/attempts/:id | POST/PATCH | Accept one suggested resource as a goal-linked task / save resource feedback |
+
+Attempt POST is exactly `{topicId,skipped:true,language,minutes}` or `{topicId,skipped:false,assessmentId,language,minutes,answers:[{questionId,answer}]}`. Answer values are `a`–`e`; `e` means Not sure. Session minutes are integers 5–120. The server validates exact question membership in the immutable version and derives all results. Keys are returned as explanations only after submission. Server-side version snapshots are not exposed. No userId, scores, supplied explanations or extra fields are accepted.
+
+Acceptance POST is `{resourceId}`. It requires ownership of the attempt, a saved goal and a currently published, profile-matching resource from that attempt's recommendations. One task ID is reserved per attempt; repeated clicks return the same reference. Resource feedback PATCH is `{feeling:'too_easy'|'about_right'|'too_difficult'}` and requires an accepted resource. It does not complete a task. All mutations retain origin checks, session ownership and throttling.
+
+New collections: `topic_assessments`, `topic_attempts`. Existing resources/tasks receive optional catalogue/resource references; old contracts are unchanged. At the operator's updated request, catalogue imports directly publish resources and activate **unvalidated** checks without a review workflow. Existing community submission/editor rules remain intact. See [TOPIC-LEARNING.md](TOPIC-LEARNING.md) for data fields, versioning, routing, idempotency and remaining verification limits.
+
 ## Structured education (additive profile extension)
 
 `Profile.education` is an optional strict object. New clients send all its keys:

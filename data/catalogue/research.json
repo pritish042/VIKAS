@@ -1,0 +1,491 @@
+{
+  "catalogue": {
+    "catalogue_version": "VIKAS-initial-2026-10-01",
+    "date_checked": "2026-10-01",
+    "resources": [
+      {
+        "resource_id": "PHY-UM-01",
+        "title": "NCERT Class 11 Physics Chapter on Units and Measurements",
+        "provider_author": "NCERT",
+        "direct_url": "https://ncert.nic.in/textbook.php",
+        "resource_type": "textbook_chapter",
+        "educational_pathway": "Class 11-12 Science",
+        "class_year_suitability": "Class 11",
+        "board_curriculum_relevance": "CBSE/NCERT (primary)",
+        "subject_topic": "Physics / Units and Measurements",
+        "language": "English (Hindi available)",
+        "prerequisites": "Class 10 science basics",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Understand measurement systems, SI units, significant figures, dimensional analysis",
+        "duration_effort": "estimate 4-8 hours (chapter + exercises)",
+        "free_access_registration": "Free PDF; no registration for textbook access",
+        "why_suitable": "Official curriculum source with explanations and exercises",
+        "limitations": "Requires chapter selection on site; watermarked PDFs",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://ncert.nic.in/textbook.php",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "MATH-SETS-01",
+        "title": "NCERT Class 11 Mathematics Chapter 1: Sets",
+        "provider_author": "NCERT",
+        "direct_url": "https://ncert.nic.in/textbook.php",
+        "resource_type": "textbook_chapter",
+        "educational_pathway": "Class 11-12 Science",
+        "class_year_suitability": "Class 11",
+        "board_curriculum_relevance": "CBSE/NCERT",
+        "subject_topic": "Mathematics / Sets",
+        "language": "English/Hindi",
+        "prerequisites": "Basic set concepts",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Define sets, operations, Venn diagrams",
+        "duration_effort": "estimate 5-10 hours",
+        "free_access_registration": "Free",
+        "why_suitable": "Official source with exercises",
+        "limitations": "Site navigation required",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://ncert.nic.in/textbook.php",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "ACC-INTRO-01",
+        "title": "NCERT Class 11 Accountancy Introduction/Theory Base chapters",
+        "provider_author": "NCERT",
+        "direct_url": "https://ncert.nic.in/textbook.php",
+        "resource_type": "textbook",
+        "educational_pathway": "Class 11-12 Commerce",
+        "class_year_suitability": "Class 11",
+        "board_curriculum_relevance": "CBSE/NCERT",
+        "subject_topic": "Accountancy / Accounting Fundamentals",
+        "language": "English",
+        "prerequisites": "Basic arithmetic",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Accounting concepts, principles, basic equation",
+        "duration_effort": "estimate 6-12 hours for intro",
+        "free_access_registration": "Free",
+        "why_suitable": "Curriculum-aligned",
+        "limitations": "Full book selection",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://ncert.nic.in/textbook.php",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "POL-TH-01",
+        "title": "NCERT Class 11 Political Theory Chapter 1: Political Theory An Introduction",
+        "provider_author": "NCERT",
+        "direct_url": "https://ncert.nic.in/textbook.php",
+        "resource_type": "textbook_chapter",
+        "educational_pathway": "Class 11-12 Arts/Humanities",
+        "class_year_suitability": "Class 11",
+        "board_curriculum_relevance": "CBSE/NCERT",
+        "subject_topic": "Political Science / Political Theory Introduction",
+        "language": "English/Hindi",
+        "prerequisites": "Class 10 social science",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Meaning and importance of political theory",
+        "duration_effort": "estimate 3-6 hours",
+        "free_access_registration": "Free",
+        "why_suitable": "Official introductory chapter",
+        "limitations": "Navigation required",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://ncert.nic.in/textbook.php",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "CS-PROG-01",
+        "title": "CS50x Introduction to Computer Science",
+        "provider_author": "Harvard University / David J. Malan",
+        "direct_url": "https://cs50.harvard.edu/x/",
+        "resource_type": "course",
+        "educational_pathway": "Bachelor’s CS",
+        "class_year_suitability": "First-year / beginners",
+        "board_curriculum_relevance": "not confirmed (university-level)",
+        "subject_topic": "Programming Fundamentals",
+        "language": "English",
+        "prerequisites": "None",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Computational thinking, basic programming concepts",
+        "duration_effort": "self-paced; typical 10-20 hrs/week over 11-12 weeks (course structure)",
+        "free_access_registration": "Free audit/OpenCourseWare; optional paid certificate on some platforms",
+        "why_suitable": "Rigorous beginner-friendly problem sets",
+        "limitations": "Sustained effort required",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://cs50.harvard.edu/x/",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "STAT-BS-01",
+        "title": "Introductory Business Statistics (OpenStax) Chapter 1+",
+        "provider_author": "OpenStax (Holmes et al.)",
+        "direct_url": "https://openstax.org/books/introductory-business-statistics/pages/1-introduction",
+        "resource_type": "open_textbook",
+        "educational_pathway": "B.Com/BBA",
+        "class_year_suitability": "Undergraduate intro",
+        "board_curriculum_relevance": "not confirmed (general)",
+        "subject_topic": "Business Statistics / Introduction",
+        "language": "English",
+        "prerequisites": "Intermediate algebra helpful",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Data types, descriptive statistics for business",
+        "duration_effort": "estimate 2-4 hours per early chapter",
+        "free_access_registration": "Free online + PDF",
+        "why_suitable": "Business-focused examples and exercises",
+        "limitations": "Examples may be US-centric",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://openstax.org/books/introductory-business-statistics/pages/1-introduction",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "ECO-MIC-01",
+        "title": "IGNOU BECC-101 Introductory Microeconomics Block 1",
+        "provider_author": "IGNOU",
+        "direct_url": "https://egyankosh.ac.in/",
+        "resource_type": "course_materials",
+        "educational_pathway": "BA Economics",
+        "class_year_suitability": "First-year BA",
+        "board_curriculum_relevance": "IGNOU / many Indian BA programmes",
+        "subject_topic": "Microeconomics / Introduction",
+        "language": "English",
+        "prerequisites": "Basic maths",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Scarcity, demand-supply basics",
+        "duration_effort": "estimate 8-15 hours for intro block",
+        "free_access_registration": "Free download",
+        "why_suitable": "Designed for BA Economics",
+        "limitations": "Site search needed for exact blocks",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://egyankosh.ac.in/bitstream/123456789/67479/1/BLOCK1.pdf",
+        "review_status": "candidate_pending_human_review"
+      },
+      {
+        "resource_id": "ENG-LIT-01",
+        "title": "Critical Writing about Literature (OER)",
+        "provider_author": "University of Northern Iowa / Erika L. Bass",
+        "direct_url": "https://manifold.open.umn.edu/projects/english-2120",
+        "resource_type": "open_textbook",
+        "educational_pathway": "BA English",
+        "class_year_suitability": "Undergraduate intro",
+        "board_curriculum_relevance": "not confirmed",
+        "subject_topic": "Literary Analysis / Introductory",
+        "language": "English",
+        "prerequisites": "High-school reading level",
+        "topic_difficulty": "introductory",
+        "learning_objective": "Critical reading and analysis skills",
+        "duration_effort": "self-paced (hours per section)",
+        "free_access_registration": "Free / open license",
+        "why_suitable": "Explicit focus on analysis skills",
+        "limitations": "US framing; select chapters",
+        "date_checked": "2026-10-01",
+        "evidence_url": "https://manifold.open.umn.edu/projects/english-2120",
+        "review_status": "candidate_pending_human_review"
+      }
+    ]
+  },
+  "checks": {
+    "diagnostic_questions": {
+      "Physics_Units_Measurements": [
+        {
+          "q_id": "PHY-Q1",
+          "question": "Which of the following is a base SI unit? (a) Newton (b) Metre (c) Joule (d) Pascal (e) Not sure",
+          "answer": "(b) Metre",
+          "explanation": "Metre is the SI base unit of length; Newton, Joule, Pascal are derived.",
+          "maps_to": "Prerequisite: recognition of SI base units / Learning objective: identify base vs derived units"
+        },
+        {
+          "q_id": "PHY-Q2",
+          "question": "Significant figures in 0.00250 are: (a) 2 (b) 3 (c) 5 (d) 1 (e) Not sure",
+          "answer": "(b) 3",
+          "explanation": "Leading zeros not significant; trailing zeros after decimal are.",
+          "maps_to": "Learning objective: apply significant-figure rules"
+        },
+        {
+          "q_id": "PHY-Q3",
+          "question": "Dimensional formula of force is: (a) [MLT⁻²] (b) [MLT⁻¹] (c) [MT⁻²] (d) [ML²T⁻²] (e) Not sure",
+          "answer": "(a) [MLT⁻²]",
+          "explanation": "F = ma → mass × acceleration.",
+          "maps_to": "Learning objective: dimensional analysis basics"
+        },
+        {
+          "q_id": "PHY-Q4",
+          "question": "A measurement of 2.5 cm has absolute error of 0.1 cm. Relative error is: (a) 0.04 (b) 0.4 (c) 4% (d) both a and c possible (e) Not sure",
+          "answer": "(d)",
+          "explanation": "Relative error = absolute/true value = 0.1/2.5 = 0.04 = 4%.",
+          "maps_to": "Learning objective: error calculation"
+        },
+        {
+          "q_id": "PHY-Q5",
+          "question": "Which system is the modern standard for scientific measurement? (a) CGS (b) FPS (c) SI (d) MKS only (e) Not sure",
+          "answer": "(c) SI",
+          "explanation": "SI is the International System of Units.",
+          "maps_to": "Prerequisite: awareness of measurement systems"
+        }
+      ],
+      "Mathematics_Sets": [
+        {
+          "q_id": "MATH-Q1",
+          "question": "The empty set is denoted by: (a) {0} (b) ∅ or {} (c) {∅} (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Empty set contains no elements.",
+          "maps_to": "Learning objective: basic set notation"
+        },
+        {
+          "q_id": "MATH-Q2",
+          "question": "If A = {1,2,3}, B = {2,3,4}, A ∩ B = (a) {1,2,3,4} (b) {2,3} (c) {1,4} (d) empty (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Intersection is common elements.",
+          "maps_to": "Learning objective: set operations"
+        },
+        {
+          "q_id": "MATH-Q3",
+          "question": "Number of subsets of a set with 3 elements is: (a) 3 (b) 6 (c) 8 (d) 9 (e) Not sure",
+          "answer": "(c) 8",
+          "explanation": "2ⁿ subsets.",
+          "maps_to": "Learning objective: power set concept"
+        },
+        {
+          "q_id": "MATH-Q4",
+          "question": "Venn diagrams are used to represent: (a) only unions (b) relationships between sets (c) only numbers (d) equations (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Visual representation of set relations.",
+          "maps_to": "Learning objective: visualise set operations"
+        },
+        {
+          "q_id": "MATH-Q5",
+          "question": "A set that contains all elements under consideration is called: (a) empty set (b) universal set (c) singleton (d) finite set (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Universal set is the reference set.",
+          "maps_to": "Prerequisite: set terminology"
+        }
+      ],
+      "Accounting_Fundamentals": [
+        {
+          "q_id": "ACC-Q1",
+          "question": "Accounting equation is: (a) Assets = Liabilities + Capital (b) Assets = Liabilities – Capital (c) Assets + Liabilities = Capital (d) none (e) Not sure",
+          "answer": "(a)",
+          "explanation": "Fundamental dual-aspect equation.",
+          "maps_to": "Learning objective: accounting equation"
+        },
+        {
+          "q_id": "ACC-Q2",
+          "question": "Which is a liability? (a) Cash (b) Creditors (c) Furniture (d) Stock (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Creditors represent amounts owed.",
+          "maps_to": "Learning objective: classify assets/liabilities"
+        },
+        {
+          "q_id": "ACC-Q3",
+          "question": "Double-entry system means: (a) every transaction has two effects (b) only cash entries (c) single record (d) none (e) Not sure",
+          "answer": "(a)",
+          "explanation": "Debit and credit for each transaction.",
+          "maps_to": "Learning objective: dual aspect concept"
+        },
+        {
+          "q_id": "ACC-Q4",
+          "question": "Capital is: (a) liability of business to owner (b) asset (c) expense (d) income (e) Not sure",
+          "answer": "(a)",
+          "explanation": "Owner’s claim is treated as liability of the business entity.",
+          "maps_to": "Prerequisite: business entity concept"
+        },
+        {
+          "q_id": "ACC-Q5",
+          "question": "Primary objective of accounting is to: (a) calculate tax only (b) provide financial information (c) market products (d) hire staff (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Information for decision-making.",
+          "maps_to": "Learning objective: purpose of accounting"
+        }
+      ],
+      "Political_Theory_Intro": [
+        {
+          "q_id": "POL-Q1",
+          "question": "Political theory primarily deals with: (a) only current elections (b) ideas and principles of politics (c) only economics (d) sports (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Concepts such as freedom, equality, justice.",
+          "maps_to": "Learning objective: nature of political theory"
+        },
+        {
+          "q_id": "POL-Q2",
+          "question": "Which is a core concern of political theory? (a) What is justice? (b) How to cook (c) Sports scores (d) Weather (e) Not sure",
+          "answer": "(a)",
+          "explanation": "Normative questions about good society.",
+          "maps_to": "Learning objective: key questions in political theory"
+        },
+        {
+          "q_id": "POL-Q3",
+          "question": "Political theory helps us: (a) only memorise laws (b) critically examine political ideas (c) avoid politics (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Understanding and evaluating concepts.",
+          "maps_to": "Learning objective: purpose of studying political theory"
+        },
+        {
+          "q_id": "POL-Q4",
+          "question": "Freedom and equality are examples of: (a) physical objects (b) political concepts (c) mathematical terms only (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Central political values discussed in theory.",
+          "maps_to": "Prerequisite: recognition of key concepts"
+        },
+        {
+          "q_id": "POL-Q5",
+          "question": "NCERT Class 11 Political Theory begins by introducing: (a) only Indian Constitution details (b) the idea of political theory itself (c) only foreign policy (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Chapter 1 focuses on introduction to the subject.",
+          "maps_to": "Learning objective: orientation to the subject"
+        }
+      ],
+      "Programming_Fundamentals": [
+        {
+          "q_id": "CS-Q1",
+          "question": "An algorithm is: (a) a programming language (b) a step-by-step procedure to solve a problem (c) a computer (d) a virus (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Sequence of instructions independent of language.",
+          "maps_to": "Learning objective: computational thinking"
+        },
+        {
+          "q_id": "CS-Q2",
+          "question": "In most programming languages, a variable is used to: (a) store data (b) print only (c) delete files (d) none (e) Not sure",
+          "answer": "(a)",
+          "explanation": "Named storage location.",
+          "maps_to": "Learning objective: basic programming constructs"
+        },
+        {
+          "q_id": "CS-Q3",
+          "question": "A loop is used when: (a) you want code to run once only (b) you want to repeat a block of code (c) to declare variables (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Repetition control structure.",
+          "maps_to": "Learning objective: control flow"
+        },
+        {
+          "q_id": "CS-Q4",
+          "question": "Debugging means: (a) writing new code only (b) finding and fixing errors (c) deleting programs (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Identifying and correcting mistakes.",
+          "maps_to": "Learning objective: problem-solving process"
+        },
+        {
+          "q_id": "CS-Q5",
+          "question": "CS50 begins by teaching problem-solving with: (a) only advanced AI (b) computational thinking and basic programming (c) only web design (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Focus on thinking algorithmically from the start.",
+          "maps_to": "Prerequisite: willingness to learn from zero"
+        }
+      ],
+      "Business_Statistics_Intro": [
+        {
+          "q_id": "STAT-Q1",
+          "question": "Descriptive statistics are used to: (a) make predictions about population only (b) summarise and describe data (c) only collect data (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Mean, median, graphs etc. describe the sample.",
+          "maps_to": "Learning objective: role of descriptive stats"
+        },
+        {
+          "q_id": "STAT-Q2",
+          "question": "Which is a measure of central tendency? (a) Range (b) Mean (c) Variance (d) Standard deviation (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Mean, median, mode are central tendency measures.",
+          "maps_to": "Learning objective: identify basic measures"
+        },
+        {
+          "q_id": "STAT-Q3",
+          "question": "Primary data is: (a) collected by someone else earlier (b) collected first-hand for the purpose (c) always numerical (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Original collection vs secondary sources.",
+          "maps_to": "Learning objective: data types/sources"
+        },
+        {
+          "q_id": "STAT-Q4",
+          "question": "A frequency distribution organises data by: (a) alphabetical order only (b) how often values occur (c) random order (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Shows frequency of each class/value.",
+          "maps_to": "Learning objective: data presentation"
+        },
+        {
+          "q_id": "STAT-Q5",
+          "question": "OpenStax Introductory Business Statistics starts with: (a) advanced regression only (b) introduction to data and statistics in business context (c) only calculus (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Chapter 1 introduces the field and data.",
+          "maps_to": "Prerequisite: interest in business applications"
+        }
+      ],
+      "Microeconomics_Intro": [
+        {
+          "q_id": "ECO-Q1",
+          "question": "Microeconomics studies: (a) national income aggregates mainly (b) individual units such as consumers and firms (c) only international trade (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Focus on individual decision-makers and markets.",
+          "maps_to": "Learning objective: distinguish micro vs macro"
+        },
+        {
+          "q_id": "ECO-Q2",
+          "question": "The basic economic problem is: (a) unlimited resources (b) scarcity of resources relative to wants (c) too much production (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Scarcity necessitates choice.",
+          "maps_to": "Learning objective: scarcity concept"
+        },
+        {
+          "q_id": "ECO-Q3",
+          "question": "Law of demand states that, other things equal, when price rises: (a) quantity demanded rises (b) quantity demanded falls (c) demand curve shifts right (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Inverse relationship (movement along curve).",
+          "maps_to": "Learning objective: demand basics"
+        },
+        {
+          "q_id": "ECO-Q4",
+          "question": "Opportunity cost is: (a) the money cost only (b) the value of the next-best alternative forgone (c) total cost (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "True cost of a choice.",
+          "maps_to": "Learning objective: opportunity cost"
+        },
+        {
+          "q_id": "ECO-Q5",
+          "question": "Market equilibrium occurs where: (a) demand exceeds supply always (b) quantity demanded equals quantity supplied (c) price is zero (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Intersection of demand and supply curves.",
+          "maps_to": "Learning objective: market mechanism"
+        }
+      ],
+      "Literary_Analysis_Intro": [
+        {
+          "q_id": "ENG-Q1",
+          "question": "Literary analysis involves: (a) only summarising the plot (b) examining how elements work together to create meaning (c) rewriting the story (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Breaking down and interpreting components.",
+          "maps_to": "Learning objective: nature of analysis"
+        },
+        {
+          "q_id": "ENG-Q2",
+          "question": "Close reading means: (a) reading quickly (b) careful attention to language, structure and detail (c) skipping chapters (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Detailed examination of the text itself.",
+          "maps_to": "Learning objective: close-reading skill"
+        },
+        {
+          "q_id": "ENG-Q3",
+          "question": "Theme in a literary work is: (a) the main character’s name (b) an underlying idea or message (c) the setting only (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Central insight or concern explored.",
+          "maps_to": "Learning objective: identify theme"
+        },
+        {
+          "q_id": "ENG-Q4",
+          "question": "When analysing a short story, one useful first step is: (a) ignore the text and invent (b) note plot, characters, setting and language choices (c) only count words (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Observe the building blocks before interpreting.",
+          "maps_to": "Learning objective: approach to analysis"
+        },
+        {
+          "q_id": "ENG-Q5",
+          "question": "A literary analysis essay typically requires: (a) only personal opinion without evidence (b) claims supported by textual evidence (c) copying the story (d) none (e) Not sure",
+          "answer": "(b)",
+          "explanation": "Argument grounded in the text.",
+          "maps_to": "Learning objective: evidence-based writing"
+        }
+      ]
+    },
+    "routing_suggestions_cautious": {
+      "note": "These are draft, non-validated checks for resource routing only. Do not label ability, intelligence or career fit. Educator review required.",
+      "if_mostly_correct_on_prerequisites": "Route to main explanation + practice resources for the topic.",
+      "if_struggles_with_core_objective_items": "Suggest revisiting the primary textbook/chapter explanation before practice.",
+      "if_many_Not_sure": "Recommend starting with the most basic official/intro resource and shorter segments.",
+      "do_not": "Assign overall ability scores or stream suitability from these short checks."
+    }
+  }
+}
