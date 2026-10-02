@@ -16,6 +16,12 @@ Requires Node.js 22.12+ and MongoDB (Atlas or a local instance).
 
 Without the database settings, the screens remain browsable but signup and saving are unavailable. There is no local-storage substitute pretending to be a real account. Only appearance preferences use localStorage; unsigned onboarding choices live temporarily in memory.
 
+### Local Atlas DNS troubleshooting
+
+If the network resolver fails MongoDB SRV queries, an explicit server-only `MONGODB_DNS_SERVERS` setting can override Node's process resolver, for example `1.1.1.1,8.8.8.8`. It accepts one to three resolver IP addresses and must be applied before the first MongoClient is created; restart the app after editing `.env.local`. This changes `dns.resolve*` lookups throughout this Node process, not macOS settings or `dns.lookup`/HTTP hostname lookup. Leave it unset on networks where normal DNS works. The original Atlas SRV URI, dynamic node discovery, TLS verification and credentials remain intact. Do not set `NEXT_PUBLIC_MONGODB_DNS_SERVERS`.
+
+On 2 October 2026 the local default resolver returned `EBADRESP` for Atlas SRV records. Both Cloudflare and Google returned three nodes and valid TXT records, and MongoDB ping succeeded with the explicit process resolver. The ignored local environment file now supplies that override. No macOS VPN service reported connected; tunnel interfaces alone do not prove a VPN caused the fault. No system network settings were changed. If you prefer fixing the network itself, ask its operator to repair SRV responses, or manually choose a working resolver in macOS System Settings → Wi-Fi → Details → DNS, then remove the app override and restart. Corporate/VPN DNS policies should be handled by that network's operator. See [Atlas troubleshooting](https://www.mongodb.com/docs/atlas/troubleshoot-connection/) and [Node process DNS settings](https://nodejs.org/api/dns.html#dnssetserversservers).
+
 ## Included
 
 - Question-by-question onboarding, editable education details and personal home.
@@ -57,9 +63,9 @@ Set CONTENT_EDITOR_EMAILS to a comma-separated list of your content reviewers. E
 
 ## Optional AI
 
-Set GEMINI_API_KEY and GEMINI_MODEL to a model available to your Google API project. A Gemini consumer subscription does not configure this API. Without these settings, AI explanations are unavailable, but deterministic context/prerequisite checks, approved excerpts and explicit step choices still work. AI costs and provider data handling are separate from hosting/database.
+Set server-only `GEMINI_API_KEY` and `GEMINI_MODEL` in `.env.local` to a model available to your Google API project, then restart the local server. Google currently documents `gemini-3.5-flash-lite` as a stable, fast text model suitable for this initial conversation (checked 2 October 2026); project availability and quota still need testing with your key. A Gemini consumer subscription does not configure this API. Without these settings, AI conversation is unavailable, but saved context and matching approved excerpts remain accessible. AI costs and provider data handling are separate from hosting/database.
 
-When approved passages are available, the optional route sends the question, relevant allowlisted evidence and those passages to Google. It does not send account passwords, email or past chat history. A notice is shown before use. See [docs/DISHA.md](docs/DISHA.md) for knowledge ingestion, verified-editor approval, confirmation controls, retrieval limits and missing-settings checks.
+The authenticated mentor route sends the question and bounded, allowlisted profile, goal and recent progress to Google. Matching approved passages are included only when actually retrieved. Without them, a reply is explicitly labelled general AI guidance, not a source-checked explanation. Account passwords, email, auth secrets and past chat history are excluded. Sending a turn saves only owned conversation messages; it never updates a profile, goal or task. A notice is shown before use. See [docs/DISHA.md](docs/DISHA.md) for setup, failure handling and retrieval limitations.
 
 ## Before public/student launch
 

@@ -4,7 +4,7 @@ import {mentorRequest,studentContextSchema,prerequisiteResultSchema,retrievalSch
 import {readStudentContext} from './mentor-context';
 import {approvedTopics,mongoKnowledgeRetriever,MentorError} from './mentor-knowledge';
 import {checkPrerequisites,proposeMentorStep} from './mentor-rules';
-import {explainWithGemini} from './mentor-provider';
+import {explainWithGemini,converseWithGemini,providerNotice} from './mentor-provider';
 
 // Fixed server-owned tool sequence, not a model-dispatched agent loop. No write tool exists.
 export async function runMentor(d:Db,userId:string,value:unknown,provider:{key?:string;model?:string;fetcher?:typeof fetch}={}){
@@ -26,10 +26,24 @@ export async function runMentor(d:Db,userId:string,value:unknown,provider:{key?:
  const retrieval=await tool(z.object({topicIds:z.array(topicKey).max(7),query:z.string().max(2500),language:z.string().min(1).max(40)}).strict(),retrievalSchema,{topicIds,query:[input.message,definition?.title,...(definition?.prerequisites.map(p=>p.title)||[])].filter(Boolean).join(' ').slice(0,2500),language:input.language},async args=>mongoKnowledgeRetriever(d).retrieve(args,context,profile));
  const proposal=await tool(z.object({choice:z.enum(['consider','refresher','continue'])}).strict(),mentorProposalSchema,{choice:input.choice},async args=>proposeMentorStep(topic,prerequisites,context,args.choice));
  const remaining=Math.max(1,25000-(Date.now()-started));
- const generated=retrieval.passages.length?await explainWithGemini({message:input.message,topicId:topic?.id||input.topicId||'unknown',passages:retrieval.passages,evidence:context.evidence.slice(0,16)},{...provider,signal:AbortSignal.timeout(Math.min(15000,remaining))}):{status:'insufficient_knowledge' as const};
+ const boundedContext={...context,evidence:context.evidence.slice(0,10)};
+ const options={...provider,signal:AbortSignal.timeout(Math.min(15000,remaining)),timeoutMs:Math.min(15000,remaining)};
+ const generated=retrieval.passages.length?await explainWithGemini({message:input.message,topicId:topic?.id||input.topicId||'unknown',language:input.language,passages:retrieval.passages,evidence:[],context:boundedContext},options):await converseWithGemini({message:input.message,language:input.language,context:boundedContext},options);
  const uncertainty=[...(!definition?['No approved prerequisite map matches this topic, stage, board and language. I cannot establish its prerequisites from the current knowledge base.']:[]),...(!retrieval.passages.length?['I do not have enough approved lesson text to explain this topic. Resource links are metadata, not retrieved lessons.']:[]),...(retrieval.notice?[retrieval.notice]:[]),...prerequisites.filter(p=>p.status==='not_checked').map(p=>`${p.title}: evidence is missing, uncertain or dated.`)];
- const answer=generated.status==='used'?generated.answer.sentences.map(s=>`${s.text} ${s.citations.map(id=>`[${retrieval.passages.findIndex(p=>p.id===id)+1}]`).join(' ')}`).join('\n\n'):retrieval.passages.length?'I could not generate an explanation right now. Here are relevant excerpts from approved sources:\n\n'+retrieval.passages.map((p,i)=>`${p.text.slice(0,800)} [${i+1}]`).join('\n\n'):'I do not have enough approved knowledge to explain this topic yet. You can try a topic check, use a reviewed resource if one is available, or continue independently.';
+ const notice=providerNotice(generated.status);
+ const answer=generated.status==='used'?'sentences' in generated.answer?generated.answer.sentences.map(s=>`${s.text} ${s.citations.map(id=>`[${retrieval.passages.findIndex(p=>p.id===id)+1}]`).join(' ')}`).join('\n\n'):`${generated.answer.answer}\n\nNo approved lesson passages were found for this question. This is general AI guidance, not a source-checked explanation.`:retrieval.passages.length?`${notice}\n\nHere are relevant excerpts from approved sources:\n\n`+retrieval.passages.map((p,i)=>`${p.text.slice(0,800)} [${i+1}]`).join('\n\n'):`${notice}\n\nNo approved lesson passages were found for this question. I cannot provide a source-checked explanation from the current knowledge base.`;
  if(definition&&!definition.prerequisites.length)uncertainty.push('This approved entry does not list prerequisites; that does not establish that none exist.');
- const mentor:MentorResponse={topic,prerequisites,evidence:context.evidence,uncertainty,passages:retrieval.passages,resources:retrieval.resources,providerStatus:generated.status,proposal,...(definition?.reviewedAt?{prerequisiteSource:{title:definition.title,url:definition.sourceUrl,version:definition.version,reviewedAt:definition.reviewedAt.toISOString()}}:{}),...(generated.status==='used'&&generated.answer.memorySuggestion?{memorySuggestion:generated.answer.memorySuggestion}:{})};
+ const mentor:MentorResponse={topic,prerequisites,evidence:boundedContext.evidence,recentProgress:context.recentProgress,mode:retrieval.passages.length?'grounded':'conversation',uncertainty,passages:retrieval.passages,resources:retrieval.resources,providerStatus:generated.status,proposal,...(definition?.reviewedAt?{prerequisiteSource:{title:definition.title,url:definition.sourceUrl,version:definition.version,reviewedAt:definition.reviewedAt.toISOString()}}:{})};
  return {answer,mentor,toolCalls:calls};
+}
+
+// The route obtains userId from Better Auth before calling this operation.
+// Conversation storage is the only write performed by a mentor request.
+export async function saveMentorTurn(d:Db,userId:string,value:unknown,provider:Parameters<typeof runMentor>[3]={}){
+ const input=mentorRequest.parse(value);
+ const result=await runMentor(d,userId,input,provider);
+ const now=new Date();
+ await d.collection('messages').insertOne({userId,role:'user',content:input.message,createdAt:now});
+ const saved=await d.collection('messages').insertOne({userId,role:'assistant',content:result.answer,mentor:result.mentor,toolCalls:result.toolCalls,createdAt:new Date(now.getTime()+1)});
+ return {answer:result.answer,mentor:result.mentor,id:saved.insertedId};
 }

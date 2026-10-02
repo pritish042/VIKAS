@@ -21,7 +21,8 @@ export const memoryInput=z.object({topicId:topicKey,text:text(300),confirmed:z.l
 export const memoryEdit=z.object({text:text(300),confirmed:z.literal(true)}).strict();
 export const evidenceSchema=z.object({source:z.enum(['profile_self_report','confirmed_self_report','assessment','completed_task']),sourceRef:text(100),topicId:z.string().max(100),text:text(500),at:z.string().datetime().nullable(),objective:z.string().max(500).optional(),result:z.enum(['understood','revisit','not_sure']).optional(),version:z.string().max(100).optional()}).strict();
 export type MentorEvidence=z.infer<typeof evidenceSchema>;
-export const studentContextSchema=z.object({stage:z.string().max(30),board:z.string().max(150),goal:z.string().max(500),education:z.string().max(1000),evidence:z.array(evidenceSchema).max(36)}).strict();
+export const recentProgressSchema=z.object({title:text(150),status:z.enum(['todo','done','needs_help','irrelevant']),outcome:z.enum(['completed','need_help','irrelevant']).optional(),feeling:z.enum(['easy','about_right','difficult']).optional(),reflection:z.string().max(500),at:z.string().datetime().nullable()}).strict();
+export const studentContextSchema=z.object({stage:z.string().max(30),board:z.string().max(150),goal:z.string().max(500),education:z.string().max(1000),evidence:z.array(evidenceSchema).max(36),recentProgress:z.array(recentProgressSchema).max(6).default([])}).strict();
 export type StudentContext=z.infer<typeof studentContextSchema>;
 export const prerequisiteResultSchema=z.object({topicId:topicKey,title:text(150),reason:text(500),status:z.enum(['supported','revisit','not_checked']),explanation:text(1000),evidence:z.array(evidenceSchema).max(12)}).strict();
 export type PrerequisiteResult=z.infer<typeof prerequisiteResultSchema>;
@@ -31,10 +32,13 @@ export const linkSchema=z.object({id:text(24),title:text(150),url:safeExternalUr
 export const retrievalSchema=z.object({passages:z.array(passageSchema).max(4),resources:z.array(linkSchema).max(3),notice:z.string().max(500)}).strict();
 export const mentorProposalSchema=taskSchema.extend({topicId:z.string().max(100),explanation:text(1000),status:z.literal('pending')}).strict();
 export const modelAnswerSchema=z.object({sentences:z.array(z.object({text:text(800),citations:z.array(text(100)).min(1).max(4)}).strict()).min(1).max(4),memorySuggestion:z.object({topicId:topicKey,text:text(300)}).strict().optional()}).strict();
+export const conversationAnswerSchema=z.object({answer:text(3000)}).strict();
+export type ProviderStatus='used'|'missing_key'|'invalid_configuration'|'rate_limited'|'timed_out'|'unavailable'|'insufficient_knowledge';
 export interface MentorResponse {
  prerequisiteSource?:{title:string;url:string;version:string;reviewedAt:string};
  topic:{id:string;title:string}|null;prerequisites:PrerequisiteResult[];evidence:MentorEvidence[];uncertainty:string[];
- passages:Passage[];resources:z.infer<typeof linkSchema>[];providerStatus:'used'|'missing_key'|'unavailable'|'insufficient_knowledge';
+ passages:Passage[];resources:z.infer<typeof linkSchema>[];providerStatus:ProviderStatus;
+ mode?:'conversation'|'grounded';recentProgress?:z.infer<typeof recentProgressSchema>[];
  proposal:z.infer<typeof mentorProposalSchema>|{title:string;notes:string;minutes:number;explanation:string;status:'accepted'|'rejected';taskRef?:string};
  memorySuggestion?:{topicId:string;text:string};
 }

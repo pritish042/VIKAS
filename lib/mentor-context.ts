@@ -1,5 +1,5 @@
 import {type Db} from 'mongodb';
-import {evidenceSchema,studentContextSchema,type MentorEvidence} from './mentor-contract';
+import {evidenceSchema,recentProgressSchema,studentContextSchema,type MentorEvidence} from './mentor-contract';
 import {profileSchema} from './validation';
 import type {Profile} from './types';
 export const asDate=(v:unknown)=>{const d=v instanceof Date?v:typeof v==='string'?new Date(v):null;return d&&Number.isFinite(d.getTime())?d.toISOString():null;};
@@ -23,5 +23,8 @@ export async function readStudentContext(d:Db,userId:string,topicIds:string[]){
   const tasks=await d.collection('tasks').find({userId,status:'done',$or:[{topicId:{$in:topicIds}},{topicAttemptRef:{$in:attempts.map(a=>a._id.toString())}}]},{projection:{title:1,topicId:1,topicAttemptRef:1,updatedAt:1,createdAt:1},maxTimeMS:2000}).sort({updatedAt:-1}).limit(6).toArray();
   for(const t of tasks)evidence.push({source:'completed_task',sourceRef:t._id.toString(),topicId:t.topicId||attempts.find(a=>a._id.toString()===t.topicAttemptRef)?.topicId||'',text:`Marked complete: ${String(t.title).slice(0,150)}. Completion does not establish mastery.`,at:asDate(t.updatedAt||t.createdAt)});
  }
- return {profile,context:studentContextSchema.parse({stage:profile?.stage||'',board:profile?.education?.board||'',goal:profile?.goal||'',education,evidence:evidence.slice(0,36)})};
+ // Include recent activity even when no reviewed topic matches. Activity is not mastery evidence.
+ const recentTasks=await d.collection('tasks').find({userId},{projection:{title:1,status:1,'feedback.outcome':1,'feedback.feeling':1,'feedback.reflection':1,updatedAt:1,createdAt:1},maxTimeMS:2000}).sort({updatedAt:-1,createdAt:-1}).limit(6).toArray();
+ const recentProgress=recentTasks.flatMap(t=>{const parsed=recentProgressSchema.safeParse({title:String(t.title||'').slice(0,150),status:t.status,outcome:t.feedback?.outcome,feeling:t.feedback?.feeling,reflection:typeof t.feedback?.reflection==='string'?t.feedback.reflection.slice(0,500):'',at:asDate(t.updatedAt||t.createdAt)});return parsed.success?[parsed.data]:[];});
+ return {profile,context:studentContextSchema.parse({stage:profile?.stage||'',board:profile?.education?.board||'',goal:profile?.goal||'',education,evidence:evidence.slice(0,36),recentProgress})};
 }

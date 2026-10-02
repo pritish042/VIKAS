@@ -31,6 +31,8 @@ No mock login or mock storage is included. No future API should trust a userId/e
 
 The existing `/api/mentor` history and `{message}` POST contract remain supported. Optional POST fields select a topic, language and refresher/continue choice; responses add evidence, cited passages and a pending task proposal. The model cannot write profiles, memories or plans. New owned memory and proposal-confirmation routes, verified-editor knowledge ingestion/review routes, collections and bounded contracts are documented in [DISHA.md](DISHA.md#data-and-api). No imported catalogue resource is automatically treated as approved lesson text.
 
+The initial Gemini conversation now works without an approved corpus when server configuration is present. The response adds `mentor.mode` (`conversation` or `grounded`), `recentProgress` (up to six owned tasks with recorded outcomes/reflections), and safe `providerStatus` values: `used`, `missing_key`, `invalid_configuration`, `rate_limited`, `timed_out`, `unavailable` (legacy `insufficient_knowledge` remains compatible). Conversation replies carry an explicit source-availability notice; UI task approval panels are reserved for the existing grounded flow. Profile evidence passed to the model is capped at ten entries. The question and assistant result are stored in the existing owned `messages` collection, including honest unavailable-service replies. POST retains session identity, Origin checking, strict 2,000-character message validation and five requests/user/minute. No profile, goal or task is changed by POST. No request may supply credentials, a user ID, scores or tool calls.
+
 ## Topic checks and resources (additive)
 
 | Route | Methods | Behavior |

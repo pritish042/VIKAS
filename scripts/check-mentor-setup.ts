@@ -1,7 +1,9 @@
 import {MongoClient} from 'mongodb';
+import {configureMongoDns} from '../lib/mongo-dns';
 async function main(){
  for(const name of ['MONGODB_URI','BETTER_AUTH_URL','BETTER_AUTH_SECRET','GEMINI_API_KEY','GEMINI_MODEL','CONTENT_EDITOR_EMAILS'])console.log(`${name}: ${process.env[name]?'configured':'missing'}`);
  if(!process.env.MONGODB_URI)return;
+ configureMongoDns(process.env.MONGODB_DNS_SERVERS);
  const client=new MongoClient(process.env.MONGODB_URI,{serverSelectionTimeoutMS:5000});
  try{const d=client.db(process.env.MONGODB_DB||'vikas');await d.command({ping:1});
   await d.collection('mentor_chunks').find({status:'approved',$text:{$search:'prerequisite',$language:'none'}},{projection:{_id:1},maxTimeMS:2000}).limit(1).toArray();
