@@ -1,0 +1,546 @@
+{
+  "schemaVersion": "1.0",
+  "catalogue": {
+    "board": "CBSE",
+    "classLevel": 8,
+    "academicSession": "2026-27",
+    "examinationYear": 2027,
+    "subject": "Hindi",
+    "subjectVariant": "Hindi (Main)",
+    "textbookTitle": "Malhar",
+    "textbookEdition": "2026-27",
+    "unitCount": 1,
+    "chapterCount": 10,
+    "units": [
+      {
+        "unitOrder": 1,
+        "unitTitle": "Malhar Textbook Chapters",
+        "chapters": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "curriculumVerificationNotes": [
+      "The 2026-27 Class 8 NCERT Hindi textbook is Malhar, introduced as part of the NCF 2023 update, replacing the older Vasant/Durva sequence.",
+      "The catalogue contains 10 chapters encompassing prose, poetry, and stories."
+    ],
+    "reviewPolicy": {
+      "fullCoverageRule": "A title match is not treated as proof of full chapter coverage.",
+      "reviewDepthUsed": "metadata_only",
+      "contentInspected": false,
+      "humanReviewed": false
+    }
+  },
+  "chapters": [
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-01",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 1,
+      "chapterTitle": "स्वदेश (Swadesh)",
+      "requiredSubtopics": [
+        "patriotism",
+        "love for motherland",
+        "courage and sacrifice",
+        "poem comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-02",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 2,
+      "chapterTitle": "दो गौरैया (Do Gauraiya)",
+      "requiredSubtopics": [
+        "sparrow nest",
+        "animal compassion",
+        "family behavior",
+        "story comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-03",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 3,
+      "chapterTitle": "एक आशीर्वाद (Ek Aashirvad)",
+      "requiredSubtopics": [
+        "dreams and goals",
+        "inspiration",
+        "realism",
+        "poem comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-04",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 4,
+      "chapterTitle": "हरिद्वार (Haridwar)",
+      "requiredSubtopics": [
+        "letter writing format",
+        "Indian culture",
+        "Haridwar visit",
+        "travelogue aspects"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-05",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 5,
+      "chapterTitle": "कबीर के दोहे (Kabir Ke Dohe)",
+      "requiredSubtopics": [
+        "moral values",
+        "couplets",
+        "philosophy",
+        "language of dohas"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-06",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 6,
+      "chapterTitle": "एक टोकरी भर मिट्टी (Ek Tokari Bhar Mitti)",
+      "requiredSubtopics": [
+        "old woman and zamindar",
+        "injustice",
+        "moral lesson",
+        "story comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-07",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 7,
+      "chapterTitle": "मत बाँधो (Mat Bandho)",
+      "requiredSubtopics": [
+        "dreams and freedom",
+        "metaphor",
+        "poem comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-08",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 8,
+      "chapterTitle": "नए मेहमान (Naye Mehman)",
+      "requiredSubtopics": [
+        "play (Ekanki)",
+        "humor",
+        "uninvited guests",
+        "character analysis"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-09",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 9,
+      "chapterTitle": "आदमी का अनुपात (Aadmi Ka Anupat)",
+      "requiredSubtopics": [
+        "universe and man",
+        "human ego vs vastness of space",
+        "philosophical poem",
+        "poem comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-HIN-2026-27-10",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Malhar",
+      "subjectId": "HIN",
+      "officialSubjectName": "Hindi",
+      "subjectVariant": "Hindi (Main)",
+      "textbookTitle": "Malhar",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Malhar Textbook Chapters",
+      "chapterOrder": 10,
+      "chapterTitle": "तरुण के स्वप्न (Tarun Ke Swapna)",
+      "requiredSubtopics": [
+        "youth empowerment",
+        "freedom struggle",
+        "nationalism",
+        "address comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    }
+  ],
+  "videos": [
+    {
+      "resourceId": "YT-CBSE8HIN-0001",
+      "youtubeId": "gYIsiAkBJP0",
+      "canonicalUrl": "https://www.youtube.com/watch?v=gYIsiAkBJP0",
+      "title": "Chapter 1: Swadesh (स्वदेश) | Class 8 Hindi | Malhar | Animated Explanation & Notes | NCERT",
+      "channelName": "EduRev Class 6 - 10",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-01",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0002",
+      "youtubeId": "kTG3QGgmdwg",
+      "canonicalUrl": "https://www.youtube.com/watch?v=kTG3QGgmdwg",
+      "title": "Class 8 Hindi | Chapter 2 | Do Gauriya | Malhar | NCERT CBSE Board",
+      "channelName": "Wisdom of Avyaan",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-02",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0003",
+      "youtubeId": "ofW-tir3VBo",
+      "canonicalUrl": "https://www.youtube.com/watch?v=ofW-tir3VBo",
+      "title": "एक आशीर्वाद (कविता) - Ek Aashirwad - मल्हार, Explanation - Chapter 3, Class 8 Hindi Malhar CBSE",
+      "channelName": "Hindi Class 8",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-03",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0004",
+      "youtubeId": "wD5oH6znVRQ",
+      "canonicalUrl": "https://www.youtube.com/watch?v=wD5oH6znVRQ",
+      "title": "Class 8 Hindi Malhar Chapter 4 | हरिद्वार - संपूर्ण व्याख्या (Full Explanation)",
+      "channelName": "Hindi Class 8",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-04",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0005",
+      "youtubeId": "8Z6UMPqXpr8",
+      "canonicalUrl": "https://www.youtube.com/watch?v=8Z6UMPqXpr8",
+      "title": "कबीर के दोहे - Kabir Ke Dohe - मल्हार, Explanation - Chapter 5, Class 8 Hindi Malhar CBSE",
+      "channelName": "Hindi Class 8",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-05",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0006",
+      "youtubeId": "A_kNi-YGpis",
+      "canonicalUrl": "https://www.youtube.com/watch?v=A_kNi-YGpis",
+      "title": "Ek Tokri Bhar Mitti (एक टोकरी भर मिट्टी) Class 8 | Ek Tokri Bhar Mitti Malhar | Animated Video",
+      "channelName": "English Chatterbox",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-06",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0007",
+      "youtubeId": "DvOzCn-UIpA",
+      "canonicalUrl": "https://www.youtube.com/watch?v=DvOzCn-UIpA",
+      "title": "Mat Bandho (मत बाँधो) Class 8 | Mat Bandho Class 8 Malhar Chapter 7",
+      "channelName": "English Chatterbox",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-07",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0008",
+      "youtubeId": "OU3Z8ivegHM",
+      "canonicalUrl": "https://www.youtube.com/watch?v=OU3Z8ivegHM",
+      "title": "Naye Mehmaan (नए मेहमान) - NCERT Solutions | Class 8 | Chapter 8 | Hindi Malhar Book | CBSE 2025-26",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-08",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0009",
+      "youtubeId": "M2xWoGhYJJk",
+      "canonicalUrl": "https://www.youtube.com/watch?v=M2xWoGhYJJk",
+      "title": "Aadmi ka Anupaat (आदमी का अनुपात) - NCERT Solutions | Class 8 | Chapter 9 | Hindi Malhar Book | CBSE",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-09",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8HIN-0010",
+      "youtubeId": "JmYZPe3Ga9Q",
+      "canonicalUrl": "https://www.youtube.com/watch?v=JmYZPe3Ga9Q",
+      "title": "Tarun ke Swapn (तरूण के स्वप्न) - Explanation | Class 8 | Chapter 10 | Hindi Malhar Book",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T13:27:00Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-HIN-2026-27-10",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Malhar chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    }
+  ]
+}
