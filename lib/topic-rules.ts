@@ -3,6 +3,7 @@ import {z} from 'zod';
 import type {ObjectId} from 'mongodb';
 import type {Profile} from './types';
 import type {ConceptResult,Recommendation,ResourceFeeling} from './topic-types';
+import {resourceEligible,normalizeClass,key,normalizeSubject,type AcademicResource} from './resource-eligibility';
 const text=(n:number)=>z.string().trim().min(1).max(n);
 export const safeExternalUrl=z.url().max(1500).refine(value=>{
  const u=new URL(value), h=u.hostname.toLowerCase();
@@ -28,7 +29,7 @@ export const acceptanceInput=z.object({resourceId:z.string().regex(/^[a-f\d]{24}
 export const resourceFeedbackInput=z.object({feeling:z.enum(['too_easy','about_right','too_difficult'])}).strict();
 export function matchesProfile(profile:Partial<Profile>|null,app:TopicConfig['applicability']) {
  const e=profile?.education;if(!e||profile?.stage!==app.stage)return false;
- if(app.stage==='senior')return app.classes.includes(e.className)&&app.boards.includes(e.board)&&app.subjects.some(s=>e.subjects.includes(s));
+ if(app.stage==='senior')return app.classes.map(normalizeClass).includes(normalizeClass(e.className))&&!!normalizeClass(e.className)&&app.boards.map(key).includes(key(e.board))&&app.subjects.some(s=>e.subjects.map(normalizeSubject).includes(normalizeSubject(s)));
  return app.programmes.some(p=>p.program===e.program&&p.disciplines.includes(e.discipline))&&(!app.periods.length||app.periods.includes(e.period));
 }
 export function assess(questions:Question[],answers:{questionId:string;answer:string}[]):ConceptResult[] {
@@ -36,14 +37,14 @@ export function assess(questions:Question[],answers:{questionId:string;answer:st
  return questions.map(q=>{const a=answers.find(a=>a.questionId===q.id)!;return {questionId:q.id,objective:q.objective,prerequisite:q.prerequisite,result:a.answer==='e'?'not_sure':a.answer===q.answer?'understood':'revisit',explanation:q.explanation,answer:q.options.find(o=>o.id===q.answer)!.label};});
 }
 export function publicQuestions(questions:Question[]){return questions.map(({id,prompt,options})=>({id,prompt,options}));}
-export interface CatalogueResource {
+export interface CatalogueResource extends AcademicResource {
  _id:ObjectId; title:string;url:string;status:string;
  catalogue:{topic:TopicConfig;provider:string;effort:string;access:string;prerequisites:string;limitations:string;objectives:string[];prerequisiteObjectives:string[]};
 }
 export function recommend(resources:CatalogueResource[],profile:Partial<Profile>|null,topicId:string,results:ConceptResult[],language:string,minutes:number,feeling?:ResourceFeeling):Recommendation[] {
  const revisit=results.filter(r=>r.result!=='understood');
  const prerequisite=revisit.filter(r=>r.prerequisite);
- return resources.filter(r=>r.status==='published'&&r.catalogue.topic.id===topicId&&matchesProfile(profile,r.catalogue.topic.applicability)&&r.catalogue.topic.languages.includes(language))
+ return resources.filter(r=>resourceEligible(r,profile,topicId)&&r.catalogue.topic.id===topicId&&matchesProfile(profile,r.catalogue.topic.applicability)&&r.catalogue.topic.languages.includes(language))
  .map(r=>{
   const c=r.catalogue, matched=revisit.filter(v=>c.objectives.includes(v.objective)),missing=prerequisite.filter(v=>c.prerequisiteObjectives.includes(v.objective));
   // Prerequisites and individual objective coverage precede any practice preference.

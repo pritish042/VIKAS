@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {ObjectId,type Db,type Document} from 'mongodb';
 import {knowledgeInput,passageSchema,retrievalSchema,type KnowledgeInput,type StudentContext} from './mentor-contract';
+import {type AcademicResource,resourceEligible} from './resource-eligibility';
 import {applicableKnowledge,searchTerms} from './mentor-rules';
 import {matchesProfile,safeExternalUrl} from './topic-rules';
 import type {Profile} from './types';
@@ -46,7 +47,7 @@ export function mongoKnowledgeRetriever(d:Db):KnowledgeRetriever{return {async r
   const p=passageSchema.safeParse({id:c._id.toString(),knowledgeRef:parent._id.toHexString(),title:parent.title,heading:c.heading,text:c.text,sourceUrl:parent.sourceUrl,version:parent.version,reviewedAt:parent.reviewedAt.toISOString(),topicId:parent.topicId});
   if(p.success)passages.push(p.data);if(passages.length===4)break;
  }
- const rows=await d.collection('resources').find({status:'published',reviewedAt:{$exists:true},reviewedBy:{$exists:true},'catalogue.topic.id':{$in:input.topicIds}},{maxTimeMS:2000}).limit(30).toArray();
- const resources=rows.filter(r=>r.catalogue?.topic&&matchesProfile(profile,r.catalogue.topic.applicability)&&r.catalogue.topic.languages.includes(input.language)&&safeExternalUrl.safeParse(r.url).success).slice(0,3).map(r=>({id:r._id.toString(),title:String(r.title).slice(0,150),url:r.url,topicId:r.catalogue.topic.id}));
+ const rows=await d.collection<AcademicResource & Document>('resources').find({status:'published',reviewedAt:{$exists:true},reviewedBy:{$exists:true},'catalogue.topic.id':{$in:input.topicIds}},{maxTimeMS:2000}).limit(30).toArray();
+ const resources=rows.filter(r=>r.catalogue?.topic&&resourceEligible(r,profile,r.catalogue.topic.id)&&matchesProfile(profile,r.catalogue.topic.applicability)&&r.catalogue.topic.languages.includes(input.language)&&safeExternalUrl.safeParse(r.url).success).slice(0,3).map(r=>({id:r._id.toString(),title:String(r.title).slice(0,150),url:r.url,topicId:r.catalogue.topic.id}));
  return retrievalSchema.parse({passages,resources,notice});
 }};}

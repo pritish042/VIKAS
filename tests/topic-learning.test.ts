@@ -10,7 +10,8 @@ import {emptyProfile,type Profile} from '../lib/types';
 import {emptyEducation} from '../lib/education';
 
 import {Memory,clone} from './helpers/memory-db';
-const batch=prepareCatalogue(research,routing);
+// Explicit audience approval exists only in these test fixtures, never inferred on import.
+const batch=prepareCatalogue(research,routing).map(e=>({...e,resource:{...e.resource,active:true,audienceReviewedAt:new Date(),audience:{pathways:[e.resource.stage],classes:e.resource.catalogue.topic.applicability.stage==='senior'?e.resource.catalogue.topic.applicability.classes:[],boards:e.resource.catalogue.topic.applicability.stage==='senior'?e.resource.catalogue.topic.applicability.boards:[],streamIndependent:true,subjects:[e.resource.catalogue.topic.subject],topicIds:[e.resource.catalogue.topic.id],programmes:[],disciplines:[],periods:[]}}}));
 const profile:Profile={...emptyProfile,goal:'Understand units',stage:'senior',education:{...emptyEducation,board:'CBSE',className:'Class 11',subjects:['Physics'],stream:'Custom combination'}};
 async function setup(){const m=new Memory();await importCatalogue(m.asDb(),batch);await m.collection('profiles').insertOne({...profile,userId:'a'});await m.collection('profiles').insertOne({...profile,userId:'b'});return m;}
 const skipped={topicId:'Physics_Units_Measurements',skipped:true,language:'English',minutes:20};

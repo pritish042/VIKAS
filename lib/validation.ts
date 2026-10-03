@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { educationErrors } from './education';
+import {resourceAudienceSchema} from './resource-eligibility';
 const text = (max: number) => z.string().trim().max(max);
 export const stageSchema = z.enum(['school','senior','vocational','undergraduate','postgraduate']);
 export const urlSchema = z.union([z.literal(''), z.url().max(1500).refine(v => ['http:','https:'].includes(new URL(v).protocol), 'Use an https:// or http:// link.')]);
@@ -21,5 +22,5 @@ export const proposalDecisionSchema = z.discriminatedUnion('decision',[
  z.object({decision:z.literal('edit'),title:text(150).min(1),notes:text(2000),minutes:z.number().int().min(5).max(600)}).strict(),
  z.object({decision:z.literal('reject')}).strict(),
 ]);
-export const publicationSchema = z.object({status:z.enum(['published','pending'])}).strict();
+export const publicationSchema = z.object({status:z.enum(['published','pending']),audience:resourceAudienceSchema.optional(),active:z.boolean().optional(),expiresAt:z.string().datetime().nullable().optional()}).strict();
 export const messageSchema = z.object({message:text(2000).min(1)}).strict();

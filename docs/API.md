@@ -13,7 +13,7 @@ Next.js Node route handlers under app/api. All private calls use Better Auth ses
 | /api/tasks/:id/proposal | PATCH | Accept, edit and accept, or reject an owned pending suggestion |
 | /api/records | GET/POST | Private journal list/create |
 | /api/records/:id | PATCH/DELETE | Update/delete owned entry |
-| /api/resources | GET/POST | Published resources and owned submissions; editors see pending queue |
+| /api/resources | GET/POST | Saved-profile eligible resources; explicit owned submissions/reviewer views |
 | /api/resources/:id | PATCH/DELETE | Verified editors publish/unpublish; owner or editor can delete |
 | /api/mentor | GET/POST/DELETE | Current user's history, optional real response, clear history |
 
@@ -92,3 +92,9 @@ The current personal goal remains `profiles.goal`. A task created while that goa
 The legacy `PATCH /api/tasks/:id` continues to mark or reopen tasks that have no feedback. Reviewed tasks return 409 for that legacy status change, preserving their recorded outcome and proposal decision.
 
 To verify against a real database: sign in as A, set a goal, add a step, submit feedback, review/edit/accept, sign out and sign back in to see the accepted step. Sign in as B and confirm A's task, feedback and proposal cannot be fetched or changed through either new route. A malformed Origin or injected `userId` must fail. Do this in an authorized test account/database; do not seed student records for demonstrations.
+
+## Profile-based resource filtering
+
+`GET /api/resources` defaults to `view=personalized`; `topicId` optionally restricts to an exact classified topic or parent. It loads the verified session owner’s MongoDB profile and returns `{resources, missingFields, profileIncomplete}`. Profile/identity query overrides are rejected. `view=mine` is scoped to owned submissions; `view=review` requires the existing verified-editor permission. The old broad all-catalogue student view is removed.
+
+Resource PATCH accepts optional bounded `audience`, `active` and `expiresAt` fields alongside its existing status. Audience review identity/date are assigned server-side. Legacy unclassified records remain stored but excluded from personalised results. See [RESOURCE-PERSONALIZATION.md](RESOURCE-PERSONALIZATION.md) for classification, compatibility and manual verification.

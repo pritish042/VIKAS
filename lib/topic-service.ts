@@ -4,6 +4,7 @@ import {assess,matchesProfile,publicQuestions,recommend,type Question,type Topic
 import {goalRef} from './progress';
 import type {Profile} from './types';
 import type {ConceptResult,Recommendation,ResourceFeeling} from './topic-types';
+import {resourceEligible} from './resource-eligibility';
 export class TopicError extends Error {constructor(public status:number,message:string){super(message);}}
 export interface Definition extends Document {_id:ObjectId;topic:TopicConfig;version:string;status:string;questions:Question[];createdAt:Date}
 export interface Attempt extends Document {
@@ -19,7 +20,7 @@ export async function listTopics(d:Db,userId:string){
  const profile=await profileFor(d,userId),resources=await resourcesFor(d);
  const definitions=await d.collection<Definition>('topic_assessments').find({status:'active'}).sort({createdAt:-1,_id:-1}).limit(300).toArray();
  const topics=new Map<string,{id:string;subject:string;title:string;languages:string[];assessmentId:string|null}>();
- for(const r of resources){const t=r.catalogue.topic;if(!matchesProfile(profile,t.applicability))continue;
+ for(const r of resources){const t=r.catalogue.topic;if(!resourceEligible(r,profile,t.id)||!matchesProfile(profile,t.applicability))continue;
   const existing=topics.get(t.id),definition=definitions.find(a=>a.topic.id===t.id&&matchesProfile(profile,a.topic.applicability));
   topics.set(t.id,{id:t.id,subject:t.subject,title:t.title,languages:[...new Set([...(existing?.languages||[]),...t.languages])],assessmentId:definition?definition._id.toHexString():null});
  }
@@ -36,7 +37,7 @@ export function publicAttempt(a:Attempt){
   ...(a.acceptance?{acceptance:{resourceId:a.acceptance.resourceId,taskRef:a.acceptance.taskRef,goalTitle:a.acceptance.goalTitle}}:{}),...(a.feedback?{feedback:a.feedback}:{})};
 }
 export async function listAttempts(d:Db,userId:string){
- const published=new Set((await resourcesFor(d)).map(r=>r._id.toString()));
+ const profile=await profileFor(d,userId),published=new Set((await resourcesFor(d)).filter(r=>resourceEligible(r,profile,r.catalogue.topic.id)).map(r=>r._id.toString()));
  return (await d.collection<Attempt>('topic_attempts').find({userId}).sort({createdAt:-1}).limit(20).toArray()).map(a=>publicAttempt({...a,recommendations:a.recommendations.filter(r=>published.has(r.resourceId))}));
 }
 export async function createAttempt(d:Db,userId:string,input:{topicId:string;skipped:boolean;assessmentId?:string;answers?:{questionId:string;answer:string}[];language:string;minutes:number}){
@@ -63,7 +64,7 @@ export async function acceptResource(d:Db,userId:string,id:ObjectId,resourceId:s
  if(!attempt.acceptance){
   const profile=await profileFor(d,userId);if(!profile?.goal?.trim())throw new TopicError(400,'Save a personal goal in your profile first.');
   const resource=await d.collection<CatalogueResource & Document>('resources').findOne({_id:new ObjectId(resourceId),status:'published'});
-  if(!resource?.catalogue||!matchesProfile(profile,resource.catalogue.topic.applicability))throw new TopicError(409,'This resource no longer matches your saved profile or is unavailable.');
+  if(!resource?.catalogue||!resourceEligible(resource,profile,attempt.topicId)||!matchesProfile(profile,resource.catalogue.topic.applicability))throw new TopicError(409,'This resource no longer matches your saved profile or is unavailable.');
   if(await d.collection('tasks').countDocuments({userId})>=200)throw new TopicError(400,'Remove an old task before adding another.');
   const now=new Date();
   const acceptance={resourceId,taskRef:new ObjectId().toHexString(),goalRef:goalRef(userId,profile.goal),goalTitle:profile.goal,createdAt:now};
