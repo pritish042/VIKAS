@@ -1,0 +1,463 @@
+{
+  "schemaVersion": "1.0",
+  "catalogue": {
+    "board": "CBSE",
+    "classLevel": 8,
+    "academicSession": "2026-27",
+    "examinationYear": 2027,
+    "subject": "Social Science",
+    "subjectVariant": "Integrated Social Science",
+    "textbookTitle": "Exploring Society: India and Beyond",
+    "textbookEdition": "Part I, Reprint 2026-27",
+    "partCovered": "Part I",
+    "chapterCount": 7,
+    "themes": [
+      "India and the World: Land and the People",
+      "Tapestry of the Past",
+      "Governance and Democracy",
+      "Economic Life Around Us"
+    ],
+    "curriculumVerificationNotes": [
+      "The current Part I sequence contains 7 chapters.",
+      "Older Class 8 SST books such as Our Pasts-III, Resources and Development and Social and Political Life-III should not be silently substituted for this 2026-27 Part I sequence.",
+      "Some web listings incorrectly aggregate or claim additional chapters; this catalogue does not add chapters without sufficiently reliable current-edition evidence.",
+      "Part I is the portion catalogued in this batch."
+    ],
+    "reviewPolicy": {
+      "fullCoverageRule": "A matching title or description is not proof that every textbook subtopic is taught.",
+      "reviewDepthUsed": "metadata_only",
+      "contentInspected": false,
+      "humanReviewed": false
+    }
+  },
+  "chapters": [
+    {
+      "chapterId": "CBSE-08-SST-2026-27-01",
+      "chapterOrder": 1,
+      "chapterTitle": "Natural Resources and Their Use",
+      "theme": "India and the World: Land and the People",
+      "requiredSubtopics": [
+        "When does nature become a resource?",
+        "Categories of natural resources",
+        "Resources based on how we utilize them",
+        "Renewable and non-renewable resources",
+        "Distribution of natural resources and its implications",
+        "Natural resource curse (paradox of plenty)",
+        "Responsible and wise use of natural resources (stewardship)",
+        "Punjab caselet",
+        "Sikkim caselet",
+        "Case of cement",
+        "Renewable substitutes"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "At least one relevant YouTube candidate was found; full chapter coverage remains unverified because the actual content was not fully inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SST-2026-27-02",
+      "chapterOrder": 2,
+      "chapterTitle": "Reshaping India's Political Map",
+      "theme": "Tapestry of the Past",
+      "requiredSubtopics": [
+        "Changing political map of India",
+        "Rise and fall of the Delhi Sultanate",
+        "Dynasties of the Delhi Sultanate",
+        "Resistance to the Delhi Sultanate",
+        "Vijayanagara Empire",
+        "Battle of Talikota",
+        "Beginning of the Mughal Empire",
+        "Babur and Humayun",
+        "Sher Shah Suri",
+        "Akbar, Jahangir and Shah Jahan",
+        "Aurangzeb and Mughal expansion",
+        "Political developments and changing regional powers"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "At least one relevant YouTube candidate was found; full chapter coverage remains unverified because the actual content was not fully inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SST-2026-27-03",
+      "chapterOrder": 3,
+      "chapterTitle": "The Rise of the Marathas",
+      "theme": "Tapestry of the Past",
+      "requiredSubtopics": [
+        "Foundation of Maratha power",
+        "Rise of Shivaji",
+        "Swarajya",
+        "Guerrilla warfare",
+        "Forts",
+        "Maratha administration",
+        "Military administration",
+        "Maritime supremacy",
+        "Judicial system",
+        "Trade networks",
+        "Cultural revival",
+        "Maratha women",
+        "Thanjavur",
+        "Maratha legacy"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "At least one relevant YouTube candidate was found; full chapter coverage remains unverified because the actual content was not fully inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SST-2026-27-04",
+      "chapterOrder": 4,
+      "chapterTitle": "The Colonial Era in India",
+      "theme": "Tapestry of the Past",
+      "requiredSubtopics": [
+        "Age of colonialism",
+        "European powers in India",
+        "Portuguese",
+        "Dutch",
+        "French",
+        "British East India Company",
+        "From traders to rulers",
+        "Battle of Plassey",
+        "Battle of Buxar",
+        "Colonial policies and expansion",
+        "Drain of wealth",
+        "Famines",
+        "Decline of indigenous industries",
+        "Education and economic changes",
+        "Early resistance movements",
+        "Great Rebellion of 1857"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "partial",
+      "unresolvedNotes": "Two candidate videos were found, explicitly labelled Part 1 and Part 2. Full chapter coverage remains unverified until both videos are content-inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SST-2026-27-05",
+      "chapterOrder": 5,
+      "chapterTitle": "Universal Franchise and India's Electoral System",
+      "theme": "Governance and Democracy",
+      "requiredSubtopics": [
+        "Universal adult franchise",
+        "Barriers to voting and participation",
+        "Ensuring universal franchise",
+        "Election Commission of India",
+        "Managing the electoral process",
+        "Electronic Voting Machines (EVMs)",
+        "Model Code of Conduct"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "At least one relevant YouTube candidate was found; full chapter coverage remains unverified because the actual content was not fully inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SST-2026-27-06",
+      "chapterOrder": 6,
+      "chapterTitle": "The Parliamentary System: Legislature and Executive",
+      "theme": "Governance and Democracy",
+      "requiredSubtopics": [
+        "India's parliamentary system",
+        "Structure of Parliament",
+        "Lok Sabha",
+        "Rajya Sabha",
+        "Functions of Parliament",
+        "Law-making process",
+        "Legislature",
+        "Executive",
+        "Relationship between legislature and executive",
+        "Union and state levels"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "At least one relevant YouTube candidate was found; full chapter coverage remains unverified because the actual content was not fully inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SST-2026-27-07",
+      "chapterOrder": 7,
+      "chapterTitle": "Factors of Production",
+      "theme": "Economic Life Around Us",
+      "requiredSubtopics": [
+        "Factors of production",
+        "Land and natural resources",
+        "Labour",
+        "Capital",
+        "Entrepreneurship",
+        "Interconnection of factors of production",
+        "Technology as an enabler of production",
+        "Human capital",
+        "Facilitators of human capital",
+        "Education",
+        "Training",
+        "Healthcare",
+        "Efficient and responsible use of factors"
+      ],
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Exploring Society: India and Beyond, Part I",
+      "subjectId": "SST",
+      "officialSubjectName": "Social Science",
+      "subjectVariant": "Integrated Social Science",
+      "textbookTitle": "Exploring Society: India and Beyond",
+      "textbookEdition": "Part I, Reprint 2026-27",
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "At least one relevant YouTube candidate was found; full chapter coverage remains unverified because the actual content was not fully inspected."
+    }
+  ],
+  "videos": [
+    {
+      "resourceId": "YT-CBSE8SST-0001",
+      "youtubeId": "SeG6D_wtsbw",
+      "canonicalUrl": "https://www.youtube.com/watch?v=SeG6D_wtsbw",
+      "title": "Class 8 Natural Resources and Their Use | Class 8 SST Exploring Society India and Beyond Chapter 1",
+      "channelName": "Learning Notebook",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-01",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "YouTube description explicitly lists the chapter's major NCERT topics, including natural-resource categories, renewable/non-renewable resources, distribution, resource curse, stewardship, Punjab/Sikkim caselets, cement and renewable substitutes."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0002",
+      "youtubeId": "JjcRh4n996k",
+      "canonicalUrl": "https://www.youtube.com/watch?v=JjcRh4n996k",
+      "title": "Reshaping India's Political Map Part 1 Explained | Class 8 SST | NCERT Animated 2026",
+      "channelName": "Matrix Motion",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-02",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description explicitly lists Delhi Sultanate, resistance, Vijayanagara, Mughals, Babur, Humayun, Akbar, Jahangir and Aurangzeb, matching the chapter subject."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0003",
+      "youtubeId": "P3epa0YAYOE",
+      "canonicalUrl": "https://www.youtube.com/watch?v=P3epa0YAYOE",
+      "title": "The Rise of the Marathas One Shot Class 8 | SST | NCERT Animation | Exam 2026",
+      "channelName": "Matrix Motion",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-03",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description and timestamps explicitly cover Maratha foundation, Shivaji, post-Shivaji developments, administration, military administration, maritime supremacy, judicial system, trade, cultural revival, women, Thanjavur and legacy."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0004",
+      "youtubeId": "jj9r7LKLGXs",
+      "canonicalUrl": "https://www.youtube.com/watch?v=jj9r7LKLGXs",
+      "title": "The Colonial Era in India | Class 8 SST | Chapter 4 | Exploring Society India and Beyond | Part 1",
+      "channelName": "Kaliyaan Tv",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-04",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation_part_1",
+          "coveredSubtopics": [],
+          "missingSubtopics": [
+            "Part 2 content not established by this video"
+          ],
+          "mappingEvidence": "Video description explicitly identifies Chapter 4 and says it covers Part 1 only."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0005",
+      "youtubeId": "NmICc2Myvvo",
+      "canonicalUrl": "https://www.youtube.com/watch?v=NmICc2Myvvo",
+      "title": "The Colonial Era in India | Class 8 SST | Chapter 4 | Exploring Society India and Beyond | Part 2",
+      "channelName": "Kaliyaan Tv",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-04",
+          "sequencePosition": 2,
+          "learningRole": "primary_explanation_part_2",
+          "coveredSubtopics": [],
+          "missingSubtopics": [
+            "Full combined coverage not established without inspecting both parts"
+          ],
+          "mappingEvidence": "Video description explicitly identifies Chapter 4 and says it covers Part 2 only."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0006",
+      "youtubeId": "3ngf9IjcAjQ",
+      "canonicalUrl": "https://www.youtube.com/watch?v=3ngf9IjcAjQ",
+      "title": "Universal Franchise and India's Electoral System | Class 8 SST | Chapter 5 Revision | PT-1 2026-27",
+      "channelName": "Kaliyaan Tv",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-05",
+          "sequencePosition": 1,
+          "learningRole": "revision",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies Chapter 5 and states it is based on Exploring Society: India and Beyond; it is explicitly a revision video."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0007",
+      "youtubeId": "R8fE5UFcNYM",
+      "canonicalUrl": "https://www.youtube.com/watch?v=R8fE5UFcNYM",
+      "title": "The Parliamentary System: Legislature and Executive Class 8 || NEW NCERT || SST || Complete Chapter",
+      "channelName": "PW Class 8",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-06",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies the new NCERT chapter and lists parliamentary system, legislature, Parliament, Lok Sabha, Rajya Sabha, executive, legislature-executive relationship and lawmaking."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SST-0008",
+      "youtubeId": "UKyeGjVZwgA",
+      "canonicalUrl": "https://www.youtube.com/watch?v=UKyeGjVZwgA",
+      "title": "Factors of Production | Class 8 SST | Chapter 7 Revision | Periodic Test 2026-27",
+      "channelName": "Kaliyaan Tv",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:45:46Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "YouTube metadata/description was inspected; the actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SST-2026-27-07",
+          "sequencePosition": 1,
+          "learningRole": "revision",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies Chapter 7, the textbook and the four factors of production; it is explicitly a revision video."
+        }
+      ]
+    }
+  ]
+}

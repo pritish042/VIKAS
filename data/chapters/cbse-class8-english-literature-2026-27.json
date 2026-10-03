@@ -1,0 +1,767 @@
+{
+  "schemaVersion": "1.0",
+  "catalogue": {
+    "board": "CBSE",
+    "classLevel": 8,
+    "academicSession": "2026-27",
+    "examinationYear": 2027,
+    "subject": "English",
+    "subjectVariant": "English Literature / literature component",
+    "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+    "textbookEdition": "2026-27",
+    "unitCount": 5,
+    "chapterCount": 15,
+    "units": [
+      {
+        "unitOrder": 1,
+        "unitTitle": "Wit and Wisdom",
+        "chapters": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "unitOrder": 2,
+        "unitTitle": "Values and Dispositions",
+        "chapters": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "unitOrder": 3,
+        "unitTitle": "Mystery and Magic",
+        "chapters": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "unitOrder": 4,
+        "unitTitle": "Environment",
+        "chapters": [
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "unitOrder": 5,
+        "unitTitle": "Science and Curiosity",
+        "chapters": [
+          13,
+          14,
+          15
+        ]
+      }
+    ],
+    "curriculumVerificationNotes": [
+      "The 2026-27 Class 8 NCERT English textbook is Poorvi, replacing the older Honeydew/It So Happened sequence for this catalogue.",
+      "The literature catalogue contains 15 texts across five units.",
+      "School-selected supplementary readers are not included because their exact title, publisher and edition are school-specific."
+    ],
+    "reviewPolicy": {
+      "fullCoverageRule": "A title match is not treated as proof of full chapter coverage.",
+      "reviewDepthUsed": "metadata_only",
+      "contentInspected": false,
+      "humanReviewed": false
+    }
+  },
+  "chapters": [
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-01",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Wit and Wisdom",
+      "chapterOrder": 1,
+      "chapterTitle": "The Wit that Won Hearts",
+      "requiredSubtopics": [
+        "Tenali Ramakrishna",
+        "Krishnadeva Raya",
+        "Queen Thirumalambal",
+        "wit and reasoning",
+        "story comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-02",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Wit and Wisdom",
+      "chapterOrder": 2,
+      "chapterTitle": "A Concrete Example",
+      "requiredSubtopics": [
+        "poem comprehension",
+        "humour",
+        "concrete as stone and as an example",
+        "rhyme and poetic devices"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-03",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 1,
+      "unitTitle": "Wit and Wisdom",
+      "chapterOrder": 3,
+      "chapterTitle": "Wisdom Paves the Way",
+      "requiredSubtopics": [
+        "dramatic narrative",
+        "observation",
+        "logical deduction",
+        "wisdom and problem solving"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-04",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 2,
+      "unitTitle": "Values and Dispositions",
+      "chapterOrder": 4,
+      "chapterTitle": "A Tale of Valour: Major Somnath Sharma and the Battle of Badgam",
+      "requiredSubtopics": [
+        "Major Somnath Sharma",
+        "Battle of Badgam",
+        "military courage",
+        "duty and sacrifice",
+        "comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-05",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 2,
+      "unitTitle": "Values and Dispositions",
+      "chapterOrder": 5,
+      "chapterTitle": "Somebody’s Mother",
+      "requiredSubtopics": [
+        "poem comprehension",
+        "kindness",
+        "compassion",
+        "helping others",
+        "poetic interpretation"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "no_suitable_candidate_found",
+      "unresolvedNotes": "No sufficiently reliable direct YouTube candidate was located in the current search pass. This is a search gap, not a claim that no video exists."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-06",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 2,
+      "unitTitle": "Values and Dispositions",
+      "chapterOrder": 6,
+      "chapterTitle": "Verghese Kurien – I Too Had a Dream",
+      "requiredSubtopics": [
+        "Verghese Kurien",
+        "dairy development",
+        "cooperative movement",
+        "I Too Had a Dream",
+        "comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "no_suitable_candidate_found",
+      "unresolvedNotes": "No sufficiently reliable direct YouTube candidate was located in the current search pass. This is a search gap, not a claim that no video exists."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-07",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 3,
+      "unitTitle": "Mystery and Magic",
+      "chapterOrder": 7,
+      "chapterTitle": "The Case of the Fifth Word",
+      "requiredSubtopics": [
+        "mystery",
+        "clues",
+        "reasoning",
+        "inference",
+        "comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-08",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 3,
+      "unitTitle": "Mystery and Magic",
+      "chapterOrder": 8,
+      "chapterTitle": "The Magic Brush of Dreams",
+      "requiredSubtopics": [
+        "story comprehension",
+        "imagination",
+        "magic",
+        "dreams",
+        "interpretation"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "no_suitable_candidate_found",
+      "unresolvedNotes": "No sufficiently reliable direct YouTube candidate was located in the current search pass. This is a search gap, not a claim that no video exists."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-09",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 3,
+      "unitTitle": "Mystery and Magic",
+      "chapterOrder": 9,
+      "chapterTitle": "Spectacular Wonders",
+      "requiredSubtopics": [
+        "wonders",
+        "reading comprehension",
+        "key ideas",
+        "vocabulary",
+        "interpretation"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-10",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 4,
+      "unitTitle": "Environment",
+      "chapterOrder": 10,
+      "chapterTitle": "The Cherry Tree",
+      "requiredSubtopics": [
+        "growth of a tree",
+        "nature",
+        "patience",
+        "observation",
+        "environmental awareness"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-11",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 4,
+      "unitTitle": "Environment",
+      "chapterOrder": 11,
+      "chapterTitle": "Harvest Hymn",
+      "requiredSubtopics": [
+        "poem comprehension",
+        "harvest",
+        "gratitude",
+        "nature",
+        "imagery and poetic devices"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "no_suitable_candidate_found",
+      "unresolvedNotes": "No sufficiently reliable direct YouTube candidate was located in the current search pass. This is a search gap, not a claim that no video exists."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-12",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 4,
+      "unitTitle": "Environment",
+      "chapterOrder": 12,
+      "chapterTitle": "Waiting for the Rain",
+      "requiredSubtopics": [
+        "farmer and rainfall",
+        "uncertainty of monsoon",
+        "patience",
+        "nature",
+        "comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-13",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 5,
+      "unitTitle": "Science and Curiosity",
+      "chapterOrder": 13,
+      "chapterTitle": "Feathered Friend",
+      "requiredSubtopics": [
+        "birds",
+        "observation",
+        "nature",
+        "scientific curiosity",
+        "comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-14",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 5,
+      "unitTitle": "Science and Curiosity",
+      "chapterOrder": 14,
+      "chapterTitle": "Magnifying Glass",
+      "requiredSubtopics": [
+        "magnification",
+        "observation",
+        "scientific curiosity",
+        "reading comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    },
+    {
+      "chapterId": "CBSE-08-ENG-LIT-2026-27-15",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Poorvi",
+      "subjectId": "ENG",
+      "officialSubjectName": "English",
+      "subjectVariant": "English Literature / literature component",
+      "textbookTitle": "Poorvi: Textbook of English for Grade 8",
+      "textbookEdition": "2026-27",
+      "unitOrder": 5,
+      "unitTitle": "Science and Curiosity",
+      "chapterOrder": 15,
+      "chapterTitle": "Bibha Chowdhuri: The Beam of Light that Lit the Path for Women in Indian Science",
+      "requiredSubtopics": [
+        "Bibha Chowdhuri",
+        "women in science",
+        "scientific achievement",
+        "scientific curiosity",
+        "comprehension"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "No full content inspection was performed; coverage is based on indexed YouTube metadata/description where a candidate was found."
+    }
+  ],
+  "videos": [
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0001",
+      "youtubeId": "F5uLT0JCCyQ",
+      "canonicalUrl": "https://www.youtube.com/watch?v=F5uLT0JCCyQ",
+      "title": "The Wit That Won Hearts Class 8 — Full Explanation, Summary, Word Meanings (CBSE / Poorvi)",
+      "channelName": "NCERT Exam Guide",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-01",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0002",
+      "youtubeId": "N5F_OedJIXE",
+      "canonicalUrl": "https://www.youtube.com/watch?v=N5F_OedJIXE",
+      "title": "A Concrete Example Class 8 — Full Explanation, Summary, Word Meanings (CBSE / Poorvi)",
+      "channelName": "NCERT Exam Guide",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-02",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0003",
+      "youtubeId": "Ds7ZU7Jx44Y",
+      "canonicalUrl": "https://www.youtube.com/watch?v=Ds7ZU7Jx44Y",
+      "title": "Wisdom Paves The Way Animation | Class 8 English Chapter | CBSE NCERT Poorvi",
+      "channelName": "Englishpedia",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-03",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0004",
+      "youtubeId": "jjeZPkDGYCg",
+      "canonicalUrl": "https://www.youtube.com/watch?v=jjeZPkDGYCg",
+      "title": "A Tale of Valour Class 8 — Full Explanation, Summary, Word Meanings (CBSE / Poorvi)",
+      "channelName": "NCERT Exam Guide",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-04",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0005",
+      "youtubeId": "YWDNWInlvTY",
+      "canonicalUrl": "https://www.youtube.com/watch?v=YWDNWInlvTY",
+      "title": "The Case of the Fifth Word - Explanation | Class 8th English (Poorvi) | Unit 3 | CBSE 2026-27",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-07",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0006",
+      "youtubeId": "bFX-UB-FJr4",
+      "canonicalUrl": "https://www.youtube.com/watch?v=bFX-UB-FJr4",
+      "title": "Spectacular Wonders Class 8 | Full Animated Explanation & Summary | NCERT Poorvi English Chapter",
+      "channelName": "NCERT Exam Guide",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-09",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0007",
+      "youtubeId": "M5hw_dAPRg0",
+      "canonicalUrl": "https://www.youtube.com/watch?v=M5hw_dAPRg0",
+      "title": "Spectacular Wonders - Explanation | Class 8th English (Poorvi) | Unit 3 | CBSE 2026-27",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-09",
+          "sequencePosition": 2,
+          "learningRole": "additional_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0008",
+      "youtubeId": "CGp9rsxowRE",
+      "canonicalUrl": "https://www.youtube.com/watch?v=CGp9rsxowRE",
+      "title": "The Cherry Tree - Explanation | Class 8th English (Poorvi) | Unit 4 | CBSE 2026-27",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-10",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0009",
+      "youtubeId": "aW5SUVGraw8",
+      "canonicalUrl": "https://www.youtube.com/watch?v=aW5SUVGraw8",
+      "title": "Waiting for the Rain - Questions & Answers (Part 1) | Class 8th English (Poorvi) | Unit 4 | CBSE",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-12",
+          "sequencePosition": 2,
+          "learningRole": "revision",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0010",
+      "youtubeId": "eEZVXGfZvdg",
+      "canonicalUrl": "https://www.youtube.com/watch?v=eEZVXGfZvdg",
+      "title": "Feathered Friend Class 8 | Full Animated Explanation & Summary | NCERT Poorvi English Chapter",
+      "channelName": "NCERT Exam Guide",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-13",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0011",
+      "youtubeId": "EqUPc2r80PM",
+      "canonicalUrl": "https://www.youtube.com/watch?v=EqUPc2r80PM",
+      "title": "Magnifying Glass - Explanation | Class 8th English (Poorvi) | Unit 5 | CBSE 2026-27",
+      "channelName": "Magnet Brains",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-14",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8ENGLIT-0012",
+      "youtubeId": "nfkevQtECbc",
+      "canonicalUrl": "https://www.youtube.com/watch?v=nfkevQtECbc",
+      "title": "Bibha Chowdhuri Class 8 | Full Animated Explanation & Summary | NCERT Poorvi English",
+      "channelName": "NCERT Exam Guide",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:49:25Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Indexed YouTube metadata/description inspected; actual video content or a legitimately available transcript was not fully inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-ENG-LIT-2026-27-15",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title/description matches the current Poorvi chapter and class level; complete subtopic coverage remains unverified."
+        }
+      ]
+    }
+  ]
+}

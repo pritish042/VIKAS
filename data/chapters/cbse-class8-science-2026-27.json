@@ -1,0 +1,691 @@
+{
+  "schemaVersion": "1.0",
+  "catalogue": {
+    "board": "CBSE",
+    "classLevel": 8,
+    "academicSession": "2026-27",
+    "examinationYear": 2027,
+    "subject": "Science",
+    "subjectVariant": "Integrated Science",
+    "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+    "textbookEdition": "2026-27",
+    "chapterCount": 13,
+    "reviewPolicy": {
+      "fullCoverageRule": "A chapter is not marked fully covered merely because a matching video exists.",
+      "reviewDepthValuesUsed": [
+        "metadata_only"
+      ],
+      "humanReviewed": false,
+      "contentInspected": false
+    },
+    "notes": [
+      "This file preserves conservative review status.",
+      "YouTube candidate URLs are direct watch URLs associated with the listed video IDs.",
+      "Channel name, channel URL, duration and instructional language are null/unverified rather than invented.",
+      "Coverage mappings contain no claimed subtopic coverage because the video content was not fully inspected."
+    ]
+  },
+  "chapters": [
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-01",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 1,
+      "chapterTitle": "Exploring the Investigative World of Science",
+      "requiredSubtopics": [
+        "Scientific questions and inquiry",
+        "Observation and investigation",
+        "Experiments and evidence",
+        "Variables",
+        "Inference and conclusions"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-02",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 2,
+      "chapterTitle": "The Invisible Living World: Beyond Our Naked Eye",
+      "requiredSubtopics": [
+        "Cells",
+        "Microscopes",
+        "Microorganisms",
+        "Bacteria",
+        "Fungi",
+        "Protozoa",
+        "Algae"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-03",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 3,
+      "chapterTitle": "Health: The Ultimate Treasure",
+      "requiredSubtopics": [
+        "Health",
+        "Diseases",
+        "Communicable and non-communicable diseases",
+        "Disease prevention",
+        "Immunity",
+        "Vaccination",
+        "Antibiotics"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-04",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 4,
+      "chapterTitle": "Electricity: Magnetic and Heating Effects",
+      "requiredSubtopics": [
+        "Magnetic effect of electric current",
+        "Electromagnets",
+        "Heating effect of electric current",
+        "Cells and batteries",
+        "Applications of magnetic and heating effects"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-05",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 5,
+      "chapterTitle": "Exploring Forces",
+      "requiredSubtopics": [
+        "Force and its effects",
+        "Contact and non-contact forces",
+        "Friction",
+        "Magnetic force",
+        "Electrostatic force",
+        "Gravitational force",
+        "Weight",
+        "Buoyancy"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-06",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 6,
+      "chapterTitle": "Pressure, Winds, Storms, and Cyclones",
+      "requiredSubtopics": [
+        "Pressure",
+        "Pressure in liquids and air",
+        "Winds",
+        "Land and sea breeze",
+        "Storms",
+        "Lightning",
+        "Cyclones",
+        "Cyclone safety"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-07",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 7,
+      "chapterTitle": "Particulate Nature of Matter",
+      "requiredSubtopics": [
+        "Particles of matter",
+        "Particle motion",
+        "Attraction between particles",
+        "Solids, liquids and gases",
+        "Diffusion",
+        "Changes of state"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-08",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 8,
+      "chapterTitle": "Nature of Matter: Elements, Compounds, and Mixtures",
+      "requiredSubtopics": [
+        "Matter and substances",
+        "Elements",
+        "Compounds",
+        "Mixtures",
+        "Pure substances",
+        "Homogeneous and heterogeneous mixtures",
+        "Alloys and minerals",
+        "Separation of mixtures"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-09",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 9,
+      "chapterTitle": "The Amazing World of Solutes, Solvents, and Solutions",
+      "requiredSubtopics": [
+        "Solute",
+        "Solvent",
+        "Solution",
+        "Concentration",
+        "Solubility",
+        "Saturation",
+        "Density",
+        "Mass and volume",
+        "Floating and sinking"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-10",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 10,
+      "chapterTitle": "Light: Mirrors and Lenses",
+      "requiredSubtopics": [
+        "Reflection of light",
+        "Laws of reflection",
+        "Spherical mirrors",
+        "Image formation",
+        "Lenses",
+        "Refraction"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-11",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 11,
+      "chapterTitle": "Keeping Time with the Skies",
+      "requiredSubtopics": [
+        "Moon and its changing appearance",
+        "Timekeeping using the sky",
+        "Calendars",
+        "Festivals and astronomical phenomena",
+        "Artificial satellites"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate has indexed timestamps for several major sections, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-12",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 12,
+      "chapterTitle": "How Nature Works in Harmony",
+      "requiredSubtopics": [
+        "Habitats",
+        "Populations",
+        "Communities",
+        "Interactions among organisms",
+        "Food chains and food webs",
+        "Decomposers",
+        "Ecosystem balance",
+        "Human impact"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-SCI-2026-27-13",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": 2027,
+      "curriculumVersion": "2026-27 NCERT Curiosity",
+      "subjectId": "SCI",
+      "officialSubjectName": "Science",
+      "subjectVariant": "Integrated Science",
+      "textbookTitle": "Curiosity: Science Textbook for Grade 8",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 13,
+      "chapterTitle": "Our Home: Earth, a Unique Life Sustaining Planet",
+      "requiredSubtopics": [
+        "Earth as a life-sustaining planet",
+        "Conditions necessary for life",
+        "Earth systems",
+        "Sustaining life",
+        "Threats to Earth's life-support systems"
+      ],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php",
+      "coverageStatus": "unverified",
+      "unresolvedNotes": "Candidate video identified, but complete chapter content was not inspected."
+    }
+  ],
+  "videos": [
+    {
+      "resourceId": "YT-CBSE8SCI-0001",
+      "youtubeId": "Ha3Y8gb7luI",
+      "canonicalUrl": "https://www.youtube.com/watch?v=Ha3Y8gb7luI",
+      "title": "Exploring the Investigative World of Science",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-01",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0002",
+      "youtubeId": "f-OAXUbMhVA",
+      "canonicalUrl": "https://www.youtube.com/watch?v=f-OAXUbMhVA",
+      "title": "The Invisible Living World: Beyond Our Naked Eye",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-02",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0003",
+      "youtubeId": "M1rMJjbwRhE",
+      "canonicalUrl": "https://www.youtube.com/watch?v=M1rMJjbwRhE",
+      "title": "Health: The Ultimate Treasure",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-03",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0004",
+      "youtubeId": "vsvybHVQqRo",
+      "canonicalUrl": "https://www.youtube.com/watch?v=vsvybHVQqRo",
+      "title": "Electricity: Magnetic and Heating Effects",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-04",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0005",
+      "youtubeId": "IJXsyzNe8IU",
+      "canonicalUrl": "https://www.youtube.com/watch?v=IJXsyzNe8IU",
+      "title": "Exploring Forces",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-05",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0006",
+      "youtubeId": "yHTEsEUar_I",
+      "canonicalUrl": "https://www.youtube.com/watch?v=yHTEsEUar_I",
+      "title": "Pressure, Winds, Storms, and Cyclones",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-06",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0007",
+      "youtubeId": "P74xbg036aM",
+      "canonicalUrl": "https://www.youtube.com/watch?v=P74xbg036aM",
+      "title": "Particulate Nature of Matter",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-07",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0008",
+      "youtubeId": "KuU_Ie-YK1E",
+      "canonicalUrl": "https://www.youtube.com/watch?v=KuU_Ie-YK1E",
+      "title": "Nature of Matter: Elements, Compounds, and Mixtures",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-08",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0009",
+      "youtubeId": "2jh2xT6iX38",
+      "canonicalUrl": "https://www.youtube.com/watch?v=2jh2xT6iX38",
+      "title": "The Amazing World of Solutes, Solvents, and Solutions",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-09",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0010",
+      "youtubeId": "Hb6e-vfeaic",
+      "canonicalUrl": "https://www.youtube.com/watch?v=Hb6e-vfeaic",
+      "title": "Light: Mirrors and Lenses",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-10",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0011",
+      "youtubeId": "dZe9IjybZBQ",
+      "canonicalUrl": "https://www.youtube.com/watch?v=dZe9IjybZBQ",
+      "title": "Keeping Time with the Skies",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-11",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0012",
+      "youtubeId": "ENBhcDPqwt8",
+      "canonicalUrl": "https://www.youtube.com/watch?v=ENBhcDPqwt8",
+      "title": "How Nature Works in Harmony",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-12",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8SCI-0013",
+      "youtubeId": "8_qdyxDOcZQ",
+      "canonicalUrl": "https://www.youtube.com/watch?v=8_qdyxDOcZQ",
+      "title": "Our Home: Earth, a Unique Life Sustaining Planet",
+      "channelName": null,
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03T07:42:05Z",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Candidate identified from indexed/search metadata; full video content or a legitimately available transcript was not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-SCI-2026-27-13",
+          "sequencePosition": 1,
+          "learningRole": "primary_explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title/topic match only; full chapter coverage not established."
+        }
+      ]
+    }
+  ]
+}
