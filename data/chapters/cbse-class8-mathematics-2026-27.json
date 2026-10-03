@@ -1,0 +1,627 @@
+{
+  "chapters": [
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-01",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 1,
+      "chapterTitle": "A Square and A Cube",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Full subtopic checklist and complete video sequence still require verification."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-02",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 2,
+      "chapterTitle": "Power Play",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Full subtopic checklist and complete video sequence still require verification."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-03",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 3,
+      "chapterTitle": "A Story of Numbers",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Full subtopic checklist and complete video sequence still require verification."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-04",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 4,
+      "chapterTitle": "Quadrilaterals",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Full subtopic checklist and complete video sequence still require verification."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-05",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 5,
+      "chapterTitle": "Number Play",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Full subtopic checklist and complete video sequence still require verification."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-06",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 6,
+      "chapterTitle": "We Distribute, Yet Things Multiply",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Full subtopic checklist and complete video sequence still require verification."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-07",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part I",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 7,
+      "chapterTitle": "Proportional Reasoning-1",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Multiple sequential videos found; complete sequence mapping remains."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-08",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 8,
+      "chapterTitle": "Fractions in Disguise",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Multiple chapter videos found; complete sequence mapping remains."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-09",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 9,
+      "chapterTitle": "The Baudhāyana-Pythagoras Theorem",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Multiple ordered parts found; full chapter mapping remains."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-10",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 10,
+      "chapterTitle": "Proportional Reasoning-2",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Six-part sequence identified through channel indexing; individual video verification remains."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-11",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 11,
+      "chapterTitle": "Exploring Some Geometric Themes",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Specific exercise video found; full chapter coverage not established."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-12",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 12,
+      "chapterTitle": "Tales by Dots and Lines",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Chapter overview found; full chapter coverage not established."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-13",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 13,
+      "chapterTitle": "Algebra Play",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Chapter overview and one-shot candidates found; actual content not inspected."
+    },
+    {
+      "chapterId": "CBSE-08-MATH-2026-27-14",
+      "board": "CBSE",
+      "classLevel": 8,
+      "academicSession": "2026-27",
+      "examinationYear": null,
+      "curriculumVersion": "NCERT Ganita Prakash 2026-27",
+      "subjectId": "mathematics",
+      "officialSubjectName": "Mathematics",
+      "subjectVariant": null,
+      "textbookTitle": "Ganita Prakash Part II",
+      "textbookEdition": "2026-27",
+      "chapterOrder": 14,
+      "chapterTitle": "Area",
+      "requiredSubtopics": [],
+      "officialSourceUrl": "https://ncert.nic.in/textbook.php?gegp1=4-4",
+      "coverageStatus": "partial_unverified",
+      "unresolvedNotes": "Chapter-level explanation found; full exercise/subtopic mapping remains."
+    }
+  ],
+  "videos": [
+    {
+      "resourceId": "YT-CBSE8MATH-0001",
+      "youtubeId": "5gPtLhdco0A",
+      "canonicalUrl": "https://www.youtube.com/watch?v=5gPtLhdco0A",
+      "title": "A Square and A Cube | Class 8 Maths | Ganita Prakash | Chapter 1 | AAGAZ",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Title and available description metadata inspected; actual video content not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-01",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Video title and description identify Class 8 Ganita Prakash Chapter 1."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0002",
+      "youtubeId": "--I9CwfXzGM",
+      "canonicalUrl": "https://www.youtube.com/watch?v=--I9CwfXzGM",
+      "title": "Power Play | Class 8 Maths | Ganita Prakash | Chapter 2 | AAGAZ",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Title and description inspected; actual teaching content not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-02",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "YouTube metadata identifies Class 8 Ganita Prakash Chapter 2."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0003",
+      "youtubeId": "vr-orDnR88U",
+      "canonicalUrl": "https://www.youtube.com/watch?v=vr-orDnR88U",
+      "title": "A Story Of Numbers | Class 8 Maths | Chapter 3 | Ganita Prakash | AAGAZ",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": 97,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Metadata and description inspected; actual video content not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-03",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title, duration and description identify the complete chapter-level resource."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0004",
+      "youtubeId": "H87XlJGy-3s",
+      "canonicalUrl": "https://www.youtube.com/watch?v=H87XlJGy-3s",
+      "title": "Quadrilaterals - Chapter Overview | Class 8th Maths (Part 1) | Chapter 4 | CBSE 2026-27",
+      "channelName": "Magnet Brains",
+      "channelUrl": "https://www.youtube.com/@MagnetBrainsEducation",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Chapter overview metadata inspected; overview is not treated as full chapter coverage.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-04",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "YouTube metadata explicitly identifies Chapter 4 Quadrilaterals and CBSE 2026-27."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0005",
+      "youtubeId": "gLLpWAzgU2k",
+      "canonicalUrl": "https://www.youtube.com/watch?v=gLLpWAzgU2k",
+      "title": "Number Play | Part 8 | Class 8 Maths | Chapter 5 | Ganita Prakash",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Only the identified part and page range were inspected in metadata.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-05",
+          "sequencePosition": 8,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies Chapter 5 and pages 130-131."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0006",
+      "youtubeId": "uhFx0psrhlo",
+      "canonicalUrl": "https://www.youtube.com/watch?v=uhFx0psrhlo",
+      "title": "We Distribute Yet Things Multiply | Class 8 Maths | Chapter 6 | New NCERT | Ganita Prakash",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Chapter-level metadata inspected; actual content not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-06",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title and description explicitly identify Chapter 6."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0007",
+      "youtubeId": "2Ea7dC0dtmY",
+      "canonicalUrl": "https://www.youtube.com/watch?v=2Ea7dC0dtmY",
+      "title": "Proportional Reasoning - 1 | Part 1 | Class 8 Maths | Chapter 7 | Ganita Prakash",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Part 1 only; full chapter sequence not yet mapped.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-07",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies Chapter 7 and pages 159-161."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0008",
+      "youtubeId": "HkjHluVPm8Y",
+      "canonicalUrl": "https://www.youtube.com/watch?v=HkjHluVPm8Y",
+      "title": "Fractions In Disguise | Part 10 | Class 8 Maths | Chapter 1 | Ganita Parkash Part 2",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Part 10 only; full chapter sequence not mapped.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-08",
+          "sequencePosition": 10,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies Fractions in Disguise and pages 19-20."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0009",
+      "youtubeId": "o2HcyRCZN_A",
+      "canonicalUrl": "https://www.youtube.com/watch?v=o2HcyRCZN_A",
+      "title": "The Baudhayana Pythagoras Theorem | Part 1 | Class 8 Maths | Chapter 2 | Ganita Parkash Part 2",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": 24,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Part 1 only; complete chapter sequence not mapped.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-09",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description identifies Chapter 2 Part II and pages 33-36."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0010",
+      "youtubeId": "XlIMcVV1-gk",
+      "canonicalUrl": "https://www.youtube.com/watch?v=XlIMcVV1-gk",
+      "title": "Proportional Reasoning - 2 | Part 2 | Class 8 Maths | Chapter 3 | Ganita Parkash Part 2",
+      "channelName": "Learn With Mansi Juniors",
+      "channelUrl": "https://www.youtube.com/@LearnWithMansiJuniors",
+      "durationMinutes": 28,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Part 2 only; chapter sequence not yet completely mapped.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-10",
+          "sequencePosition": 2,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Indexed video metadata identifies Proportional Reasoning-2, Chapter 3 Part II."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0011",
+      "youtubeId": "_wgxr6-4A_w",
+      "canonicalUrl": "https://www.youtube.com/watch?v=_wgxr6-4A_w",
+      "title": "FIGURE IT OUT | Page No. 73 | CHAPTER 4 | EXPLORING SOME GEOMETRIC THEMES | CLASS 8 | GANITAPRAKASH",
+      "channelName": "CBSE Maths Guruji",
+      "channelUrl": null,
+      "durationMinutes": 19,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Specific Figure It Out exercise only; not full chapter coverage.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-11",
+          "sequencePosition": 1,
+          "learningRole": "worked_example",
+          "coveredSubtopics": [
+            "Koch snowflake construction",
+            "number of sides in the nth step",
+            "perimeter of the nth step"
+          ],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description contains explicit timestamps and topic list."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0012",
+      "youtubeId": "AfEy3Lj3obc",
+      "canonicalUrl": "https://www.youtube.com/watch?v=AfEy3Lj3obc",
+      "title": "Tales by Dots and Lines - Chapter Overview | Class 8th Maths (Part 2) | Chapter 5 | CBSE 2026-27",
+      "channelName": "Magnet Brains",
+      "channelUrl": "https://www.youtube.com/@MagnetBrainsEducation",
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Chapter overview only; not counted as full coverage.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-12",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [],
+          "missingSubtopics": [],
+          "mappingEvidence": "Title and description identify Part II Chapter 5."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0013",
+      "youtubeId": "y2UuU080C30",
+      "canonicalUrl": "https://www.youtube.com/watch?v=y2UuU080C30",
+      "title": "ALGEBRA PLAY Class 8 Maths Chapter 6 One Shot | Ganita Prakash II New NCERT Syllabus 2026-27",
+      "channelName": "Prof.Analysis",
+      "channelUrl": null,
+      "durationMinutes": 19,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "One-shot description inspected; actual video not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-13",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [
+            "number tricks",
+            "number pyramids",
+            "calendar grids",
+            "Fibonacci/Virahanka patterns",
+            "visual algebra grids",
+            "divisibility tricks"
+          ],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description contains timestamped topic list."
+        }
+      ]
+    },
+    {
+      "resourceId": "YT-CBSE8MATH-0014",
+      "youtubeId": "Gu_0qsBztCE",
+      "canonicalUrl": "https://www.youtube.com/watch?v=Gu_0qsBztCE",
+      "title": "Area | Class 8 Maths | Ganita Prakash",
+      "channelName": "MOS Classes Maths (Shine Luthra)",
+      "channelUrl": null,
+      "durationMinutes": null,
+      "instructionalLanguage": "unverified",
+      "fetchedAt": "2026-10-03",
+      "reviewDepth": "metadata_only",
+      "reviewLimitations": "Description inspected; actual video content not inspected.",
+      "publicationStatus": "pending",
+      "chapterMappings": [
+        {
+          "chapterId": "CBSE-08-MATH-2026-27-14",
+          "sequencePosition": 1,
+          "learningRole": "explanation",
+          "coveredSubtopics": [
+            "area and units",
+            "rectangle",
+            "square",
+            "triangle",
+            "parallelogram",
+            "trapezium",
+            "worked examples"
+          ],
+          "missingSubtopics": [],
+          "mappingEvidence": "Description explicitly lists these topics."
+        }
+      ]
+    }
+  ]
+}

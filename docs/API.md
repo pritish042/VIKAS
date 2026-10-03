@@ -98,3 +98,13 @@ To verify against a real database: sign in as A, set a goal, add a step, submit 
 `GET /api/resources` defaults to `view=personalized`; `topicId` optionally restricts to an exact classified topic or parent. It loads the verified session owner’s MongoDB profile and returns `{resources, missingFields, profileIncomplete}`. Profile/identity query overrides are rejected. `view=mine` is scoped to owned submissions; `view=review` requires the existing verified-editor permission. The old broad all-catalogue student view is removed.
 
 Resource PATCH accepts optional bounded `audience`, `active` and `expiresAt` fields alongside its existing status. Audience review identity/date are assigned server-side. Legacy unclassified records remain stored but excluded from personalised results. See [RESOURCE-PERSONALIZATION.md](RESOURCE-PERSONALIZATION.md) for classification, compatibility and manual verification.
+
+## Chapter video resources (additive)
+
+`GET /api/resources` also returns `chapters` for matching saved school profiles. Video resources add allowlisted `video` metadata and approved `chapterMappings`; the editor view includes candidate mappings and their version IDs. Publication now requires an explicit `chapterReview` for resources with chapter mappings: `{versions:string[],notes:string,confirmed:true}` alongside `status:'published'`. Reviewer identity/date and audience classification are server-owned. Plain publishing cannot bypass chapter approval. Withdrawal uses the existing `status:'pending'` operation.
+
+`POST /api/resources/:id/accept` accepts exactly `{minutes:5..120}` for an eligible approved chapter video. It derives the goal/user from the session profile and creates an owned existing-architecture task idempotently per user/resource/goal. Neither link opening nor acceptance completes the task.
+
+`Education` optionally adds `academicSession` (YYYY-YY or empty) and `textbooks:[{subject,title,edition}]` (max 40). Missing values preserve existing-profile compatibility; known values restrict chapter session/book applicability. See [CBSE8-MATH-IMPORT.md](CBSE8-MATH-IMPORT.md) for imports, review permissions, preserved versions and coverage limits.
+
+At the operator’s later request, explicitly imported new videos may instead use `publicationBasis:operator_requested_no_review`, server-stamped `audienceApprovedAt` and supplied approved mapping version IDs. The central eligibility gate permits this explicit basis without fabricating `audienceReviewedAt` or reviewer identity. Normal imports and student submissions remain pending.

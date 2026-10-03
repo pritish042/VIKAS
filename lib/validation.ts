@@ -4,7 +4,7 @@ import {resourceAudienceSchema} from './resource-eligibility';
 const text = (max: number) => z.string().trim().max(max);
 export const stageSchema = z.enum(['school','senior','vocational','undergraduate','postgraduate']);
 export const urlSchema = z.union([z.literal(''), z.url().max(1500).refine(v => ['http:','https:'].includes(new URL(v).protocol), 'Use an https:// or http:// link.')]);
-export const educationSchema = z.object({board:text(150),className:text(100),program:text(150),discipline:text(150),stream:text(150),subjects:z.array(text(100).min(1)).max(40).refine(values=>new Set(values).size===values.length,'Choose each subject only once.'),period:text(100)}).strict();
+export const educationSchema = z.object({board:text(150),className:text(100),program:text(150),discipline:text(150),stream:text(150),subjects:z.array(text(100).min(1)).max(40).refine(values=>new Set(values).size===values.length,'Choose each subject only once.'),period:text(100),academicSession:text(20).regex(/^(|\d{4}-\d{2})$/).optional(),textbooks:z.array(z.object({subject:text(100).min(1),title:text(150),edition:text(100)}).strict()).max(40).refine(v=>new Set(v.map(b=>b.subject.toLowerCase())).size===v.length,"Use one textbook entry per subject.").optional()}).strict();
 export const profileSchema = z.object({stage: stageSchema, level:text(100).min(1), stream:text(150), interests:z.array(text(60).min(1)).max(15), goal:text(500), weeklyHours:z.number().min(0).max(60), bio:text(1000), onboardingComplete:z.boolean(),education:educationSchema.optional()}).strict().superRefine((p,ctx)=>{
  if(!p.education)return;
  for(const [key,message] of Object.entries(educationErrors(p.stage,p.education)))ctx.addIssue({code:"custom",path:["education",key],message});
@@ -22,5 +22,5 @@ export const proposalDecisionSchema = z.discriminatedUnion('decision',[
  z.object({decision:z.literal('edit'),title:text(150).min(1),notes:text(2000),minutes:z.number().int().min(5).max(600)}).strict(),
  z.object({decision:z.literal('reject')}).strict(),
 ]);
-export const publicationSchema = z.object({status:z.enum(['published','pending']),audience:resourceAudienceSchema.optional(),active:z.boolean().optional(),expiresAt:z.string().datetime().nullable().optional()}).strict();
+export const publicationSchema = z.object({status:z.enum(['published','pending']),audience:resourceAudienceSchema.optional(),active:z.boolean().optional(),expiresAt:z.string().datetime().nullable().optional(),chapterReview:z.object({versions:z.array(z.string().regex(/^[a-f0-9]{64}$/)).min(1).max(100),notes:text(2000).min(1),confirmed:z.literal(true)}).strict().optional()}).strict();
 export const messageSchema = z.object({message:text(2000).min(1)}).strict();

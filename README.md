@@ -95,3 +95,5 @@ Sources checked 2026-09-29:
 - https://vercel.com/docs/plans/hobby
 - https://better-auth.com/docs/adapters/mongo
 - https://better-auth.com/docs/authentication/email-password
+
+See [docs/CBSE8-MATH-IMPORT.md](docs/CBSE8-MATH-IMPORT.md) for dry-run-first CBSE Class 8 Mathematics video imports and verified-editor chapter approval. New videos stay pending by default; an explicit operator --publish-new apply can make supplied candidates available without claiming human review.

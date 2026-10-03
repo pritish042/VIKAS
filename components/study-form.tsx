@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Check, Pencil, Search } from 'lucide-react';
 import { stages, type Education, type Profile } from '@/lib/types';
 import { boards, changeEducation, changeStage, classChoices, combinations, disciplineChoices, educationErrors, educationFor, isSchool, periodChoices, programChoices, streams, subjectGroups, withEducation } from '@/lib/education';
 
-type Step = 'stage' | keyof Education | 'interests' | 'goal' | 'weeklyHours' | 'bio' | 'review';
+type Step = 'stage' | Exclude<keyof Education,'academicSession'|'textbooks'> | 'interests' | 'goal' | 'weeklyHours' | 'bio' | 'review';
 function stepsFor(p:Profile):Step[] {
  return ['stage',...(isSchool(p.stage)?['board','className',...(p.stage==='senior'?['stream']:[]),'subjects']:['program','discipline','subjects','period']),'interests','goal','weeklyHours','bio','review'] as Step[];
 }
