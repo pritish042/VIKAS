@@ -62,3 +62,16 @@ The operator must keep the VIKAS privacy notice accurate and review YouTube's cu
 - [Google Privacy Policy](https://policies.google.com/privacy)
 
 API quotas, Google Cloud verification/restrictions, a live key, authorized reviewer account, actual scheduled refresh, and live public/deleted/private-video behavior require operator verification. No API key is included in this repository.
+
+## Backend fixes (4 October 2026)
+
+- Video feedback now loads the verified session owner's profile and checks the same pathway, subject, board, class/year, branch/trade and fresh availability rules used for recommendations before writing owned feedback. Nonmatching or absent profiles do not create feedback.
+- Senior discovery accepts explicit PCM, PCB and PCMB science combinations, including spelled-out combinations. Class labels must identify exactly Class 11 or 12; missing/unknown boards cannot create a board-independent search accidentally.
+- The provider timeout covers both response headers and JSON body reads, including transports that fail to settle a body read after abort. These failures return the safe `timed_out` category.
+- Availability recovery checks the current stored approval/availability state before reactivation, preserving concurrent reviewer withdrawal rather than using a stale snapshot.
+
+No routes or request/response shapes changed. MongoDB and Better Auth remain in place. Regression tests run only against the isolated in-memory database double; no student or provider records were created in the configured database.
+
+`npm run typecheck` now runs `next typegen` before TypeScript so a fresh checkout has current generated route types. After switching branches, stale `.next/dev/types` validators may reference removed routes; remove that generated directory and regenerate types. Next.js regenerated `next-env.d.ts` with production type paths during these checks.
+
+Verification: typecheck, all 92 tests and production build passed. Live authenticated YouTube/API-key workflows were not exercised.

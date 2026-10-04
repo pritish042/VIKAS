@@ -252,6 +252,15 @@ export async function reviewYoutubeVideo(db:Db,id:ObjectId,reviewerId:string,act
 export async function saveYoutubeFeedback(db:Db,userId:string,id:ObjectId,feedback:'too_easy'|'about_right'|'too_difficult'|'not_useful',now=new Date()) {
   const video=await db.collection<YoutubeCandidate>('youtube_videos').findOne({_id:id,reviewStatus:'approved',isActive:true});
   if(!video) return false;
+  const profile=await db.collection<Profile & Document>('profiles').findOne({userId});
+  if(!profile) return false;
+  try {
+    const context=studyContext(profile,{subject:video.tags.subject,topic:video.tags.topic,language:video.intendedLanguage as YoutubeStudyContext['language'],difficulty:video.requestedDifficulty as YoutubeStudyContext['difficulty'],availableMinutes:180});
+    if(!matchesRequestedContext(video,context,now)) return false;
+  } catch(error) {
+    if(error instanceof YoutubeError&&error.status===400) return false;
+    throw error;
+  }
   await db.collection('youtube_video_feedback').updateOne(
     {userId,youtubeId:video.youtubeId},
     {$set:{userId,youtubeId:video.youtubeId,pathway:video.tags.pathway,subject:video.tags.subject,topic:video.tags.topic,feedback,updatedAt:now},$setOnInsert:{createdAt:now}},
@@ -315,9 +324,9 @@ export async function refreshStaleYoutubeVideos(db:Db,loadMetadata:(ids:string[]
           unavailable++;
           continue;
         }
+        await db.collection('youtube_videos').updateOne({_id:previous._id,reviewStatus:'approved',availability:'unavailable',isActive:false},{$set:{isActive:true}});
         await db.collection('youtube_videos').updateOne({_id:previous._id},{$set:{
           metadata:update,refreshedAt:now,lastRefreshAttemptAt:now,availability:'available',
-          ...(previous.reviewStatus==='approved'&&previous.availability==='unavailable'?{isActive:true}:{}),
         },$unset:{refreshFailure:''}});
         refreshed++;
       }

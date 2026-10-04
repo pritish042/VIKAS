@@ -17,15 +17,18 @@ export async function youtubeJson(path:string,params:Record<string,string>,apiKe
   for(const [name,value] of Object.entries(params))url.searchParams.set(name,value);
   url.searchParams.set('key',key);
   const controller=new AbortController();
-  const timeout=setTimeout(()=>controller.abort(),timeoutMs);
+  let timeout:ReturnType<typeof setTimeout>;
+  const deadline=new Promise<never>((_resolve,reject)=>{timeout=setTimeout(()=>{controller.abort();reject(new YoutubeError(503,'timed_out','YouTube took too long to respond. Please try again later.'));},timeoutMs);});
   try {
-    const response=await fetcher(url,{signal:controller.signal,cache:'no-store'});
+    const response=await Promise.race([fetcher(url,{signal:controller.signal,cache:'no-store'}),deadline]);
     let payload:YoutubePayload;
     try {
-      const parsed:unknown=await response.json();
+      const parsed:unknown=await Promise.race([response.json(),deadline]);
       if(!parsed||typeof parsed!=='object') throw new Error('Invalid JSON payload');
       payload=parsed as YoutubePayload;
-    } catch {
+    } catch(error) {
+      if(error instanceof YoutubeError) throw error;
+      if(controller.signal.aborted) throw new YoutubeError(503,'timed_out','YouTube took too long to respond. Please try again later.');
       throw new YoutubeError(503,'provider_error','YouTube returned an unreadable response. Please try again later.');
     }
     if(!response.ok) throw providerError(response.status,payload.error?.errors?.[0]?.reason||'');
@@ -36,7 +39,7 @@ export async function youtubeJson(path:string,params:Record<string,string>,apiKe
     if(controller.signal.aborted) throw new YoutubeError(503,'timed_out','YouTube took too long to respond. Please try again later.');
     throw new YoutubeError(503,'network_error','YouTube could not be reached. Check the network and try again later.');
   } finally {
-    clearTimeout(timeout);
+    clearTimeout(timeout!);
   }
 }
 

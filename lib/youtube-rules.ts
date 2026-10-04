@@ -46,14 +46,16 @@ export function studyContext(profile: Profile, input: YoutubeSearchInput): Youtu
   let branchOrTrade = '';
   let program = '';
   if (profile.stage === 'senior') {
-    const classMatch = education.className.match(/\b(11|12)\b/);
+    const classMatch = /^(?:class\s+)?(11|12)$/i.exec(education.className.trim());
     if (!classMatch) throw new YoutubeError(400, 'provider_error', 'YouTube discovery is available for Class 11–12 students.');
+    if(!education.board.trim()||['other','not sure'].includes(education.board.trim().toLowerCase())) throw new YoutubeError(400,'provider_error','Choose your education board before searching for videos.');
     const stream = education.stream.toLowerCase();
-    pathway = stream.includes('science') ? 'class-11-12-science'
+    const combination=stream.replace(/[^a-z]/g,'');
+    pathway = stream.includes('science')||['pcm','pcb','pcmb','physicschemistrymathematics','physicschemistrybiology','physicschemistrymathematicsbiology','physicschemistrybiologymathematics'].includes(combination) ? 'class-11-12-science'
       : stream.includes('commerce') ? 'class-11-12-commerce'
       : stream.includes('arts') || stream.includes('humanities') ? 'class-11-12-arts-humanities'
       : (() => { throw new YoutubeError(400, 'provider_error', 'Choose Science, Commerce or Arts/Humanities as your Class 11–12 stream.'); })();
-    classOrYear = education.className;
+    classOrYear = `Class ${classMatch[1]}`;
   } else if (profile.stage === 'vocational') {
     program = education.program;
     const normalizedProgram = program.toLowerCase();

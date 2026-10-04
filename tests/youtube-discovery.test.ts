@@ -262,3 +262,41 @@ test('metadata refresh batches at fifty IDs and does not call the provider when 
   const details=await getYoutubeVideoMetadata(['abc123def45'],'test-only-key',async()=>response({items:[video()]}));
   assert.equal(details.length,1);
 });
+
+test('senior context accepts saved science combinations and rejects ambiguous classes and boards',()=>{
+  for(const stream of ['PCM','PCB','PCMB','Physics-Chemistry-Biology','Physics Chemistry Mathematics']){
+    const p=profile({education:{...student.education!,stream}});
+    assert.equal(studyContext(p,input).pathway,'class-11-12-science');
+  }
+  for(const className of ['Class 11 or 12','Class 112','Not sure'])assert.throws(()=>studyContext(profile({education:{...student.education!,className}}),input));
+  for(const board of ['','Not sure','Other'])assert.throws(()=>studyContext(profile({education:{...student.education!,board}}),input));
+});
+
+test('feedback requires the session-owned profile to match the video and fresh availability',async()=>{
+  const memory=await setup();await discover(memory);
+  const row=memory.rows.get('youtube_videos')![0],id=row._id as ObjectId;
+  await reviewYoutubeVideo(memory.asDb(),id,'reviewer',{action:'approve'},now);
+  await memory.collection('profiles').updateOne({userId:'student-b'},{$set:{'education.board':'ISC'}});
+  assert.equal(await saveYoutubeFeedback(memory.asDb(),'student-b',id,'about_right',now),false);
+  assert.equal(await saveYoutubeFeedback(memory.asDb(),'missing-user',id,'about_right',now),false);
+  assert.equal(memory.rows.get('youtube_video_feedback')?.length||0,0);
+  assert.equal(await saveYoutubeFeedback(memory.asDb(),'student-a',id,'about_right',now),true);
+  await memory.collection('youtube_videos').updateOne({_id:id},{$set:{refreshedAt:new Date(now.getTime()-31*24*60*60*1000)}});
+  assert.equal(await saveYoutubeFeedback(memory.asDb(),'student-a',id,'too_easy',now),false);
+});
+
+test('provider enforces the deadline on response bodies even when body reads ignore abort',async()=>{
+  const fetcher:typeof fetch=async()=>{const result=response({items:[]});result.json=()=>new Promise(()=>{});return result;};
+  await assert.rejects(youtubeJson('search',{},'test-only-key',fetcher,5),(error:unknown)=>error instanceof YoutubeError&&error.code==='timed_out');
+});
+
+test('refresh cannot reactivate a video withdrawn during the provider request',async()=>{
+  const memory=await setup();await discover(memory);
+  const row=memory.rows.get('youtube_videos')![0],id=row._id as ObjectId;
+  await reviewYoutubeVideo(memory.asDb(),id,'reviewer',{action:'approve'},now);
+  await memory.collection('youtube_videos').updateOne({_id:id},{$set:{isActive:false,availability:'unavailable',refreshedAt:new Date(now.getTime()-31*24*60*60*1000)}});
+  await refreshStaleYoutubeVideos(memory.asDb(),async()=>{
+    await reviewYoutubeVideo(memory.asDb(),id,'reviewer',{action:'inactive'},now);return [video()];
+  },now);
+  const saved=memory.rows.get('youtube_videos')![0];assert.equal(saved.reviewStatus,'inactive');assert.equal(saved.isActive,false);
+});
