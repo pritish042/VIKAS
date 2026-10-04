@@ -17,7 +17,7 @@ export function normalizeClass(s:unknown){const k=key(s).replace(/^class\s*/,'')
 export function classes(s:unknown){const k=key(s).replace(/^classes?\s*/,'');return k==='11 12'?['Class 11','Class 12']:k==='8 10'?['Class 8','Class 9','Class 10']:normalizeClass(s)?[normalizeClass(s)]:[];}
 export function normalizeCombination(s:unknown){const k=key(s).replace(/[^a-z]/g,'');return /pcmb|physicschemistrymathematicsbiology|physicschemistrybiologymathematics/.test(k)?'pcmb':/pcb|physicschemistrybiology/.test(k)?'pcb':/pcm|physicschemistrymathematics/.test(k)?'pcm':'';}
 export function normalizeStream(s:unknown){const k=key(s);return normalizeCombination(k)||/\bscience\b/.test(k)?'science':/commerce/.test(k)?'commerce':/arts|humanities/.test(k)?'humanities':k;}
-export function normalizeSubject(s:unknown){const k=key(s);return ({math:'mathematics',maths:'mathematics',bio:'biology',physics:'physics',chem:'chemistry',cs:'computer science',informatics:'informatics practices',pe:'physical education',accounts:'accountancy',accounting:'accountancy',politics:'political science',english:'english','english literature':'english','english literature / literature component':'english','social studies':'social science',sst:'social science','integrated science':'science'} as Record<string,string>)[k]||k;}
+export function normalizeSubject(s:unknown){const k=key(s);return ({math:'mathematics',maths:'mathematics',bio:'biology',physics:'physics',chem:'chemistry',cs:'computer science',informatics:'informatics practices',pe:'physical education',accounts:'accountancy',accounting:'accountancy',politics:'political science',english:'english','english core':'english','english literature':'english','english literature / literature component':'english','social studies':'social science',sst:'social science','integrated science':'science'} as Record<string,string>)[k]||k;}
 const unknown=(s:unknown)=>!key(s)||['not sure','other'].includes(key(s));
 export function resourceProfile(p:Partial<Profile>|null){
  const e=p?.education,stage=normalizePathway(p?.stage),className=normalizeClass(e?.className||p?.level),board=unknown(e?.board)?'':key(e?.board),rawStream=e?.stream||p?.stream,stream=unknown(rawStream)?'':normalizeStream(rawStream),subjects=(e?.subjects||[]).filter(s=>!unknown(s)).map(normalizeSubject);
@@ -27,13 +27,14 @@ export function resourceProfile(p:Partial<Profile>|null){
  else if(['vocational','undergraduate','postgraduate'].includes(stage)){if(unknown(e?.program))missing.push('programme');if(unknown(e?.discipline))missing.push('discipline or specialization');if(unknown(e?.period||p?.level))missing.push('year or semester');if(!subjects.length)missing.push('subjects currently studied');}
  return {stage,className,board,stream,combination:normalizeCombination(rawStream),subjects,program:key(e?.program),discipline:key(e?.discipline),period:key(e?.period||p?.level),missing};
 }
-export interface AcademicResource {status?:string;active?:boolean;expiresAt?:Date|string|null;audience?:unknown;audienceReviewedAt?:Date|string;audienceApprovedAt?:Date|string;publicationBasis?:string;chapterMappings?:import("./chapter-catalogue").ChapterMapping[];approvedChapterVersions?:string[];}
+export interface AcademicResource {directory?:{academicSession:string};status?:string;active?:boolean;expiresAt?:Date|string|null;audience?:unknown;audienceReviewedAt?:Date|string;audienceApprovedAt?:Date|string;publicationBasis?:string;chapterMappings?:import("./chapter-catalogue").ChapterMapping[];approvedChapterVersions?:string[];}
 export function resourceEligible(resource:AcademicResource,profile:Partial<Profile>|null,topicId?:string,now=new Date()){
  if(resource.status!=='published'||resource.active!==true)return false;
  if(resource.expiresAt){const time=new Date(resource.expiresAt).getTime();if(!Number.isFinite(time)||time<=now.getTime())return false;}
  const approval=resource.audienceReviewedAt||(resource.publicationBasis==='operator_requested_no_review'?resource.audienceApprovedAt:undefined);
  if(!approval||!Number.isFinite(new Date(approval).getTime()))return false;
  const parsed=resourceAudienceSchema.safeParse(resource.audience);if(!parsed.success)return false;
+ if(resource.directory&&profile?.education?.academicSession&&key(resource.directory.academicSession)!==key(profile.education.academicSession))return false;
  const a=parsed.data,p=resourceProfile(profile);if(p.missing.length||a.generalStudySkill)return false;
  const pathways=a.pathways.map(normalizePathway);
  if(!pathways.includes(p.stage)&&!(p.stage==='senior'&&pathways.includes('school')))return false;

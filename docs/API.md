@@ -108,3 +108,7 @@ Resource PATCH accepts optional bounded `audience`, `active` and `expiresAt` fie
 `Education` optionally adds `academicSession` (YYYY-YY or empty) and `textbooks:[{subject,title,edition}]` (max 40). Missing values preserve existing-profile compatibility; known values restrict chapter session/book applicability. See [CBSE8-MATH-IMPORT.md](CBSE8-MATH-IMPORT.md) for imports, review permissions, preserved versions and coverage limits.
 
 At the operator’s later request, explicitly imported new videos may instead use `publicationBasis:operator_requested_no_review`, server-stamped `audienceApprovedAt` and supplied approved mapping version IDs. The central eligibility gate permits this explicit basis without fabricating `audienceReviewedAt` or reviewer identity. Normal imports and student submissions remain pending.
+
+## CBSE senior search directories
+
+Resource GET adds optional `directory: {linkType:"youtube_search",sourceFile,sourcePage,academicSession,subject,classLevel}` metadata for the supplied CBSE Class 11/12 searches. Existing fields and mutation contracts remain compatible. Saved session/class/board/enrolled-subject filtering remains server-side. See [CBSE-SENIOR-DIRECTORIES.md](CBSE-SENIOR-DIRECTORIES.md).

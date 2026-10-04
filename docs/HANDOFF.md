@@ -69,3 +69,7 @@ Repeat import (dry-run by default): `node --env-file=.env.local --import tsx scr
 
 ### CBSE Class 8 Hindi
 The supplied Hindi Malhar 2026-27 catalogue is in `data/chapters/cbse-class8-hindi-2026-27.json`: 10 chapters and 10 video candidates. It uses the same importer and operator-requested publication without external review. Server-side eligibility requires the saved CBSE Class 8 profile and Hindi among actual subjects, respecting saved session/textbook applicability. Source uncertainty and metadata-only review status remain unchanged. Use the existing import command with this filename; no new subject aliases or broader language matching were introduced.
+
+## CBSE Class 11/12 YouTube searches
+
+The two supplied CBSE PDFs are extracted into `data/directories/` and integrated through `scripts/import-board-directory.ts`, `lib/board-directory.ts` and `components/board-directory.tsx`. ISC resources were inspected but excluded from this CBSE request. Links open search results, with source-page/session provenance and no fabricated direct-video metadata. See [CBSE-SENIOR-DIRECTORIES.md](CBSE-SENIOR-DIRECTORIES.md) for counts, repeat-safe publication, filtering and verification limits.
