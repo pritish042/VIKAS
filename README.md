@@ -37,6 +37,7 @@ On 2 October 2026 the local default resolver returned `EBADRESP` for Atlas SRV r
 - Shared resource submission and verified-editor publication queue.
 - Empty states throughout; data appears when people add it.
 - DISHA mentor workflow with saved-context provenance, reviewed prerequisite checks, approved-text retrieval and optional Gemini explanations. Memory and task changes require explicit student confirmation; this is not an autonomous agent system.
+- YouTube Data API v3 educational video discovery for Class 11–12 streams, Diploma branches/semesters and ITI trades/years, with a verified reviewer queue and approved-only student recommendations.
 - Server validation, ownership-scoped queries, mutation origin checks, database-backed throttling, index setup script, and focused validation tests.
 
 ## Free cloud setup
@@ -66,6 +67,10 @@ Set CONTENT_EDITOR_EMAILS to a comma-separated list of your content reviewers. E
 Set server-only `GEMINI_API_KEY` and `GEMINI_MODEL` in `.env.local` to a model available to your Google API project, then restart the local server. Google currently documents `gemini-3.5-flash-lite` as a stable, fast text model suitable for this initial conversation (checked 2 October 2026); project availability and quota still need testing with your key. A Gemini consumer subscription does not configure this API. Without these settings, AI conversation is unavailable, but saved context and matching approved excerpts remain accessible. AI costs and provider data handling are separate from hosting/database.
 
 The authenticated mentor route sends the question and bounded, allowlisted profile, goal and recent progress to Google. Matching approved passages are included only when actually retrieved. Without them, a reply is explicitly labelled general AI guidance, not a source-checked explanation. Account passwords, email, auth secrets and past chat history are excluded. Sending a turn saves only owned conversation messages; it never updates a profile, goal or task. A notice is shown before use. See [docs/DISHA.md](docs/DISHA.md) for setup, failure handling and retrieval limitations.
+
+## Optional YouTube discovery
+
+Enable **YouTube Data API v3** in a Google Cloud project, create a restricted API key and set `YOUTUBE_API_KEY` in `.env.local` or the server's secret environment. This value is server-only; never prefix it with `NEXT_PUBLIC_` or commit it. Configure verified reviewers through `CONTENT_EDITOR_EMAILS`, run `npm run db:indexes`, and schedule `npm run youtube:refresh` at least daily. Search runs only after an explicit student request, and candidates remain hidden until an authorized reviewer approves them. See [docs/YOUTUBE-DISCOVERY.md](docs/YOUTUBE-DISCOVERY.md) for the complete workflow, API limits, privacy disclosure and live-key verification steps.
 
 ## Before public/student launch
 

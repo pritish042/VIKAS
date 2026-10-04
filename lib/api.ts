@@ -4,6 +4,7 @@ import { getAuth } from './auth';
 import { db, configured } from './db';
 import { ObjectId } from 'mongodb';
 import { ZodError, type ZodType } from 'zod';
+import {configuredEditor} from './editor-permissions';
 export class HttpError extends Error { constructor(public status:number,message:string){super(message);} }
 export const json = (value:unknown,status=200) => NextResponse.json(value,{status,headers:{'Cache-Control':'no-store'}});
 export function failure(e:unknown) {
@@ -31,7 +32,7 @@ export async function body<T>(req:Request,schema:ZodType<T>):Promise<T> {
  return schema.parse(data);
 }
 export function objectId(id:string) { if(!/^[a-f\d]{24}$/i.test(id))throw new HttpError(400,'Invalid item.'); return new ObjectId(id); }
-export function editor(user:{email:string;emailVerified:boolean}) { return user.emailVerified && (process.env.CONTENT_EDITOR_EMAILS||'').split(',').map(v=>v.trim().toLowerCase()).includes(user.email.toLowerCase()); }
+export function editor(user:{email:string;emailVerified:boolean}) { return configuredEditor(user,process.env.CONTENT_EDITOR_EMAILS||''); }
 export async function throttle(userId:string,bucket:string,limit=30) {
  const d=await db();const minute=Math.floor(Date.now()/60000);const _id=`${bucket}:${userId}:${minute}`;
  const result=await d.collection<{_id:string;count:number;expiresAt:Date}>('app_limits').findOneAndUpdate({_id},{$inc:{count:1},$setOnInsert:{expiresAt:new Date(Date.now()+120000)}},{upsert:true,returnDocument:'after'});

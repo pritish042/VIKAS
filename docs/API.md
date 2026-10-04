@@ -16,10 +16,17 @@ Next.js Node route handlers under app/api. All private calls use Better Auth ses
 | /api/resources | GET/POST | Published resources and owned submissions; editors see pending queue |
 | /api/resources/:id | PATCH/DELETE | Verified editors publish/unpublish; owner or editor can delete |
 | /api/mentor | GET/POST/DELETE | Current user's history, optional real response, clear history |
+| /api/youtube/recommendations | GET | At most three approved/active matches; never calls YouTube |
+| /api/youtube/consent | GET/POST | Read or record the authenticated user's YouTube terms/privacy consent; false withdraws it |
+| /api/youtube/discover | POST | Explicit authenticated search using the server-only YouTube Data API key; stores candidates as pending and returns only a count |
+| /api/youtube/review | GET | Verified content-editor-only YouTube review queue |
+| /api/youtube/review/:id | PATCH | Verified reviewer approves, rejects, edits VIKAS subject/topic/difficulty tags, or marks a candidate inactive |
+| /api/youtube/videos/:id/feedback | POST | Save the current user's too-easy/about-right/too-difficult/not-useful feedback |
+| /api/youtube/videos/:id/plan | POST | Explicitly add one approved video as an owned task; repeated requests reuse the existing task |
 
 Shapes live in lib/types.ts and validation rules in lib/validation.ts. Unknown input fields are rejected. URLs must use HTTP(S). Private responses are no-store.
 
-Application collections: profiles, tasks, records, resources, messages, app_limits. Better Auth manages user, session, account, verification and rateLimit. Never return the account/session collections to clients. Password hashes are managed by Better Auth in account records.
+Application collections: profiles, tasks, records, resources, messages, app_limits, youtube_videos, youtube_search_cache, youtube_video_feedback, youtube_discovery_events, youtube_consents. Better Auth manages user, session, account, verification and rateLimit. Never return the account/session collections to clients. Password hashes are managed by Better Auth in account records.
 
 Resource POST: {title,description,url,stage,stream,minutes}. Server supplies ownership and status. Task POST: {title,notes,minutes}. PATCH: {status:'todo'|'done'}. Journal POST/PATCH: {type,title,description,url}.
 
@@ -47,6 +54,12 @@ Attempt POST is exactly `{topicId,skipped:true,language,minutes}` or `{topicId,s
 Acceptance POST is `{resourceId}`. It requires ownership of the attempt, a saved goal and a currently published, profile-matching resource from that attempt's recommendations. One task ID is reserved per attempt; repeated clicks return the same reference. Resource feedback PATCH is `{feeling:'too_easy'|'about_right'|'too_difficult'}` and requires an accepted resource. It does not complete a task. All mutations retain origin checks, session ownership and throttling.
 
 New collections: `topic_assessments`, `topic_attempts`. Existing resources/tasks receive optional catalogue/resource references; old contracts are unchanged. At the operator's updated request, catalogue imports directly publish resources and activate **unvalidated** checks without a review workflow. Existing community submission/editor rules remain intact. See [TOPIC-LEARNING.md](TOPIC-LEARNING.md) for data fields, versioning, routing, idempotency and remaining verification limits.
+
+## YouTube discovery (additive)
+
+See [YOUTUBE-DISCOVERY.md](YOUTUBE-DISCOVERY.md) for pathway rules, filters, review, quotas, refresh, privacy and setup. Search accepts exactly `{subject,topic,language,difficulty,availableMinutes}`; discovery never accepts raw YouTube API parameters or returns pending video metadata to a student. Authenticated users must accept the current YouTube terms/privacy notice before reading or mutating YouTube data; consent can be withdrawn. Only verified `CONTENT_EDITOR_EMAILS` reviewers can access `/api/youtube/review*`. API data is refreshed within 30 days; `npm run youtube:refresh` must be scheduled by the operator. `YOUTUBE_API_KEY` is server-only.
+
+Tasks added from approved videos receive server-created `youtubeVideoRef`, `youtubeVideoId` and `youtubeVideoUrl` fields. The `(userId,youtubeVideoRef)` unique index prevents duplicate video tasks without changing existing task endpoints. Feedback is one document per `(userId,youtubeId)` and is not shared with other students.
 
 ## Structured education (additive profile extension)
 

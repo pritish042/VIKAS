@@ -35,6 +35,28 @@
 .mentor-memory,.knowledge-review { display: grid; gap: 16px; margin-bottom: 24px; }
 .knowledge-review fieldset { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; margin: 16px 0; min-width: 0; }
 .knowledge-review form > h3 { margin-top: 20px; }
+.youtube-discovery { margin-top: 52px; padding-top: 26px; border-top: 1px solid var(--line); display: grid; gap: 16px; }
+.youtube-discovery > p { max-width: 75ch; }
+.youtube-search-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; align-items: end; }
+.youtube-search-form > button { justify-self: start; }
+.youtube-empty { padding: 18px 0; border-block: 1px solid var(--line); display: grid; gap: 10px; }
+.youtube-empty .secondary { justify-self: start; }
+.youtube-results { display: grid; gap: 18px; }
+.youtube-card,.youtube-review-item { display: grid; grid-template-columns: minmax(160px,280px) minmax(0,1fr); gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.youtube-card > img,.youtube-review-item > img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; background: var(--surface2); }
+.youtube-video-content,.youtube-review-item > div { display: grid; align-content: start; gap: 10px; min-width: 0; }
+.youtube-video-content h3,.youtube-review-item h3 { overflow-wrap: anywhere; }
+.youtube-video-content > p,.youtube-review-item p { font-size: 13px; }
+.youtube-reason { padding: 10px; border-left: 3px solid var(--primary); background: var(--tint); color: var(--text); }
+.youtube-feedback { display: flex; flex-wrap: wrap; gap: 4px 14px; border-top: 1px solid var(--line); padding-top: 8px; }
+.youtube-feedback [aria-pressed=true] { color: var(--primary); font-weight: 650; }
+.youtube-review { border-top: 1px solid var(--line); padding-top: 20px; display: grid; gap: 16px; }
+.youtube-review .section-heading > div { display: flex; align-items: center; gap: 8px; }
+.youtube-review-item { grid-template-columns: minmax(140px,220px) minmax(0,1fr); }
+.youtube-tag-edit { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.youtube-policy { padding-top: 12px; font-size: 12px; }
+.youtube-review-item code { overflow-wrap: anywhere; }
+@media (max-width: 700px) { .youtube-search-form,.youtube-tag-edit { grid-template-columns: minmax(0,1fr); }.youtube-card,.youtube-review-item { grid-template-columns: minmax(0,1fr); }.youtube-card > img,.youtube-review-item > img { max-width: 420px; } }
 @media (max-width: 600px) { .mentor-controls { grid-template-columns: 1fr; }.mentor-result .topic-actions > button { width: 100%; }.mentor-list .pill { display: table; margin: 8px 0; } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 :root {

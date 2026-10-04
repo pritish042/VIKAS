@@ -8,6 +8,7 @@
     "start": "next start --hostname 0.0.0.0",
     "typecheck": "tsc --noEmit",
     "db:indexes": "node --env-file=.env.local scripts/create-indexes.mjs",
+    "youtube:refresh": "node --env-file=.env.local --import tsx scripts/refresh-youtube.ts",
     "test": "node --import tsx --test tests/*.test.ts"
   },
   "dependencies": {
