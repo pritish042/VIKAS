@@ -23,3 +23,5 @@ node --env-file=.env.local --import tsx scripts/import-board-directory.ts --file
 Substitute the Class 12 filename for that batch. No environment contents are logged. No deployment is configured or performed.
 
 Validation: `npm run typecheck`, `npm test` (89 passing tests), and `npm run build` passed. Tests cover both extracted batches, duplicate IDs, malformed URLs, and board/class/subject/session exclusion. Authenticated browser display and live YouTube search availability remain unverified.
+
+The subsequent operator request also integrates the ISC PDFs separately. See [ISC-SENIOR-DIRECTORIES.md](ISC-SENIOR-DIRECTORIES.md); this does not change the CBSE link counts or board eligibility.

@@ -112,3 +112,7 @@ At the operator’s later request, explicitly imported new videos may instead us
 ## CBSE senior search directories
 
 Resource GET adds optional `directory: {linkType:"youtube_search",sourceFile,sourcePage,academicSession,subject,classLevel}` metadata for the supplied CBSE Class 11/12 searches. Existing fields and mutation contracts remain compatible. Saved session/class/board/enrolled-subject filtering remains server-side. See [CBSE-SENIOR-DIRECTORIES.md](CBSE-SENIOR-DIRECTORIES.md).
+
+## ISC senior search directories
+
+The existing optional resource `directory` metadata now adds optional `board:"CBSE"|"ISC"`; older CBSE records may omit it. `academicSession` may be empty when the PDF does not specify one. Routes and mutation contracts are unchanged. ISC resources support the existing CISCE board selection and explicit ISC/ICSE/CISCE aliases for senior Class 11/12 only. See [ISC-SENIOR-DIRECTORIES.md](ISC-SENIOR-DIRECTORIES.md).

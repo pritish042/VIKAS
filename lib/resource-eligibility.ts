@@ -27,14 +27,14 @@ export function resourceProfile(p:Partial<Profile>|null){
  else if(['vocational','undergraduate','postgraduate'].includes(stage)){if(unknown(e?.program))missing.push('programme');if(unknown(e?.discipline))missing.push('discipline or specialization');if(unknown(e?.period||p?.level))missing.push('year or semester');if(!subjects.length)missing.push('subjects currently studied');}
  return {stage,className,board,stream,combination:normalizeCombination(rawStream),subjects,program:key(e?.program),discipline:key(e?.discipline),period:key(e?.period||p?.level),missing};
 }
-export interface AcademicResource {directory?:{academicSession:string};status?:string;active?:boolean;expiresAt?:Date|string|null;audience?:unknown;audienceReviewedAt?:Date|string;audienceApprovedAt?:Date|string;publicationBasis?:string;chapterMappings?:import("./chapter-catalogue").ChapterMapping[];approvedChapterVersions?:string[];}
+export interface AcademicResource {directory?:{board?:string;subject?:string;academicSession:string};status?:string;active?:boolean;expiresAt?:Date|string|null;audience?:unknown;audienceReviewedAt?:Date|string;audienceApprovedAt?:Date|string;publicationBasis?:string;chapterMappings?:import("./chapter-catalogue").ChapterMapping[];approvedChapterVersions?:string[];}
 export function resourceEligible(resource:AcademicResource,profile:Partial<Profile>|null,topicId?:string,now=new Date()){
  if(resource.status!=='published'||resource.active!==true)return false;
  if(resource.expiresAt){const time=new Date(resource.expiresAt).getTime();if(!Number.isFinite(time)||time<=now.getTime())return false;}
  const approval=resource.audienceReviewedAt||(resource.publicationBasis==='operator_requested_no_review'?resource.audienceApprovedAt:undefined);
  if(!approval||!Number.isFinite(new Date(approval).getTime()))return false;
  const parsed=resourceAudienceSchema.safeParse(resource.audience);if(!parsed.success)return false;
- if(resource.directory&&profile?.education?.academicSession&&key(resource.directory.academicSession)!==key(profile.education.academicSession))return false;
+ if(resource.directory?.academicSession&&profile?.education?.academicSession&&key(resource.directory.academicSession)!==key(profile.education.academicSession))return false;
  const a=parsed.data,p=resourceProfile(profile);if(p.missing.length||a.generalStudySkill)return false;
  const pathways=a.pathways.map(normalizePathway);
  if(!pathways.includes(p.stage)&&!(p.stage==='senior'&&pathways.includes('school')))return false;
@@ -43,7 +43,11 @@ export function resourceEligible(resource:AcademicResource,profile:Partial<Profi
   if(!a.boardIndependent&&!a.boards.map(key).includes(p.board))return false;
   if(p.stage==='senior'&&!a.streamIndependent&&!a.streams.some(s=>normalizeCombination(s)?normalizeCombination(s)===p.combination:normalizeStream(s)===p.stream))return false;
  }else if(!a.programmes.map(key).includes(p.program)||!a.disciplines.map(key).includes(p.discipline)||!a.periods.map(key).includes(p.period))return false;
- if(!a.subjects.every(s=>p.subjects.includes(normalizeSubject(s))))return false;
+ const separateEnglish=resource.directory?.board==='ISC'&&['English Language','English Literature'].includes(resource.directory.subject||'');
+ if(separateEnglish){
+  const enrolled=(profile?.education?.subjects||[]).map(key);
+  if(!enrolled.includes('english')&&!enrolled.includes(key(resource.directory!.subject)))return false;
+ }else if(!a.subjects.every(s=>p.subjects.includes(normalizeSubject(s))))return false;
  if(resource.chapterMappings&&!resource.chapterMappings.some(m=>approvedChapterMapping(m,resource.approvedChapterVersions||[],profile,topicId)))return false;
  return !topicId||[...a.topicIds,...a.parentTopicIds].includes(topicId);
 }

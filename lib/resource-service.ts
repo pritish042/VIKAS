@@ -13,7 +13,11 @@ export async function resourcesForStudent(d:Db,userId:string,isEditor:boolean,op
  const administrative=options.view==='review'||options.view==='mine';
  if(options.view==='review'&&!isEditor)throw new Error('Only verified editors can read the review queue.');
  const query=options.view==='mine'?{userId}:options.view==='review'?{}:{status:'published',active:true,audience:{$exists:true},$or:[{audienceReviewedAt:{$exists:true}},{publicationBasis:'operator_requested_no_review',audienceApprovedAt:{$exists:true}}]};
- const rows=(!administrative&&missing.length)?[]:await d.collection<AcademicResource & Document>('resources').find(query).sort({createdAt:-1}).limit(2000).toArray();
+ // Filter directory board/class before the bounded read so other boards cannot crowd out results.
+ const saved=resourceProfile(profile),board=['isc','icse','cisce','cisce / icse / isc'].includes(saved.board)?'ISC':saved.board==='cbse'?'CBSE':null;
+ const directoryScope={$or:[{directory:{$exists:false}},...(board?[{'directory.classLevel':Number(saved.className.replace('Class ','')),$or:[{'directory.board':board},...(board==='CBSE'?[{'directory.board':{$exists:false},'audience.boards':'CBSE'}]:[])]}]:[])]};
+ const scopedQuery=administrative?query:{$and:[query,directoryScope]};
+ const rows=(!administrative&&missing.length)?[]:await d.collection<AcademicResource & Document>('resources').find(scopedQuery).sort({createdAt:-1}).limit(2000).toArray();
  const chapters=administrative||missing.length?[]:(await d.collection<Document>('curriculum_chapters').find({board:resourceProfile(profile).board.toUpperCase(),classLevel:Number(resourceProfile(profile).className.replace('Class ',''))}).limit(300).toArray()).flatMap(c=>{const p=chapterSchema.strip().safeParse(c);return p.success?[p.data]:[];}).filter(c=>chapterMatchesProfile(c,profile)).sort((a,b)=>a.chapterOrder-b.chapterOrder);
  const uniqueChapters=[...new Map(chapters.filter(c=>!options.topicId||c.chapterId===options.topicId).map(c=>[`${c.chapterId}|${c.textbookTitle}|${c.textbookEdition}|${c.academicSession}`,c])).values()];
  const resources=rows.filter(r=>administrative||resourceEligible(r,profile,options.topicId)).map(r=>({

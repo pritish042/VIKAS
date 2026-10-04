@@ -59,10 +59,10 @@ export function subjectGroups(stage:Profile['stage'], e:Education):Record<string
  const separate=e.board==='CISCE / ICSE / ISC';
  const science=separate?['Physics','Chemistry','Biology','Science']:['Science','Physics','Chemistry','Biology'];
  return {
-  Languages:languages,
+  Languages:separate&&stage==='senior'?['English','English Language','English Literature',...languages.filter(s=>s!=='English')]:languages,
   Mathematics:['Mathematics','Mathematics (Basic)','Mathematics (Standard)','Applied Mathematics'],
   Science:science,
-  'Social studies':separate?['History & Civics','Geography','Social Studies','Social Science']:['Social Science','Social Studies','History','Civics','Geography','History & Civics'],
+  'Social studies':separate&&stage==='senior'?['History','Geography','History & Civics','Social Studies','Social Science']:separate?['History & Civics','Geography','Social Studies','Social Science']:['Social Science','Social Studies','History','Civics','Geography','History & Civics'],
   'Computing & electives':['Computer Applications','Computer Science','Information Technology','Artificial Intelligence','Environmental Studies','Physical Education','Art','Music','Home Science','Vocational subject'],
   ...((stage==='senior'||!isSchool(stage))?{'Commerce & humanities':['Accountancy','Business Studies','Economics','Political Science','Psychology','Sociology','Entrepreneurship']}:{}),
  };

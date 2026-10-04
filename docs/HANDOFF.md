@@ -73,3 +73,7 @@ The supplied Hindi Malhar 2026-27 catalogue is in `data/chapters/cbse-class8-hin
 ## CBSE Class 11/12 YouTube searches
 
 The two supplied CBSE PDFs are extracted into `data/directories/` and integrated through `scripts/import-board-directory.ts`, `lib/board-directory.ts` and `components/board-directory.tsx`. ISC resources were inspected but excluded from this CBSE request. Links open search results, with source-page/session provenance and no fabricated direct-video metadata. See [CBSE-SENIOR-DIRECTORIES.md](CBSE-SENIOR-DIRECTORIES.md) for counts, repeat-safe publication, filtering and verification limits.
+
+## ISC Class 11/12 search directories
+
+The later operator request adds the two previously excluded ISC PDFs via the same MongoDB directory importer. Counts: 370 Class 11 / 360 unique Class 12 searches. Board headings are dynamic; source sessions remain honestly unspecified. CISCE senior subject suggestions include English components and History. Board/class query filtering precedes the record limit; old CBSE directory records still work. See [ISC-SENIOR-DIRECTORIES.md](ISC-SENIOR-DIRECTORIES.md). Typecheck, 93 tests and build passed.
