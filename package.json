@@ -6,8 +6,9 @@
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --hostname 0.0.0.0",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "db:indexes": "node --env-file=.env.local scripts/create-indexes.mjs",
+    "youtube:refresh": "node --env-file=.env.local --import tsx scripts/refresh-youtube.ts",
     "test": "node --import tsx --test tests/*.test.ts"
   },
   "dependencies": {
@@ -15,7 +16,7 @@
     "@vercel/analytics": "^2.0.1",
     "better-auth": "1.7.6",
     "lucide-react": "^0.468.0",
-    "mongodb": "7.7.0",
+    "mongodb": "^7.7.0",
     "next": "16.3.7",
     "nodemailer": "10.0.12",
     "react": "^19.2.0",

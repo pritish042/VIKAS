@@ -77,3 +77,7 @@ The two supplied CBSE PDFs are extracted into `data/directories/` and integrated
 ## ISC Class 11/12 search directories
 
 The later operator request adds the two previously excluded ISC PDFs via the same MongoDB directory importer. Counts: 370 Class 11 / 360 unique Class 12 searches. Board headings are dynamic; source sessions remain honestly unspecified. CISCE senior subject suggestions include English components and History. Board/class query filtering precedes the record limit; old CBSE directory records still work. See [ISC-SENIOR-DIRECTORIES.md](ISC-SENIOR-DIRECTORIES.md). Typecheck, 93 tests and build passed.
+
+## backend-vikash fixes
+
+The YouTube backend fixes restrict feedback to profile-eligible, fresh videos; accept PCM/PCB/PCMB senior streams with exact class and known-board checks; bound provider JSON body reads; and preserve reviewer withdrawal during metadata recovery. Existing API shapes remain unchanged. `npm run typecheck` generates current Next.js route types first. See [YOUTUBE-DISCOVERY.md](YOUTUBE-DISCOVERY.md#backend-fixes-4-october-2026). Typecheck, 92 tests and build passed; no live student records or provider calls were used for regression tests.

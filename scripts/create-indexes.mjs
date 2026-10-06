@@ -22,6 +22,14 @@ await db.collection('mentor_knowledge').createIndex({version:1},{unique:true});
 await db.collection('mentor_chunks').createIndex({text:'text',heading:'text',title:'text'},{default_language:'none',language_override:'indexLanguage'});
 await db.collection('mentor_chunks').createIndex({knowledgeRef:1,status:1});
 await db.collection('mentor_memories').createIndex({userId:1,topicId:1,updatedAt:-1});
+await db.collection('youtube_videos').createIndex({youtubeId:1},{unique:true});
+await db.collection('youtube_videos').createIndex({reviewStatus:1,isActive:1,'tags.pathway':1,'tags.subject':1,'tags.topic':1,refreshedAt:-1});
+await db.collection('youtube_search_cache').createIndex({cachedAt:1},{expireAfterSeconds:172800});
+await db.collection('youtube_video_feedback').createIndex({userId:1,youtubeId:1},{unique:true});
+await db.collection('youtube_video_feedback').createIndex({userId:1,pathway:1,subject:1,topic:1,updatedAt:-1});
+await db.collection('youtube_discovery_events').createIndex({createdAt:1},{expireAfterSeconds:90*24*60*60});
+await db.collection('youtube_consents').createIndex({userId:1},{unique:true});
+await db.collection('tasks').createIndex({userId:1,youtubeVideoRef:1},{unique:true,partialFilterExpression:{youtubeVideoRef:{$type:'string'}}});
 await db.collection('app_limits').createIndex({expiresAt:1},{expireAfterSeconds:0});
 console.log('VIKAS indexes are ready. No sample data was inserted.');
 }finally{await client.close();}
