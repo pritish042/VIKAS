@@ -1,0 +1,22 @@
+# Floating DISHA onboarding
+
+DISHA is a non-modal, optional assistant in the root layout. Its original short-haired girl SVG uses the existing VIKAS theme palette. The first visit shows a small welcome, never a large automatic chat. The launcher opens the four requested actions, with minimise, close and reopen preserving the current step. The original `/start` and `/profile` flows remain available. Saving locks the study controls; recoverable connection deadlines keep drafts available.
+
+The assistant reuses `StudyForm`, `SubjectPicker`, education configuration and validation. Required education questions are controlled by an explicit step and panel phase, independently of AI text. Guests can explore or draft; authenticated students review and explicitly confirm before saving. An existing profile requires a separate review choice. Optional saved fields survive guest-draft merging unless edited, including session and textbook selections. A revision bound to the account and complete saved profile prevents stale writes; an atomic MongoDB comparison also catches changes during the save itself.
+
+Credentials are handled only by the existing Better Auth forms. The assistant does not request credentials and rejects recognizable passwords, codes, token links, connection strings and keys before AI submission. AI help receives only the current question and an allowlist of relevant education fields. It does not receive auth details, full profiles, interests, goals, biographies, tasks or mentor history. Onboarding AI messages are not saved to conversations or mentor memory. Keys stay server-side; origin checks, input limits, MongoDB rate limits and deadlines bound requests. Guided questions remain usable without AI.
+
+Academic drafts live only in tab memory. Internal navigation to auth forms preserves them; refreshed or closed tabs discard them. Authentication is rechecked, with no automatic save after sign-in. Expired sessions retain unfinished drafts; explicit logout and a different account clear private drafts and AI replies. Only welcome dismissal is persisted locally.
+
+The panel has labelled controls, visible inherited keyboard focus, Escape-to-close and focus return to its launcher. It uses an independently scrolling content region, clears mobile navigation, hides its collapsed launcher while main forms are focused on small screens, responds to the visual viewport when an on-screen keyboard appears, and respects reduced motion.
+
+## Validation in this environment
+
+- `npm run typecheck`: passed.
+- `npm test`: 141 tests passed, including school/programme branches, auth handoff without automatic saving, expired sessions/account changes, optional-field preservation, strict confirmed saves, ownership, stale and concurrent writes, subject restrictions, credential rejection, bounded context, AI timeout/quota/unavailable responses and existing regressions.
+- `npm run build`: passed, including both new onboarding endpoints.
+- Local Safari: confirmed exact first-visit welcome without automatic panel opening; dismissal persisted after reload; launcher opened the four actions; guided stage selection displayed and accepted Class 11–12.
+- The initial auth HTTP 503 was traced to a MongoDB SRV `EBADRESP`: the callback resolver had the configured override while the promise-based lookup still failed. `configureMongoDns` now explicitly configures both callback and promise resolvers. Live MongoDB ping and `/api/auth/get-session` (HTTP 200, guest) pass. The test process uses `BETTER_AUTH_URL=http://127.0.0.1:3100` to match its local address without changing the ignored environment file. Development and production guest auth checks return 200; unauthenticated profile GET and save POST return 401; wrong-origin AI help returns 403. A real Gemini onboarding request returned HTTP 200, `status:used`, with a concise board-question explanation. Real account creation/sign-in, authenticated resumption and save remain unverified; no real student profiles or conversations were modified. Automated save tests use injected database doubles.
+- Safari capture errors and active user interaction interrupted further validation. Full visual checks of board/stream progression, minimise/reopen, guest exploration, signup/sign-in handoff, mobile light/dark layout and keyboard focus/Escape remain to be completed in an available browser. Their supporting logic and styles are implemented; do not treat those visual checks as passed.
+
+No push or deployment was performed.

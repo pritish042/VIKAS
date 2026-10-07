@@ -1,0 +1,26 @@
+# Senior subject selection
+
+Classes 11 and 12 share board-appropriate subject names, with Science, Commerce and Arts/Humanities prioritised separately. Other electives and languages remain searchable and available under a collapsed section. Selected subjects are always visible, including custom electives and retained selections outside the suggestions. Junior combined Science/Social Science and Basic/Standard Mathematics are absent from senior suggestions; Classes 8–10 keep their existing pool.
+
+`lib/senior-subjects.ts` supplies client-safe suggestions, contextual explanations and picker combination checks. Science alone receives PCM/PCB/PCMB addition shortcuts. A shortcut does not delete another choice. Known conflicting additions, including typed names, are rejected with an explanation; retained conflicts can always be removed. The review screen directs students back to subjects to correct these conflicts before saving. These are picker checks, not a complete examination-registration validator. The existing API remains compatible with custom combinations and old records.
+
+ISC suggests English or Modern English as whole subjects and explains their two papers. Existing English Language/Literature selections remain visible for review; they are not silently rewritten. General English cannot be combined with its paper selections in the picker. CBSE distinguishes English Core and English Elective. ISC Commerce remains available and is not an alias for Business Studies. Subject names and codes depend on examination year: the ISC 2027 documents distinguish Commerce (857) and Business Studies (859), while the ISC 2028 syllabus calls subject 857 Business Studies. Students use their actual registered subject and syllabus; VIKAS does not infer examination year or rewrite imported directories.
+
+`lib/education-board.ts` recognizes exact CBSE/CISCE aliases across the picker, resource eligibility, topic applicability and YouTube matching. Unknown board names are kept as custom names, with no substring inference. Saved names remain unchanged. YouTube cache fingerprints canonicalise board aliases while retaining the exact class.
+
+Board, class and stream changes retain subjects and education metadata and require review acknowledgement. Profile editing compares with the saved profile so navigating away and returning cannot silently bypass review of an unsaved pathway change. Goals and tasks are preserved; students are asked to check their relevance. Known conflicts cannot be approved away by that acknowledgement.
+
+Coverage labels come from the additive personalized resource response, never from the suggestion list or bundled question data. Only saved selections receive checked labels. The complete saved education key must match the current draft; otherwise coverage is unchecked. Pending, inactive, unclassified, expired and wrong-board/class resources cannot establish availability. YouTube search links are labelled separately from learning resources. Active topic checks must have an eligible published catalogue resource, and are explicitly unvalidated. Empty results say “none found”; they do not certify complete syllabus coverage. Coverage reads retain the existing bounds of resource/topic listing and do not include YouTube's separate consent-gated discovery pool. A failed check displays unavailable, not zero.
+
+Senior directories retain board/class-specific resource IDs and audience filters. Topic applicability and YouTube recommendations also check Class 11 versus Class 12. The chapter importer currently supports supplied CBSE Class 8 catalogues only; this change does not invent senior chapter catalogues or assessments.
+
+## Curriculum sources checked 7 October 2026
+
+- [CBSE 2026–27 curriculum](https://cbseacademic.nic.in/curriculum_2027.html): senior English variants and subject suggestions.
+- [CBSE scheme of studies](https://www.cbseacademic.nic.in/web_material/CurriculumMain22/SrSec/Curriculum_SrSec_2021-22.pdf): Mathematics/Applied Mathematics and English alternatives; these targeted picker checks are not a claim of complete current registration compliance.
+- [CBSE current skill education](https://cbseacademic.nic.in/skill-education.html): Computer Science/Informatics Practices restrictions.
+- [ISC 2027 regulations](https://www.cisce.org/wp-content/uploads/2025/02/1.-ISC-Regulations.pdf): English papers and mutually excluded subjects. The search-indexed official text was available; direct PDF fetching failed during verification.
+- [ISC 2027 Commerce](https://cisce.org/wp-content/uploads/2025/04/14.-ISC-Commerce.doc.pdf) and [Business Studies](https://cisce.org/wp-content/uploads/2025/04/16.-ISC-Business-Studies-1.pdf): distinct names/codes.
+- [ISC 2028 Business Studies](https://cisce.org/wp-content/uploads/2026/01/14.-Business-Studies.pdf): revised subject 857 naming.
+
+Automated tests exercise streams, aliases, English relationships, conflicting additions/removals, preserved pathway selections, owned coverage, inactive checks, search-versus-resource availability and exact class matching. Live authenticated save/logout/login and visual coverage labels require an authorised account; tests use isolated database doubles and do not create student records.

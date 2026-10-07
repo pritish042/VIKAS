@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import type {Profile} from './types';
+import {normalizeBoard} from './education-board';
 const values=z.array(z.string().trim().min(1).max(150)).max(40).default([]);
 export const resourceAudienceSchema=z.object({pathways:values,classes:values,boards:values,boardIndependent:z.boolean().default(false),streams:values,streamIndependent:z.boolean().default(false),subjects:values,programmes:values,disciplines:values,periods:values,topicIds:values,parentTopicIds:values,generalStudySkill:z.boolean().default(false)}).strict().superRefine((v,c)=>{
  if(!v.pathways.length)c.addIssue({code:'custom',message:'Specify the educational pathways.'});
@@ -20,7 +21,7 @@ export function normalizeStream(s:unknown){const k=key(s);return normalizeCombin
 export function normalizeSubject(s:unknown){const k=key(s);return ({math:'mathematics',maths:'mathematics',bio:'biology',physics:'physics',chem:'chemistry',cs:'computer science',informatics:'informatics practices',pe:'physical education',accounts:'accountancy',accounting:'accountancy',politics:'political science',english:'english','english core':'english','english literature':'english','english literature / literature component':'english','social studies':'social science',sst:'social science','integrated science':'science'} as Record<string,string>)[k]||k;}
 const unknown=(s:unknown)=>!key(s)||['not sure','other'].includes(key(s));
 export function resourceProfile(p:Partial<Profile>|null){
- const e=p?.education,stage=normalizePathway(p?.stage),className=normalizeClass(e?.className||p?.level),board=unknown(e?.board)?'':key(e?.board),rawStream=e?.stream||p?.stream,stream=unknown(rawStream)?'':normalizeStream(rawStream),subjects=(e?.subjects||[]).filter(s=>!unknown(s)).map(normalizeSubject);
+ const e=p?.education,stage=normalizePathway(p?.stage),className=normalizeClass(e?.className||p?.level),board=unknown(e?.board)?'':normalizeBoard(e?.board||''),rawStream=e?.stream||p?.stream,stream=unknown(rawStream)?'':normalizeStream(rawStream),subjects=(e?.subjects||[]).filter(s=>!unknown(s)).map(normalizeSubject);
  const missing:string[]=[];
  if(!['school','senior','vocational','undergraduate','postgraduate'].includes(stage))missing.push('education stage');
  if(['school','senior'].includes(stage)){if(!className)missing.push('class');if(!board)missing.push('education board');if(stage==='senior'&&!stream)missing.push('stream or subject combination');if(!subjects.length)missing.push('subjects currently studied');}
@@ -40,7 +41,7 @@ export function resourceEligible(resource:AcademicResource,profile:Partial<Profi
  if(!pathways.includes(p.stage)&&!(p.stage==='senior'&&pathways.includes('school')))return false;
  if(['school','senior'].includes(p.stage)){
   if(!a.classes.flatMap(classes).includes(p.className))return false;
-  if(!a.boardIndependent&&!a.boards.map(key).includes(p.board))return false;
+  if(!a.boardIndependent&&!a.boards.map(normalizeBoard).includes(p.board))return false;
   if(p.stage==='senior'&&!a.streamIndependent&&!a.streams.some(s=>normalizeCombination(s)?normalizeCombination(s)===p.combination:normalizeStream(s)===p.stream))return false;
  }else if(!a.programmes.map(key).includes(p.program)||!a.disciplines.map(key).includes(p.discipline)||!a.periods.map(key).includes(p.period))return false;
  const separateEnglish=resource.directory?.board==='ISC'&&['English Language','English Literature'].includes(resource.directory.subject||'');

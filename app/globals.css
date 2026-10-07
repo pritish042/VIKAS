@@ -384,6 +384,9 @@ progress::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
 .subject-option:hover { background: var(--surface2); }
 .subject-option.selected { background: var(--tint); }
 .subject-option input { width: 17px; height: 17px; min-height: 17px; flex-shrink: 0; margin: 2px 0 0; }
+.subject-detail { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.subject-more > summary { cursor: pointer; padding: 12px 0; font-size: 13px; font-weight: 600; }
+.subject-more fieldset { margin-top: 16px; }
 .custom-subject { padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--line); }
 .custom-subject > div { display: flex; align-items: stretch; gap: 10px; }
 .profile-summary { margin: 0; }
@@ -561,3 +564,19 @@ progress::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
 .chapter-review-choice { display: flex; gap: 10px; align-items: start; margin: 12px 0; overflow-wrap: anywhere; }
 .chapter-review-choice input { flex-shrink: 0; margin-top: 5px; }
 .curriculum-details { padding: 20px; margin-bottom: 20px; border: 1px solid var(--line); border-radius: 12px; }
+
+/* DISHA is a non-modal companion; the original onboarding remains available. */
+.disha-floating{position:fixed;right:20px;bottom:20px;z-index:45;display:flex;align-items:flex-end;flex-direction:column;gap:12px;max-width:calc(100vw - 24px)}
+.disha-launcher{display:flex;align-items:center;gap:8px;border:1px solid var(--control-border);border-radius:32px;padding:5px 14px 5px 5px;background:var(--surface);color:var(--text);box-shadow:0 4px 20px #0002;font-weight:700;min-height:54px}
+.disha-launcher svg{width:44px;height:44px}.disha-portrait{width:42px;height:42px;flex-shrink:0}.disha-portrait svg{width:100%;height:100%}
+.disha-welcome,.disha-panel{width:390px;max-width:calc(100vw - 24px);background:var(--surface);border:1px solid var(--control-border);border-radius:18px;box-shadow:0 8px 32px #0002;color:var(--text)}
+.disha-welcome{padding:16px;width:290px}.disha-welcome>.icon-button{float:right}.disha-welcome p{margin:4px 24px 8px 0}
+.disha-panel{max-height:calc(100dvh - 110px);display:flex;flex-direction:column;overflow:hidden}.disha-panel>header{display:flex;align-items:center;gap:8px;padding:12px;border-bottom:1px solid var(--line)}.disha-panel>header>div{flex:1}.disha-panel h2{font-size:20px;margin:0}.disha-panel header small{color:var(--muted)}
+.disha-content{overflow:auto;padding:14px;overscroll-behavior:contain}.disha-menu{display:flex;flex-direction:column;gap:10px}.disha-menu p{margin:0 0 8px}.disha-panel .study-form{padding:8px 0;border:0;background:transparent;box-shadow:none}.disha-panel .question-heading h2{font-size:23px}.disha-panel .question-actions{flex-wrap:wrap}.disha-panel .question-actions>.primary{white-space:normal}.disha-panel .education-stages{grid-template-columns:1fr}.disha-panel .subject-option{min-height:44px}.disha-help{border-top:1px solid var(--line);margin-top:16px;padding-top:12px}.disha-help form{display:grid;gap:8px;margin:12px 0}.disha-help textarea{width:100%}.disha-help [role=status]{white-space:pre-wrap;font-size:14px;line-height:1.6}.disha-panel button{min-height:36px}.disha-panel .icon-button{min-width:36px}
+body:has(.modal) .disha-floating{display:none}body:has(.disha-floating) main{padding-bottom:100px}
+@media(max-width:760px){.disha-floating{right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}body:has(.mobile-nav) .disha-floating{bottom:calc(84px + env(safe-area-inset-bottom))}.disha-panel{max-height:calc(100dvh - 180px - env(safe-area-inset-bottom));width:calc(100vw - 24px)}.disha-launcher{padding-right:12px}body:has(main input:focus,main textarea:focus,main select:focus) .disha-floating:not(:has(.disha-panel)){visibility:hidden}body:has(.disha-floating) main{padding-bottom:160px}.disha-panel button{min-height:44px}.disha-panel .icon-button{min-width:44px}.disha-welcome{width:280px}}
+@media(prefers-reduced-motion:reduce){.disha-floating *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@keyframes disha-appear{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){.disha-panel{animation:disha-appear .15s ease-out}}
+@media(max-width:760px){.disha-panel{max-height:calc(var(--disha-viewport-height,100dvh) - 180px - env(safe-area-inset-bottom))}body .disha-floating[data-keyboard=true]{bottom:calc(var(--disha-keyboard-inset) + 12px)}.disha-floating[data-keyboard=true] .disha-panel{max-height:calc(var(--disha-viewport-height,100dvh) - 100px)}}
+.study-fields{border:0;margin:0;padding:0;min-width:0}

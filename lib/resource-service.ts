@@ -2,6 +2,7 @@ import type {Db,Document} from 'mongodb';
 import {chapterMatchesProfile,chapterSchema} from './chapter-catalogue';
 import type {Profile} from './types';
 import {type AcademicResource,resourceEligible,resourceProfile,resourceAudienceSchema,approvedChapterMapping} from './resource-eligibility';
+import {subjectCoverage} from './subject-coverage';
 export function resourceQueryOptions(params:URLSearchParams){
  for(const k of params.keys())if(!['view','topicId'].includes(k))throw new Error('Use your saved profile for recommendations.');
  const view=params.get('view')||'personalized',topicId=params.get('topicId')||undefined;
@@ -26,5 +27,7 @@ export async function resourcesForStudent(d:Db,userId:string,isEditor:boolean,op
   ...(r.chapterMappings?{chapterMappings:administrative?r.chapterMappings:r.chapterMappings.filter(m=>approvedChapterMapping(m,r.approvedChapterVersions||[],profile,options.topicId)),...(administrative?{approvedChapterVersions:r.approvedChapterVersions||[]}: {})}:{}),
   ...(administrative?{classificationRequired:!resourceAudienceSchema.safeParse(r.audience).success||(!r.audienceReviewedAt&&!(r.publicationBasis==='operator_requested_no_review'&&r.audienceApprovedAt))||r.active!==true||!!r.chapterMappings?.some(m=>!r.approvedChapterVersions?.includes(m.version))}:{}),
  }));
- return {resources,chapters:uniqueChapters,missingFields:administrative?[]:missing,profileIncomplete:!administrative&&missing.length>0};
+ const eligible=administrative?[]:rows.filter(r=>resourceEligible(r,profile,options.topicId));
+ const coverage=!administrative&&!options.topicId&&!missing.length&&profile?await subjectCoverage(d,userId,profile,eligible):undefined;
+ return {resources,chapters:uniqueChapters,missingFields:administrative?[]:missing,profileIncomplete:!administrative&&missing.length>0,...(coverage?{subjectCoverage:coverage}:{})};
 }

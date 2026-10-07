@@ -94,6 +94,8 @@ Changing stage clears incompatible class/program fields; related school stages r
 
 Classes 11 and 12 share board-appropriate subject suggestions; this does not combine their chapter lists or resources. Resource identities and eligibility remain board/class-specific. In onboarding and profile editing, changing a populated board, class or stream shows a review notice and requires student acknowledgement on the review screen before saving. Subjects, custom electives and saved education metadata are retained; the student decides what to revise. This review state is temporary form state, with no API or storage change.
 
+Senior subject suggestions now prioritise Science, Commerce or Humanities, with other electives/languages collapsed and searchable. The picker prevents known CBSE/ISC conflicting combinations and asks students to resolve retained junior-level names before saving; the existing flexible profile API still accepts custom selections without new validation restrictions. English paper relationships and ISC examination-year Commerce/Business Studies naming are explained. Exact board aliases (`ISC`, `ICSE`, `CISCE`, the combined label and the full council name) use the same canonical recognition in suggestions, resource eligibility, topic checks and YouTube matching. Raw saved board/subject names remain intact. See [SENIOR-SUBJECTS.md](SENIOR-SUBJECTS.md).
+
 Automated coverage includes every stage, legacy normalization, serialization, custom subjects, strict validation, dependent resets, preserved selections, and login restoration without overwriting persisted profiles. Live save/logout/login and two-user isolation still require configured MongoDB and authentication environment variables.
 
 ## Adaptive progress loop (additive task extension)
@@ -114,6 +116,8 @@ To verify against a real database: sign in as A, set a goal, add a step, submit 
 
 Resource PATCH accepts optional bounded `audience`, `active` and `expiresAt` fields alongside its existing status. Audience review identity/date are assigned server-side. Legacy unclassified records remain stored but excluded from personalised results. See [RESOURCE-PERSONALIZATION.md](RESOURCE-PERSONALIZATION.md) for classification, compatibility and manual verification.
 
+For complete saved profiles, unfiltered personalized resource GET also adds `subjectCoverage: {educationKey, subjects:[{subject,resources,searchLinks,assessments}]}`. All three availability values are booleans derived from eligible published resources (using the existing bounded read) and active, profile-matching topic checks. Search directories are distinguished from learning resources; checks remain unvalidated. Missing/incomplete profiles, administrative views and topic-filtered requests omit coverage. The opaque `educationKey` represents the complete saved education selection; clients compare it with the draft and suppress stale availability labels. Unsaved/unselected subjects are labelled unchecked. No query accepts student identity or profile overrides and no assessment keys are exposed.
+
 ## Chapter video resources (additive)
 
 `GET /api/resources` also returns `chapters` for matching saved school profiles. Video resources add allowlisted `video` metadata and approved `chapterMappings`; the editor view includes candidate mappings and their version IDs. Publication now requires an explicit `chapterReview` for resources with chapter mappings: `{versions:string[],notes:string,confirmed:true}` alongside `status:'published'`. Reviewer identity/date and audience classification are server-owned. Plain publishing cannot bypass chapter approval. Withdrawal uses the existing `status:'pending'` operation.
@@ -131,3 +135,8 @@ Resource GET adds optional `directory: {linkType:"youtube_search",sourceFile,sou
 ## ISC senior search directories
 
 The existing optional resource `directory` metadata now adds optional `board:"CBSE"|"ISC"`; older CBSE records may omit it. `academicSession` may be empty when the PDF does not specify one. Routes and mutation contracts are unchanged. ISC resources support the existing CISCE board selection and explicit ISC/ICSE/CISCE aliases for senior Class 11/12 only. See [ISC-SENIOR-DIRECTORIES.md](ISC-SENIOR-DIRECTORIES.md).
+
+### DISHA onboarding (additive)
+- `POST /api/onboarding/help`: guest or authenticated, strict `{step,message,context}`. The server bounds context to the current education question, checks origin and applies MongoDB-backed per-minute limits (5 per identity/IP; an additional shared guest limit of 20). Uses the existing server-side Gemini configuration. Returns `{status,answer?:{answer}}`; no conversation, draft or mentor-memory persistence. Recognizable credentials are rejected; credentials belong only in Better Auth forms. AI failure leaves guided questions usable.
+- `GET /api/onboarding/profile`: authenticated, session-owned `{profile,revision,accountId}`. Revision is opaque and bound to the verified account and saved contents.
+- `POST /api/onboarding/profile`: authenticated `{profile,expectedRevision,confirmed:true}`. Reuses profile validation, requires structured education and checks senior subject conflicts. Saves only against the reviewed revision; `409` requires reloading and reviewing. No caller-supplied user ID. Original `/api/profile` contracts remain unchanged.

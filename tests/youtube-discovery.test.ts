@@ -59,6 +59,19 @@ test('builds separate bounded queries for all five supported education pathways'
   assert.equal(studyContext(profile({education:{...student.education!,className:'Class 11'}}),input).classOrYear,'Class 11');
 });
 
+test('approved senior recommendations recognize ISC aliases but never mix Classes 11 and 12',async()=>{
+ const m=await setup(),db=m.asDb();await discover(m);
+ const candidate=m.rows.get('youtube_videos')![0];
+ await reviewYoutubeVideo(db,candidate._id,'editor',{action:'approve'},now);
+ await db.collection('youtube_videos').updateOne({_id:candidate._id},{$set:{'tags.board':'CISCE / ICSE / ISC','tags.classOrYear':'Class 12'}});
+ for(const board of ['ISC','ICSE','CISCE','CISCE/ICSE/ISC']){
+  const p={...student,education:{...student.education!,board}};
+  assert.equal((await youtubeRecommendations(db,'student-a',p,input,now)).videos.length,1);
+  assert.equal((await youtubeRecommendations(db,'student-a',{...p,education:{...p.education,className:'Class 11'}},input,now)).videos.length,0);
+ }
+ assert.equal((await youtubeRecommendations(db,'student-a',student,input,now)).videos.length,0);
+});
+
 test('YouTube terms consent is session-owned, versioned and withdrawable',async()=>{
   const memory=await setup(),db=memory.asDb();
   assert.equal(await youtubeConsent(db,'student-a'),false);

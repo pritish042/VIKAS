@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {ObjectId,type Db,type Document} from 'mongodb';
 import type {Profile} from './types';
+import {normalizeBoard} from './education-board';
 import {goalRef} from './progress';
 import type {YoutubeApiVideo} from './youtube-provider-core';
 import {
@@ -161,7 +162,7 @@ function matchesRequestedContext(video:YoutubeCandidate,context:YoutubeStudyCont
   if(!Number.isFinite(refreshedAt)||now.getTime()-refreshedAt>=REVIEW_MAX_AGE_MS) return false;
   if(video.tags.pathway!==context.pathway||normalized(video.tags.subject)!==normalized(context.subject)||normalized(video.tags.topic)!==normalized(context.topic)) return false;
   if(normalized(video.tags.classOrYear)!==normalized(context.classOrYear)) return false;
-  if(video.tags.board&&normalized(video.tags.board)!==normalized(context.board)) return false;
+  if(video.tags.board&&normalizeBoard(video.tags.board)!==normalizeBoard(context.board)) return false;
   if(video.tags.branchOrTrade&&normalized(video.tags.branchOrTrade)!==normalized(context.branchOrTrade)) return false;
   if(video.intendedLanguage!==context.language||video.metadata.durationSeconds>context.availableMinutes*60) return false;
   return true;

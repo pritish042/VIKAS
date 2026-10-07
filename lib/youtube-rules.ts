@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import type { Profile } from './types';
+import {normalizeBoard} from './education-board';
 import {youtubeLanguages,type YoutubeDifficulty,type YoutubeLanguage,type YoutubePathway} from './youtube-contract';
 export {youtubeLanguages,youtubePathways} from './youtube-contract';
 export type {YoutubeDifficulty,YoutubeLanguage,YoutubePathway} from './youtube-contract';
@@ -89,7 +90,7 @@ export function youtubeLanguageCode(language: YoutubeLanguage): string {
 }
 
 export function discoveryFingerprint(context: YoutubeStudyContext): string {
-  const normalized = [context.pathway,context.subject,context.topic,context.difficulty,context.language,context.classOrYear,context.board,context.branchOrTrade]
+  const normalized = [context.pathway,context.subject,context.topic,context.difficulty,context.language,context.classOrYear,normalizeBoard(context.board),context.branchOrTrade]
     .map(value => value.normalize('NFKC').trim().toLocaleLowerCase().replace(/\s+/g, ' '));
   return createHash('sha256').update(normalized.join('\u001f')).digest('hex');
 }

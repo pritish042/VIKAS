@@ -1,4 +1,6 @@
 import { emptyProfile, type Education, type Profile, type Stage } from './types';
+import {normalizeBoard} from './education-board';
+import {seniorSubjectGroups} from './senior-subjects';
 
 export const emptyEducation: Education = { board:'', className:'', program:'', discipline:'', stream:'', subjects:[], period:'' };
 export const uncertain = ['Other', 'Not sure'];
@@ -46,6 +48,7 @@ export function periodChoices(stage:Profile['stage'], program:string) {
  return [...Array.from({length:years},(_,i)=>`Year ${i+1}`),...Array.from({length:years*2},(_,i)=>`Semester ${i+1}`),'Internship','Completed',...uncertain];
 }
 export function subjectGroups(stage:Profile['stage'], e:Education):Record<string,string[]> {
+ if(stage==='senior')return seniorSubjectGroups(e);
  const languages=['English','Hindi','Sanskrit','Urdu','Bengali','Tamil','Telugu','Marathi','Gujarati','Kannada','Malayalam','Odia','Punjabi','Assamese','French','German','Other language'];
  if(!isSchool(stage)) {
   const field=e.discipline.toLowerCase();
@@ -56,15 +59,14 @@ export function subjectGroups(stage:Profile['stage'], e:Education):Record<string
    ['Research Methods','Statistics','Fieldwork','Practical / Laboratory','Dissertation / Project'];
   return {'Your field':e.discipline&&!uncertain.includes(e.discipline)?[e.discipline]:[], 'Subjects / modules':modules,'Languages & electives':['English','Hindi','Communication Skills','Environmental Studies','Other language']};
  }
- const separate=e.board==='CISCE / ICSE / ISC';
+ const separate=normalizeBoard(e.board)==='isc';
  const science=separate?['Physics','Chemistry','Biology','Science']:['Science','Physics','Chemistry','Biology'];
  return {
-  Languages:separate&&stage==='senior'?['English','English Language','English Literature',...languages.filter(s=>s!=='English')]:languages,
+  Languages:languages,
   Mathematics:['Mathematics','Mathematics (Basic)','Mathematics (Standard)','Applied Mathematics'],
   Science:science,
-  'Social studies':separate&&stage==='senior'?['History','Geography','History & Civics','Social Studies','Social Science']:separate?['History & Civics','Geography','Social Studies','Social Science']:['Social Science','Social Studies','History','Civics','Geography','History & Civics'],
+  'Social studies':separate?['History & Civics','Geography','Social Studies','Social Science']:['Social Science','Social Studies','History','Civics','Geography','History & Civics'],
   'Computing & electives':['Computer Applications','Computer Science','Information Technology','Artificial Intelligence','Environmental Studies','Physical Education','Art','Music','Home Science','Vocational subject'],
-  ...((stage==='senior'||!isSchool(stage))?{'Commerce & humanities':['Accountancy','Business Studies','Economics','Political Science','Psychology','Sociology','Entrepreneurship']}:{}),
  };
 }
 export function educationFor(p:Profile):Education {

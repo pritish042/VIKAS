@@ -2,6 +2,7 @@
 import {z} from 'zod';
 import type {ObjectId} from 'mongodb';
 import type {Profile} from './types';
+import {normalizeBoard} from './education-board';
 import type {ConceptResult,Recommendation,ResourceFeeling} from './topic-types';
 import {resourceEligible,normalizeClass,key,normalizeSubject,type AcademicResource} from './resource-eligibility';
 const text=(n:number)=>z.string().trim().min(1).max(n);
@@ -29,7 +30,7 @@ export const acceptanceInput=z.object({resourceId:z.string().regex(/^[a-f\d]{24}
 export const resourceFeedbackInput=z.object({feeling:z.enum(['too_easy','about_right','too_difficult'])}).strict();
 export function matchesProfile(profile:Partial<Profile>|null,app:TopicConfig['applicability']) {
  const e=profile?.education;if(!e||profile?.stage!==app.stage)return false;
- if(app.stage==='senior')return app.classes.map(normalizeClass).includes(normalizeClass(e.className))&&!!normalizeClass(e.className)&&app.boards.map(key).includes(key(e.board))&&app.subjects.some(s=>e.subjects.map(normalizeSubject).includes(normalizeSubject(s)));
+ if(app.stage==='senior')return app.classes.map(normalizeClass).includes(normalizeClass(e.className))&&!!normalizeClass(e.className)&&app.boards.map(normalizeBoard).includes(normalizeBoard(e.board))&&app.subjects.some(s=>e.subjects.map(normalizeSubject).includes(normalizeSubject(s)));
  return app.programmes.some(p=>p.program===e.program&&p.disciplines.includes(e.discipline))&&(!app.periods.length||app.periods.includes(e.period));
 }
 export function assess(questions:Question[],answers:{questionId:string;answer:string}[]):ConceptResult[] {
