@@ -6,6 +6,21 @@ import {resourceEligible} from '../lib/resource-eligibility';
 import type {Profile} from '../lib/types';
 const source=JSON.parse(readFileSync('data/directories/cbse-class12-2026-27.json','utf8'));
 const profile={stage:'senior',level:'Class 12',stream:'Science',education:{board:'CBSE',className:'Class 12',stream:'Science',subjects:['Physics'],program:'',discipline:'',period:''}} as Partial<Profile>;
+test('shared Physics subject keeps chapter search lists and resource identities separate by class and board',()=>{
+ const ids=new Set<string>();
+ for(const board of ['CBSE','ISC'])for(const level of [11,12]){
+  const file=board==='CBSE'?`data/directories/cbse-class${level}-2026-27.json`:`data/directories/isc-class${level}.json`;
+  const entries=prepareBoardDirectory(JSON.parse(readFileSync(file,'utf8'))).filter(r=>r.stream==='Physics');
+  assert.ok(entries.length>0);
+  for(const entry of entries){
+   assert.equal(ids.has(entry._id.toString()),false);ids.add(entry._id.toString());
+   const resource={...entry,status:'published',active:true,publicationBasis:'operator_requested_no_review',audienceApprovedAt:new Date()};
+   for(const selectedBoard of ['CBSE','ISC'])for(const selectedLevel of [11,12]){
+    assert.equal(resourceEligible(resource,{...profile,level:`Class ${selectedLevel}`,education:{...profile.education!,board:selectedBoard,className:`Class ${selectedLevel}`}}),board===selectedBoard&&level===selectedLevel);
+   }
+  }
+ }
+});
 test('supplied directories validate and deduplicate without manufacturing video IDs',()=>{
  for(const level of [11,12]){const batch=prepareBoardDirectory(JSON.parse(readFileSync(`data/directories/cbse-class${level}-2026-27.json`,'utf8')));assert.ok(batch.length>600);assert.equal(new Set(batch.map(r=>r._id.toString())).size,batch.length);assert.ok(batch.every(r=>new URL(r.url).pathname==='/results'));}
 });

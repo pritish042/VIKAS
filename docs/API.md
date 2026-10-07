@@ -92,6 +92,8 @@ PUT still accepts the original profile shape without `education`. An atomic Mong
 
 Changing stage clears incompatible class/program fields; related school stages retain the board and explicit subjects. Changing a program keeps a branch and period only when they remain valid suggestions for the new program, clearing incompatible subjects with the branch. Changing a board, class or senior stream retains explicitly selected subjects because custom combinations are supported. Choosing the same answer makes no changes.
 
+Classes 11 and 12 share board-appropriate subject suggestions; this does not combine their chapter lists or resources. Resource identities and eligibility remain board/class-specific. In onboarding and profile editing, changing a populated board, class or stream shows a review notice and requires student acknowledgement on the review screen before saving. Subjects, custom electives and saved education metadata are retained; the student decides what to revise. This review state is temporary form state, with no API or storage change.
+
 Automated coverage includes every stage, legacy normalization, serialization, custom subjects, strict validation, dependent resets, preserved selections, and login restoration without overwriting persisted profiles. Live save/logout/login and two-user isolation still require configured MongoDB and authentication environment variables.
 
 ## Adaptive progress loop (additive task extension)

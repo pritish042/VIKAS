@@ -98,6 +98,12 @@ export function changeEducation(p:Profile,key:Exclude<keyof Education,'subjects'
  // Board/class/stream changes retain explicitly selected subjects: custom combinations are allowed.
  return withEducation(p,next);
 }
+// A populated pathway change needs student review, not automatic subject removal.
+export function educationReviewRequired(before:Profile,after:Profile):boolean {
+ if(!isSchool(before.stage)||!isSchool(after.stage))return false;
+ const previous=educationFor(before),next=educationFor(after);
+ return (['board','className','stream'] as const).some(key=>!!previous[key]&&previous[key]!==next[key]);
+}
 export function educationErrors(stage:Profile['stage'],e:Education):Partial<Record<keyof Education|'stage',string>> {
  const errors:Partial<Record<keyof Education|'stage',string>>={};
  if(!stage){errors.stage='Choose your education stage.';return errors;}

@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {emptyProfile, type Profile, type Stage} from '../lib/types';
-import {changeEducation,changeStage,educationFor,emptyEducation,normalizeProfile,withEducation,educationErrors,disciplineChoices,periodChoices,subjectGroups} from '../lib/education';
+import {changeEducation,changeStage,educationFor,emptyEducation,normalizeProfile,withEducation,educationErrors,educationReviewRequired,disciplineChoices,periodChoices,subjectGroups} from '../lib/education';
 import {profileSchema} from '../lib/validation';
 import {profileUpdate} from '../lib/profile-update';
 
@@ -11,6 +11,28 @@ function school(stage:Stage='school'):Profile {
 function degree():Profile {
  return withEducation({...emptyProfile,stage:'undergraduate'}, {...emptyEducation,program:'B.Tech / B.E.',discipline:'Computer Science',period:'Year 4',subjects:['Mathematics']});
 }
+
+test('senior subject names are shared across classes without changing explicit selections',()=>{
+ for(const board of ['CBSE','CISCE / ICSE / ISC']){
+  const p=changeEducation(school('senior'),'board',board);
+  const next=changeEducation(p,'className','Class 12');
+  assert.deepEqual(subjectGroups(p.stage,educationFor(p)),subjectGroups(next.stage,educationFor(next)));
+  assert.deepEqual(next.education?.subjects,p.education?.subjects);
+  assert.equal(educationReviewRequired(p,next),true);
+ }
+});
+test('board and stream changes require review and retain all selections including custom subjects',()=>{
+ const p=withEducation(school('senior'),{...educationFor(school('senior')),subjects:['Physics','Economics','Robotics elective'],academicSession:'2026-27',textbooks:[{subject:'Physics',title:'My physics textbook',edition:'2026'}]});
+ for(const [key,value] of [['board','CISCE / ICSE / ISC'],['stream','Commerce']] as const){
+  const next=changeEducation(p,key,value);
+  assert.equal(educationReviewRequired(p,next),true);
+  assert.deepEqual(next.education,{...p.education,[key]:value});
+  assert.equal(profileSchema.safeParse(next).success,true);
+ }
+ assert.equal(educationReviewRequired(p,changeEducation(p,'board','CBSE')),false);
+ const initial=withEducation(p,{...emptyEducation});
+ assert.equal(educationReviewRequired(initial,changeEducation(initial,'board','CBSE')),false);
+});
 
 test('Class 8–10 accepts actual subjects without forcing a stream',()=>{
  const p=school();assert.equal(profileSchema.safeParse(p).success,true);
