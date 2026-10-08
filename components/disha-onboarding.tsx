@@ -2,7 +2,7 @@
 import {useCallback,useEffect,useRef,useState,type CSSProperties} from 'react';
 import {usePathname,useRouter} from 'next/navigation';
 import {Minus,X} from 'lucide-react';
-import {authClient} from '@/lib/auth-client';
+import {verifiedSession} from '@/lib/verified-session';
 import {emptyProfile,type Profile} from '@/lib/types';
 import {normalizeProfile} from '@/lib/education';
 import {containsCredential,mergeOnboardingDraft,onboardingContext,sessionDraftAction,type OnboardingStep} from '@/lib/onboarding-contract';
@@ -34,7 +34,7 @@ export function DishaOnboarding(){
  const refresh=useCallback(async(force=false)=>{
   const id=++refreshId.current;
   try{
-   const session=await authClient.getSession();if(session.error)throw new Error('Account status could not be checked. You can explore or try again.');
+   const session=await verifiedSession();if(session.error)throw new Error('Account status could not be checked. You can explore or try again.');
    const nextUser=session.data?.user.id||null;
    const next=nextUser?await request('profile') as Snapshot:null;
    if(next&&next.accountId!==nextUser)throw new Error('Account changed while loading.');
@@ -51,7 +51,7 @@ export function DishaOnboarding(){
    }
   }catch{if(id===refreshId.current){setChecked(true);setError('Account status is unavailable. Your draft is not saved. Use the secure sign-in form, then retry checking your account.');}}
  },[]);
- useEffect(()=>{void refresh();const update=()=>void refresh();window.addEventListener('focus',update);const signedOut=()=>{clearDishaAuthHandoff();draftOwner.current=null;bound.current=null;handoff.current=false;setUserId(null);setSnapshot(null);setDraft({...emptyProfile,weeklyHours:0});touched.current.clear();setStep('stage');setPhase('menu');setQuestion('');setAnswer('');aiRequest.current?.abort();setAiBusy(false);void refresh();};window.addEventListener('vikas:signed-out',signedOut);window.addEventListener('vikas:auth-changed',update);window.addEventListener('vikas:profile-changed',update);return()=>{++refreshId.current;window.removeEventListener('focus',update);window.removeEventListener('vikas:signed-out',signedOut);window.removeEventListener('vikas:auth-changed',update);window.removeEventListener('vikas:profile-changed',update);};},[pathname,refresh]);
+ useEffect(()=>{void refresh();const update=()=>void refresh();window.addEventListener('focus',update);const signedOut=()=>{clearDishaAuthHandoff();draftOwner.current=null;bound.current=null;handoff.current=false;setUserId(null);setSnapshot(null);setDraft({...emptyProfile,weeklyHours:0});touched.current.clear();setStep('stage');setPhase('menu');setQuestion('');setAnswer('');aiRequest.current?.abort();setAiBusy(false);void refresh();};window.addEventListener('vikas:signed-out',signedOut);window.addEventListener('vikas:auth-changed',update);window.addEventListener('vikas:profile-changed',update);return()=>{++refreshId.current;window.removeEventListener('focus',update);window.removeEventListener('vikas:signed-out',signedOut);window.removeEventListener('vikas:auth-changed',update);window.removeEventListener('vikas:profile-changed',update);};},[refresh]);
  useEffect(()=>{if(phase!=='authentication')return;const timer=setInterval(()=>void refresh(),5000);return()=>clearInterval(timer);},[phase,refresh]);
  useEffect(()=>{const view=window.visualViewport;if(!view)return;const update=()=>setViewport({height:view.height,inset:Math.max(0,window.innerHeight-view.height-view.offsetTop)});update();view.addEventListener('resize',update);view.addEventListener('scroll',update);return()=>{view.removeEventListener('resize',update);view.removeEventListener('scroll',update);};},[]);
  useEffect(()=>{if(seen.current)return;seen.current=true;try{if(localStorage.getItem('vikas-disha-welcome-seen'))return;localStorage.setItem('vikas-disha-welcome-seen','1');}catch{}setWelcome(true);},[]);
@@ -68,7 +68,7 @@ export function DishaOnboarding(){
   if(!userId||!snapshot){setPhase('authentication');return;}
   saving.current=true;setBusy(true);setError('');
   try{
-   const session=await authClient.getSession();if(session.error||!session.data)throw Object.assign(new Error('Your session expired. Sign in, then review and confirm again.'),{status:401});
+   const session=await verifiedSession();if(session.error||!session.data)throw Object.assign(new Error('Your session expired. Sign in, then review and confirm again.'),{status:401});
    if(session.data.user.id!==userId){await refresh();throw new Error('Your account changed. Start setup again for this account.');}
    const result=await request('profile',{profile,expectedRevision:snapshot.revision,confirmed:true}) as Snapshot;
    if(bound.current!==userId||result.accountId!==userId)return;

@@ -1,2 +1,2 @@
-import VikasApp from '@/components/vikas-app';
-export default function Page(){return <VikasApp/>;}
+// The shared workspace lives in the root layout so navigation retains its state.
+export default function Page(){return null;}

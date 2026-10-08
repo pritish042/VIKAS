@@ -89,3 +89,19 @@ DISHA floating onboarding is mounted in the persistent root layout, alongside th
 The original short-haired girl avatar is inline SVG using VIKAS theme variables. The non-modal panel supports Escape, labelled minimise/close/reopen controls, keyboard focus, reduced motion and mobile navigation clearance. Gemini onboarding help is optional, rate limited and independent of saved mentor conversations. Requires the existing MongoDB/Better Auth configuration for real accounts and saves, and `GEMINI_API_KEY` / `GEMINI_MODEL` for live AI. Do not put credentials in the assistant. No deployment was performed.
 
 Local DISHA validation continuation: configured MongoDB promise DNS explicitly alongside callback DNS, resolving local auth SRV EBADRESP / HTTP 503. MongoDB ping, guest auth status, 401 guest-profile gate, 403 origin gate and a live Gemini onboarding explanation passed. Guest-draft merges now retain saved session/textbooks. Save controls lock while submitting; timed-out profile requests retain drafts. See docs/DISHA-ONBOARDING.md for remaining live-account and browser checks.
+
+## Persistent account/profile navigation
+
+The workspace now mounts in the root layout; the catch-all page supplies only the route. Today, Journey, DISHA, Explore and Profile retain the same workspace instance and its in-memory profile draft on internal navigation. DISHA no longer refreshes its account snapshot on pathname changes. Simultaneous Better Auth session checks share an in-flight read, with no persisted session cache. Focus, explicit authentication and profile-change events continue to refresh verified state.
+
+Profile publication precedes independent task/journal/mentor reads. Failed or delayed auxiliary reads do not gate the account display. Background profile refresh replaces only an unchanged draft; account changes discard the previous account's state. Request generations reject late auxiliary results and error notices after logout or account changes. MongoDB, Better Auth and both profile API contracts (including DISHA revision conflicts) remain unchanged.
+
+Verification: `npm run typecheck`, `npm test` (144 passing), and `npm run build` passed. New automated checks cover academic-draft preservation, independent delayed/failed auxiliary reads, and late response/error rejection. Existing revision-conflict and ownership tests also pass. These are automated checks, not an authenticated browser timing or isolation claim.
+
+The requested production baseline and comparison remain pending: five warm loads, three cold loads, and ten transitions (Today → Journey → DISHA → Explore → Profile, twice). Record request counts by endpoint, workspace/DISHA mount counts, and elapsed time to account/profile display in each sample. Use the unchanged baseline revision in an isolated checkout and the same existing authorized accounts/browser conditions; distinguish browser-cache cold loads from server cold starts. No baseline measurements were captured before this implementation and no numbers have been inferred.
+
+Live acceptance checks still require existing authorized accounts: delay/fail journal and mentor responses; verify immediate profile display and unsaved academic edits after focus/profile refresh; save through both forms; logout/login; expire the session; switch A → B with outstanding reads; force a DISHA revision conflict. Confirm no previous account data reappears. No student fixtures, production deployment or database changes were made.
+
+## APRAJITA Code Lab
+
+`/aprajita` adds an authenticated coding workspace with explicit MongoDB saves, actual-subject eligibility, versioned school readiness and optional isolated execution. See [APRAJITA](APRAJITA.md) for configuration and architecture. No automatic deployment or runner provisioning; do not enable execution without verifying runner isolation. Existing student resources and curriculum configuration are unchanged.

@@ -31,5 +31,6 @@ await db.collection('youtube_discovery_events').createIndex({createdAt:1},{expir
 await db.collection('youtube_consents').createIndex({userId:1},{unique:true});
 await db.collection('tasks').createIndex({userId:1,youtubeVideoRef:1},{unique:true,partialFilterExpression:{youtubeVideoRef:{$type:'string'}}});
 await db.collection('app_limits').createIndex({expiresAt:1},{expireAfterSeconds:0});
+await db.collection('aprajita_files').createIndex({userId:1,updatedAt:-1});
 console.log('VIKAS indexes are ready. No sample data was inserted.');
 }finally{await client.close();}

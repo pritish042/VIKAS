@@ -140,3 +140,7 @@ The existing optional resource `directory` metadata now adds optional `board:"CB
 - `POST /api/onboarding/help`: guest or authenticated, strict `{step,message,context}`. The server bounds context to the current education question, checks origin and applies MongoDB-backed per-minute limits (5 per identity/IP; an additional shared guest limit of 20). Uses the existing server-side Gemini configuration. Returns `{status,answer?:{answer}}`; no conversation, draft or mentor-memory persistence. Recognizable credentials are rejected; credentials belong only in Better Auth forms. AI failure leaves guided questions usable.
 - `GET /api/onboarding/profile`: authenticated, session-owned `{profile,revision,accountId}`. Revision is opaque and bound to the verified account and saved contents.
 - `POST /api/onboarding/profile`: authenticated `{profile,expectedRevision,confirmed:true}`. Reuses profile validation, requires structured education and checks senior subject conflicts. Saves only against the reviewed revision; `409` requires reloading and reviewing. No caller-supplied user ID. Original `/api/profile` contracts remain unchanged.
+
+## APRAJITA
+
+Authenticated `/api/aprajita` status/readiness/files/run endpoints reuse verified-session ownership and mutation origin checks. Every files/run request enforces current profile eligibility and the current readiness version. See [APRAJITA](APRAJITA.md) for payloads, limits and isolated runner configuration.
