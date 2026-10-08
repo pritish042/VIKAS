@@ -4,7 +4,7 @@ import type {Profile} from '../types';
 import {labEligibility,READINESS_VERSION} from './access';
 import {gradeReadiness} from './assessment';
 import {fileSchema,readinessSchema,type LabFile} from './contract';
-export class LabError extends Error {constructor(public status:number,message:string){super(message);}}
+export class LabError extends Error {constructor(public status:number,message:string,public code?:string){super(message);}}
 export async function labAccess(db:Db,userId:string){
  const profile=await db.collection<Profile & Document>('profiles').findOne({userId});
  const eligibility=labEligibility(profile);

@@ -12,4 +12,4 @@ export interface LabFile {id:string;language:LabLanguage;name:string;source:stri
 export interface LabAccess {eligible:boolean;ready:boolean;reason:string;needsProfile:boolean;requiresAssessment:boolean;version:string}
 export interface LabQuestion {id:string;prompt:string;options:{id:string;text:string}[]}
 export interface QuizResult {score:number;passed:boolean;results:{id:string;correct:boolean;answer:string;explanation:string}[]}
-export interface RunResult {status:string;output:string;error:string;truncated:boolean}
+export interface RunResult {diagnosticsCombined?:boolean;status:string;statusId:number;success:boolean;stdout:string;stderr:string;compilationErrors:string;output:string;error:string;truncated:boolean}
