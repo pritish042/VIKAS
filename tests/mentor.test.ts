@@ -127,7 +127,7 @@ test('mentor turn stores only the authenticated owner’s conversation and prese
 test('missing configuration and missing profile remain honest and never invoke the provider',async()=>{
  const m=new Memory();let called=false;
  const r=await saveMentorTurn(m.asDb(),'a',{message:'What do you know about me?'},{fetcher:async()=>{called=true;return conversationResponse();}});
- assert.equal(called,false);assert.equal(r.mentor.providerStatus,'missing_key');assert.equal(r.mentor.evidence.length,0);assert.equal(r.mentor.recentProgress?.length,0);assert.match(r.answer,/not configured/);assert.match(r.answer,/No approved lesson passages/);
+ assert.equal(called,false);assert.equal(r.mentor.providerStatus,'missing_key');assert.equal(r.mentor.evidence.length,0);assert.equal(r.mentor.recentProgress?.length,0);assert.match(r.answer,/not configured/);assert.equal(r.mentor.uncertainty.some(text=>text.includes('No approved lesson passages')),true);assert.doesNotMatch(r.answer,/No approved lesson passages/);
 });
 test('provider failures expose safe actionable notices without upstream details or secrets',async()=>{
  for(const [code,status] of [[400,'invalid_configuration'],[401,'invalid_configuration'],[403,'invalid_configuration'],[404,'invalid_configuration'],[429,'rate_limited'],[500,'unavailable'],[503,'unavailable']] as const){

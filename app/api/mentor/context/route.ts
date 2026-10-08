@@ -6,9 +6,9 @@ import {beginnerTopics} from '@/lib/mentor-beginner-pack';
 import {approvedTopics} from '@/lib/mentor-knowledge';
 import {mentorFailure} from '@/lib/mentor-api';
 export async function GET(req:Request){try{
- const u=await identity(req),d=await db(),language=z.string().min(1).max(40).parse(new URL(req.url).searchParams.get('language')||'English');
+ const started=Date.now();const u=await identity(req);const authenticationMs=Date.now()-started,contextStarted=Date.now();const d=await db(),language=z.string().min(1).max(40).parse(new URL(req.url).searchParams.get('language')||'English');
  const {context}=await readStudentContext(d,u.id,[]);
  const memories=await d.collection('mentor_memories').find({userId:u.id},{projection:{userId:0}}).sort({updatedAt:-1}).limit(50).toArray();
  const seen=new Set<string>(),topics=[...(await approvedTopics(d,context,language)),...beginnerTopics()].filter(t=>{if(seen.has(t.topicId))return false;seen.add(t.topicId);return true;}).map(t=>({id:t.topicId,title:t.title}));
- return json({context,memories,topics});
+ console.info('DISHA context loading timing',{authenticationMs,contextMs:Date.now()-contextStarted});return json({context,memories,topics});
 }catch(e){return mentorFailure(e);}}

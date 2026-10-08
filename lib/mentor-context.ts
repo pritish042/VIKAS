@@ -3,7 +3,7 @@ import {evidenceSchema,recentProgressSchema,studentContextSchema,type MentorEvid
 import {profileSchema} from './validation';
 import type {Profile} from './types';
 export const asDate=(v:unknown)=>{const d=v instanceof Date?v:typeof v==='string'?new Date(v):null;return d&&Number.isFinite(d.getTime())?d.toISOString():null;};
-export async function readStudentContext(d:Db,userId:string,topicIds:string[]){
+export async function readStudentContext(d:Db,userId:string,topicIds:string[],lightweight=false){
  const raw=await d.collection('profiles').findOne({userId},{projection:{stage:1,level:1,stream:1,education:1,goal:1,interests:1,weeklyHours:1,bio:1,onboardingComplete:1,updatedAt:1},maxTimeMS:2000});
  let profile:Profile|null=null;
  if(raw){const parsed=profileSchema.safeParse(Object.fromEntries(Object.keys(profileSchema.shape).filter(k=>raw[k]!==undefined).map(k=>[k,raw[k]])));if(parsed.success)profile=parsed.data;}
@@ -15,6 +15,7 @@ export async function readStudentContext(d:Db,userId:string,topicIds:string[]){
   if(profile.bio)evidence.push({source:'profile_self_report',sourceRef:'profile:experience',topicId:'',text:profile.bio.slice(0,500),at:asDate(raw?.updatedAt)});
   evidence.push({source:'profile_self_report',sourceRef:'profile:preferences',topicId:'',text:`Interests: ${profile.interests.join(', ')}. Time available: ${profile.weeklyHours} hours/week.`.slice(0,500),at:asDate(raw?.updatedAt)});
  }
+ if(lightweight)return {profile,context:studentContextSchema.parse({stage:profile?.stage||'',board:profile?.education?.board||'',goal:profile?.goal||'',education,evidence:evidence.slice(0,10),recentProgress:[]})};
  const memories=await d.collection('mentor_memories').find({userId,...(topicIds.length?{topicId:{$in:[...topicIds,'general']}}:{})},{maxTimeMS:2000}).sort({updatedAt:-1}).limit(10).toArray();
  for(const m of memories){const e=evidenceSchema.safeParse({source:'confirmed_self_report',sourceRef:m._id.toString(),topicId:m.topicId,text:m.text,at:asDate(m.updatedAt)});if(e.success)evidence.push(e.data);}
  if(topicIds.length){

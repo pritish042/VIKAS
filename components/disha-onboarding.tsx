@@ -85,6 +85,7 @@ export function DishaOnboarding(){
   catch(e){if(!controller.signal.aborted)setAnswer(`${(e as Error).message} The guided questions still work.`);}
   finally{clearTimeout(timer);if(aiRequest.current===controller)setAiBusy(false);}
  }
+ if(/^\/(?:disha|mentor)\/?$/.test(pathname))return null;
  return <aside className="disha-floating" data-keyboard={viewport.inset>120?'true':undefined} style={viewport.height?{'--disha-viewport-height':`${viewport.height}px`,'--disha-keyboard-inset':`${viewport.inset}px`} as CSSProperties:undefined} aria-label="DISHA onboarding assistant">
   {welcome&&!open&&!/^\/(?:login|signup|reset|forgot)\/?$/.test(pathname)&&<div className="disha-welcome" role="status"><button className="icon-button" aria-label="Dismiss DISHA welcome" onClick={dismiss}><X size={16}/></button><p>Hi, I’m DISHA. Would you like help getting started?</p><button className="text-button" onClick={()=>{dismiss();setOpen(true);}}>Get started</button></div>}
   {open&&<section id="disha-onboarding-panel" className="disha-panel" role="dialog" aria-modal="false" aria-labelledby="disha-heading">

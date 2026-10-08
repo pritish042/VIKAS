@@ -4,7 +4,7 @@ import type {LearningState} from './mentor-learning';
 import {safeExternalUrl} from './topic-rules';
 const text=(n:number)=>z.string().trim().min(1).max(n);
 export const topicKey=text(100).regex(/^[A-Za-z0-9_-]+$/);
-export const mentorRequest=z.object({message:text(2000),topicId:topicKey.optional(),language:text(40).default('English'),choice:z.enum(['consider','refresher','continue']).default('consider')}).strict();
+export const mentorRequest=z.object({message:text(2000),topicId:topicKey.optional(),language:text(40).default('English'),choice:z.enum(['consider','refresher','continue']).default('consider'),retryRef:z.string().regex(/^[a-f\d]{24}$/i).optional()}).strict();
 export const knowledgeInput=z.object({
  topicId:topicKey,title:text(150),subject:text(100),stage:stageSchema,language:text(40),
  boardMode:z.enum(['general','specific']),boards:z.array(text(150)).max(40),
@@ -34,8 +34,10 @@ export const retrievalSchema=z.object({passages:z.array(passageSchema).max(4),re
 export const mentorProposalSchema=taskSchema.extend({topicId:z.string().max(100),explanation:text(1000),status:z.literal('pending')}).strict();
 export const modelAnswerSchema=z.object({sentences:z.array(z.object({text:text(800),citations:z.array(text(100)).min(1).max(4)}).strict()).min(1).max(4),memorySuggestion:z.object({topicId:topicKey,text:text(300)}).strict().optional(),pendingQuestion:z.string().max(500).optional()}).strict();
 export const conversationAnswerSchema=z.object({answer:text(3000),pendingQuestion:z.string().max(500).optional()}).strict();
-export type ProviderStatus='used'|'missing_key'|'invalid_configuration'|'rate_limited'|'timed_out'|'unavailable'|'insufficient_knowledge';
+export type ProviderStatus='local'|'used'|'missing_key'|'invalid_configuration'|'rate_limited'|'timed_out'|'unavailable'|'insufficient_knowledge';
 export interface MentorResponse {
+ language?:string;
+ timings?:{contextMs:number;retrievalMs:number;providerMs:number;totalMs:number};
  learning?:LearningState;
  labLanguage?:'c'|'python';
  sourceLabel?:string;

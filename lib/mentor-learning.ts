@@ -6,7 +6,7 @@ export const learningStateSchema=z.object({topicId:z.string().min(1).max(100),ti
 export type LearningState=z.infer<typeof learningStateSchema>;
 export type HistoryTurn={role:'user'|'assistant';content:string};
 export async function readConversation(d:Db,userId:string){
- const rows=await d.collection('messages').find({userId},{projection:{role:1,content:1,createdAt:1,'mentor.learning':1},maxTimeMS:2000}).sort({createdAt:-1,_id:-1}).limit(8).toArray();
+ const rows=await d.collection('messages').find({userId},{projection:{role:1,content:1,createdAt:1,'mentor.learning':1,'mentor.language':1},maxTimeMS:2000}).sort({createdAt:-1,_id:-1}).limit(8).toArray();
  // Exactly eight messages, at most 6,000 characters total; no account IDs or metadata enter AI input.
  let remaining=6000;const history:HistoryTurn[]=[];
  for(const row of rows){if((row.role!=='user'&&row.role!=='assistant')||typeof row.content!=='string')continue;const content=row.content.slice(0,Math.min(1200,remaining));if(!content)break;remaining-=content.length;history.unshift({role:row.role,content});}
@@ -15,7 +15,7 @@ export async function readConversation(d:Db,userId:string){
  let state=parsedState.success?parsedState.data:undefined;
  // Migrate old chats from explicit student requests, never an assistant's profile-based suggestion.
  if(!state)for(const row of rows){if(row.role!=='user'||typeof row.content!=='string'||!(/\b(?:teach|learn|basics?|bacis|basis)\b/i.test(row.content)))continue;const inferred=resolveLearning(row.content,undefined,undefined);if(inferred.pack&&inferred.state){state={...inferred.state,packVersion:undefined};break;}}
- return {history,state,latestAt:rows[0]?.createdAt instanceof Date?rows[0].createdAt.getTime():0};
+ return {history,state,language:typeof latest?.mentor?.language==='string'?latest.mentor.language:'English',latestAt:rows[0]?.createdAt instanceof Date?rows[0].createdAt.getTime():0};
 }
 function languagesIn(message:string){const text=message.toLowerCase(),found:BeginnerLanguage[]=[];if(/\bc\+\+|\bcpp\b|\bcplusplus\b/.test(text))found.push('cpp');if(/\bc\b(?!\s*\+\+)/.test(text))found.push('c');if(/\bpython\b/.test(text))found.push('python');return found;}
 export function resolveLearning(message:string,selected:string|undefined,previous:LearningState|undefined){

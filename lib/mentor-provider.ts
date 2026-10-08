@@ -22,7 +22,7 @@ export function providerNotice(status:ProviderStatus):string{
   case 'missing_key':return 'DISHA’s AI conversation is not configured yet. You can still view your saved context.';
   case 'invalid_configuration':return 'DISHA’s AI connection needs attention from the app operator. Please try again once it is configured.';
   case 'rate_limited':return 'DISHA’s AI service has reached its current request allowance. Please wait a little and try again.';
-  case 'timed_out':return 'DISHA took too long to respond. Please try a shorter question or try again shortly.';
+  case 'timed_out':return 'DISHA took too long to respond. Please retry shortly. Reviewed C, C++ and Python basics are still available.';
   case 'unavailable':return 'DISHA could not generate a response right now. Please try again shortly.';
   default:return '';
  }
@@ -30,7 +30,8 @@ export function providerNotice(status:ProviderStatus):string{
 
 // Credentials come from the server caller, never from the student or model.
 async function generate<T>(payload:unknown,instruction:string,schema:z.ZodType<T>,options:Options):Promise<{status:'used';answer:T}|Failure>{
- if(!options.key?.trim()||!options.model?.trim())return {status:'missing_key'};
+ if(!options.key?.trim())return {status:'missing_key'};
+ if(!options.model?.trim())return {status:'invalid_configuration'};
  const model=options.model.trim().replace(/^models\//,'');
  if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,99}$/.test(model))return {status:'invalid_configuration'};
  // Preserve recent dialogue within the existing transport ceiling when large source/context payloads compete.
@@ -44,16 +45,17 @@ async function generate<T>(payload:unknown,instruction:string,schema:z.ZodType<T
  if(serialized.length>24000){console.warn('DISHA provider diagnostic',{category:'input_limit'});return {status:'unavailable'};}
  const controller=new AbortController();
  const signal=options.signal?AbortSignal.any([options.signal,controller.signal]):controller.signal;
- let timer:ReturnType<typeof setTimeout>|undefined;
+ let timer:ReturnType<typeof setTimeout>|undefined;const started=Date.now();let headersMs:number|null=null,phase='headers';
  try{
   const work=async():Promise<{status:'used';answer:T}|Failure>=>{
    const response=await (options.fetcher||fetch)(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':options.key!.trim()},signal,body:JSON.stringify({systemInstruction:{parts:[{text:instruction}]},contents:[{role:'user',parts:[{text:serialized}]}],generationConfig:{maxOutputTokens:1800,responseMimeType:'application/json'}})});
+   headersMs=Date.now()-started;phase='body';
    if(!response.ok){console.warn('DISHA provider diagnostic',{category:response.status===429?'quota':response.status>=500?'upstream_http':'configuration_http',httpStatus:response.status});await response.body?.cancel();return {status:[400,401,403,404].includes(response.status)?'invalid_configuration':response.status===429?'rate_limited':'unavailable'};}
    const reader=response.body?.getReader();if(!reader)return {status:'unavailable'};
    const decoder=new TextDecoder();let raw='',size=0;
    try{while(true){const {value,done}=await reader.read();if(done)break;size+=value.byteLength;if(size>32000){console.warn('DISHA provider diagnostic',{category:'output_limit'});await reader.cancel();return {status:'unavailable'};}raw+=decoder.decode(value,{stream:true});}}finally{reader.releaseLock();}
    raw+=decoder.decode();
-   const envelope=JSON.parse(raw),candidate=envelope.candidates?.[0],parts=candidate?.content?.parts;
+   phase='validation';const envelope=JSON.parse(raw),candidate=envelope.candidates?.[0],parts=candidate?.content?.parts;
    if(envelope.promptFeedback?.blockReason||candidate?.finishReason&&candidate.finishReason!=='STOP'||!Array.isArray(parts)||parts.some(p=>p.functionCall)){console.warn('DISHA provider diagnostic',{category:envelope.promptFeedback?.blockReason?'blocked':Array.isArray(parts)&&parts.some(p=>p.functionCall)?'unexpected_tool':candidate?.finishReason&&candidate.finishReason!=='STOP'?'unfinished_response':'missing_candidate'});return {status:'unavailable'};}
    const value=parts.filter(p=>!p.thought).map(p=>typeof p.text==='string'?p.text:'').join('').trim().replace(/^```(?:json)?\s*|\s*```$/g,'');
    return {status:'used',answer:schema.parse(JSON.parse(value))};
@@ -62,11 +64,12 @@ async function generate<T>(payload:unknown,instruction:string,schema:z.ZodType<T
   const timeout=new Promise<Failure>(resolve=>{timer=setTimeout(()=>{controller.abort();resolve({status:'timed_out'});},Math.max(1,Math.min(options.timeoutMs||15000,15000)));});
   return await Promise.race([work(),timeout]);
  }catch(error){console.warn('DISHA provider diagnostic',{category:signal.aborted?'timeout':error instanceof z.ZodError?'invalid_schema':error instanceof SyntaxError?'invalid_json':'network_or_response_error'});return {status:signal.aborted?'timed_out':'unavailable'};}
- finally{if(timer)clearTimeout(timer);controller.abort();}
+ finally{console.info('DISHA provider timing',{headersMs,totalMs:Date.now()-started,phase,aborted:signal.aborted});if(timer)clearTimeout(timer);controller.abort();}
 }
 
 export async function explainWithGemini(input:{message:string;topicId:string;passages:Passage[];evidence:MentorEvidence[];context?:StudentContext;language?:string;history?:HistoryTurn[];learning?:LearningState;learningIntent?:string},options:Options={}){
- if(!options.key?.trim()||!options.model?.trim())return {status:'missing_key' as const};
+ if(!options.key?.trim())return {status:'missing_key' as const};
+ if(!options.model?.trim())return {status:'invalid_configuration' as const};
  if(!input.passages.length)return {status:'insufficient_knowledge' as const};
  const generated=await generate(input,grounded,modelAnswerSchema,options);
  if(generated.status!=='used')return generated;
