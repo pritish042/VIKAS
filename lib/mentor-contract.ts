@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {stageSchema,taskSchema} from './validation';
+import type {LearningState} from './mentor-learning';
 import {safeExternalUrl} from './topic-rules';
 const text=(n:number)=>z.string().trim().min(1).max(n);
 export const topicKey=text(100).regex(/^[A-Za-z0-9_-]+$/);
@@ -31,10 +32,14 @@ export type Passage=z.infer<typeof passageSchema>;
 export const linkSchema=z.object({id:text(24),title:text(150),url:safeExternalUrl,topicId:topicKey}).strict();
 export const retrievalSchema=z.object({passages:z.array(passageSchema).max(4),resources:z.array(linkSchema).max(3),notice:z.string().max(500)}).strict();
 export const mentorProposalSchema=taskSchema.extend({topicId:z.string().max(100),explanation:text(1000),status:z.literal('pending')}).strict();
-export const modelAnswerSchema=z.object({sentences:z.array(z.object({text:text(800),citations:z.array(text(100)).min(1).max(4)}).strict()).min(1).max(4),memorySuggestion:z.object({topicId:topicKey,text:text(300)}).strict().optional()}).strict();
-export const conversationAnswerSchema=z.object({answer:text(3000)}).strict();
+export const modelAnswerSchema=z.object({sentences:z.array(z.object({text:text(800),citations:z.array(text(100)).min(1).max(4)}).strict()).min(1).max(4),memorySuggestion:z.object({topicId:topicKey,text:text(300)}).strict().optional(),pendingQuestion:z.string().max(500).optional()}).strict();
+export const conversationAnswerSchema=z.object({answer:text(3000),pendingQuestion:z.string().max(500).optional()}).strict();
 export type ProviderStatus='used'|'missing_key'|'invalid_configuration'|'rate_limited'|'timed_out'|'unavailable'|'insufficient_knowledge';
 export interface MentorResponse {
+ learning?:LearningState;
+ labLanguage?:'c'|'python';
+ sourceLabel?:string;
+ retryable?:boolean;
  prerequisiteSource?:{title:string;url:string;version:string;reviewedAt:string};
  topic:{id:string;title:string}|null;prerequisites:PrerequisiteResult[];evidence:MentorEvidence[];uncertainty:string[];
  passages:Passage[];resources:z.infer<typeof linkSchema>[];providerStatus:ProviderStatus;

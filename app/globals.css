@@ -596,3 +596,5 @@ body:has(.modal) .disha-floating{display:none}body:has(.disha-floating) main{pad
 @media(prefers-reduced-motion:no-preference){.aprajita-flower{transition:filter 160ms ease-out;animation:aprajita-flower-in 180ms ease-out}.aprajita-welcome{animation:aprajita-flower-in 180ms ease-out}}
 @media(hover:hover){.workspace-sidebar button:hover .aprajita-flower,.workspace-drawer button:hover .aprajita-flower,.aprajita-title:hover .aprajita-flower{filter:drop-shadow(0 0 3px #9272cc66)}}
 @keyframes aprajita-flower-in{from{transform:translateY(3px) scale(.96)}to{transform:translateY(0) scale(1)}}
+
+.mentor-text pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:13px;max-width:100%}.mentor-text p{white-space:pre-wrap}
