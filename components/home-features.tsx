@@ -1,0 +1,13 @@
+import {BookOpen,MessageCircle,ArrowUpRight,Code2,Compass} from 'lucide-react';
+import {AprajitaIcon} from './aprajita/identity';
+import {startGuide} from '@/lib/guide-actions';
+import type {AppPage} from '@/lib/navigation';
+export function HomeFeatures({go,configured}:{go:(page:AppPage)=>void;configured:boolean}){
+ return <section className="home-features" data-guide-id="home-features" aria-labelledby="features-title"><div className="section-heading"><div><span className="eyebrow">YOUR TOOLKIT</span><h2 id="features-title">Find your next direction.</h2></div><button className="text-button" onClick={()=>startGuide('home')}>Show me around</button></div><div className="feature-grid">
+ <article className="feature-card feature-learning"><span className="icon-box"><Compass size={22}/></span><span className="feature-number">01 / LEARN</span><h3>Learn what matters to you.</h3><p>Subjects, chapters, video searches and optional topic checks for your saved studies.</p><button className="secondary" onClick={()=>go('explore')}>Explore lessons <ArrowUpRight size={16}/></button><small>Coverage varies by subject and pathway.</small></article>
+ <article className="feature-card feature-disha"><span className="icon-box"><MessageCircle size={22}/></span><span className="feature-number">02 / DISHA</span><h3>A question is a good start.</h3><p>Explain a topic, work through an example, or ask about your next step.</p><button className="secondary" onClick={()=>go('mentor')}>Talk to DISHA <ArrowUpRight size={16}/></button><small>{configured?'AI replies depend on service availability.':'Reviewed beginner practice is available without AI.'}</small></article>
+ <article className="feature-card feature-journey"><span className="icon-box"><BookOpen size={22}/></span><span className="feature-number">04 / MY JOURNEY</span><h3>Keep your progress together.</h3><p>Goals, tasks, reflections and your growth journal. Completed activity is separate from mastery.</p><button className="secondary" onClick={()=>go('plan')}>View my plan <ArrowUpRight size={16}/></button></article>
+ <article className="feature-card feature-lab"><AprajitaIcon/><span className="feature-number">03 / LABS</span><h3>Build something small.</h3><p>APRAJITA: C, Python, HTML and Java. Your saved studies determine access; execution availability varies.</p><button className="secondary" onClick={()=>go('aprajita')}>Open code lab <Code2 size={16}/></button></article>
+
+ </div><div className="home-secondary"><button className="text-button" onClick={()=>go('profile')}>Profile &amp; study details</button><button className="text-button" onClick={()=>go('explore')}>Topic checks &amp; resources</button><button className="text-button" onClick={()=>go('plan')}>Growth journal</button></div></section>;
+}
