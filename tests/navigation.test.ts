@@ -5,6 +5,13 @@ test('public root and onboarding remain distinct',()=>{assert.equal(pageForPath(
 test('legacy and planned navigation URLs resolve to the same existing experiences',()=>{for(const [old,next,page] of [['/home','/today','home'],['/plan','/journey','plan'],['/mentor','/disha','mentor']] as const){assert.equal(pageForPath(old),page);assert.equal(pageForPath(next),page);assert.equal(pathForPage(page),next);}for(const p of ['explore','profile','login','signup','forgot','reset','privacy'])assert.equal(pageForPath('/'+p),p);});
 test('authenticated landing action points directly to Today without a root redirect cycle',()=>{assert.deepEqual(landingAction(true),{href:'/today',label:'Continue your journey'});assert.equal(pageForPath(landingAction(true).href),'home');assert.equal(pathForPage('landing'),'/');});
 
+test('route helpers tolerate query strings and trailing slashes',()=>{
+ assert.equal(pageForPath('/start?ref=signup'),'start');
+ assert.equal(pageForPath('/today/?continue=1'),'home');
+ assert.equal(pageForPath('disha'),'mentor');
+ assert.equal(pageForPath('/labs/'),'aprajita');
+});
+
 test('four main destinations retain Labs and dedicated DISHA while old learning/lab URLs remain valid',async()=>{
  const {mainDestinations,navigationSection}=await import('../lib/navigation');
  assert.deepEqual(mainDestinations.map(pathForPage),['/today','/learn','/labs','/journey']);
