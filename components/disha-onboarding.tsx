@@ -8,6 +8,7 @@ import {normalizeProfile} from '@/lib/education';
 import {containsCredential,mergeOnboardingDraft,onboardingContext,sessionDraftAction,type OnboardingStep} from '@/lib/onboarding-contract';
 import {StudyForm} from './study-form';
 import {DishaGuide} from './disha-guide';
+import {DishaCompanion} from './disha-companion';
 import {startGuide,type GuideTour} from '@/lib/guide-actions';
 import {DishaAvatar} from './disha-avatar';
 import {beginDishaAuthHandoff,clearDishaAuthHandoff} from '@/lib/onboarding-handoff';
@@ -28,11 +29,11 @@ export function DishaOnboarding(){
  const [draft,setDraft]=useState<Profile>({...emptyProfile,weeklyHours:0}),[step,setStep]=useState<OnboardingStep>('stage');
  const [snapshot,setSnapshot]=useState<Snapshot|null>(null),[userId,setUserId]=useState<string|null>(null),[checked,setChecked]=useState(false);
  const [error,setError]=useState(''),[busy,setBusy]=useState(false),[question,setQuestion]=useState(''),[answer,setAnswer]=useState(''),[aiBusy,setAiBusy]=useState(false),[retry,setRetry]=useState('');
- const launcher=useRef<HTMLButtonElement>(null),heading=useRef<HTMLHeadingElement>(null),touched=useRef(new Set<string>()),saving=useRef(false),handoff=useRef(false),bound=useRef<string|null>(null),draftOwner=useRef<string|null>(null),refreshId=useRef(0),aiRequest=useRef<AbortController|null>(null),seen=useRef(false);
+ const heading=useRef<HTMLHeadingElement>(null),touched=useRef(new Set<string>()),saving=useRef(false),handoff=useRef(false),bound=useRef<string|null>(null),draftOwner=useRef<string|null>(null),refreshId=useRef(0),aiRequest=useRef<AbortController|null>(null),seen=useRef(false);
  const phaseRef=useRef(phase);phaseRef.current=phase;
  const draftRef=useRef(draft);draftRef.current=draft;
  const dismiss=useCallback(()=>{setWelcome(false);try{localStorage.setItem('vikas-disha-welcome-seen','1');}catch{/* Only an appearance preference; setup stays in memory. */}},[]);
- const close=useCallback(()=>{setOpen(false);aiRequest.current?.abort();setAiBusy(false);dismiss();launcher.current?.focus();},[dismiss]);
+ const close=useCallback(()=>{setOpen(false);aiRequest.current?.abort();setAiBusy(false);dismiss();document.querySelector<HTMLButtonElement>('.disha-companion')?.focus();},[dismiss]);
  const refresh=useCallback(async(force=false)=>{
   const id=++refreshId.current;
   try{
@@ -103,6 +104,6 @@ export function DishaOnboarding(){
     {phase==='complete'&&<div className="disha-menu"><h3>Your studies are saved.</h3><p>Your existing learning records remain attached to your account.</p><button className="primary" onClick={()=>{close();router.push('/today');}}>Open my space</button><button className="text-button" onClick={()=>setPhase('menu')}>Back to DISHA</button></div>}
    </div>
   </section>}
-  <button ref={launcher} className="disha-launcher" aria-label={open?'Minimise DISHA onboarding assistant':'Open DISHA guide and setup helper'} aria-expanded={open} aria-controls="disha-onboarding-panel" onClick={()=>{if(open)close();else{dismiss();setOpen(true);}}}><DishaAvatar/><span>DISHA</span></button>
+  <DishaCompanion expression={aiBusy?'thinking':question.trim()?'listening':open?'greeting':'idle'} onOpenTutor={()=>{setOpen(false);aiRequest.current?.abort();setAiBusy(false);dismiss();router.push('/disha');}} onOpenSetup={()=>{if(open)close();else{dismiss();setOpen(true);}}}/>
  </aside>}</>;
 }

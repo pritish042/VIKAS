@@ -680,3 +680,55 @@ h1,.next-step h3,.landing-section-heading h2,.landing-pathways h2,.landing-final
 @media(prefers-reduced-motion:no-preference){.disha-guide{animation-name:vikas-guide-fade}}
 /* Placement transforms still apply in reduced motion; only interpolation is disabled. */
 @media(prefers-reduced-motion:reduce){.disha-guide{transform:revert}}
+
+/* DISHA's portrait is a layered vector character: the head and pupils track
+   the pointer independently, while state changes stay small and finite. */
+.disha-portrait-art{display:block;overflow:visible;--disha-head-x:0px;--disha-head-y:0px;--disha-head-tilt:0deg;--disha-eye-x:0px;--disha-eye-y:0px;transform-origin:center;}
+.disha-portrait-art[data-expression=idle]{animation:disha-breathe 5.4s ease-in-out infinite}
+.disha-head{transform-box:view-box;transform-origin:120px 136px;transform:translate(var(--disha-head-x),var(--disha-head-y)) rotate(var(--disha-head-tilt));}
+.disha-hair-back{transform-box:view-box;transform-origin:120px 112px}
+.disha-pupils{transform:translate(var(--disha-eye-x),var(--disha-eye-y));}
+.disha-eyes{transform-box:view-box;transform-origin:120px 133px;transition:transform 90ms ease-out}
+.disha-portrait-art[data-blinking=true] .disha-eyes{transform:scaleY(.08)}
+.disha-portrait-art[data-expression=listening] .disha-head{transform:translate(var(--disha-head-x),calc(var(--disha-head-y) + 1px)) rotate(calc(var(--disha-head-tilt) - 1deg))}
+.disha-portrait-art[data-expression=curious] .disha-head{transform:translate(var(--disha-head-x),var(--disha-head-y)) rotate(calc(var(--disha-head-tilt) - 2deg))}
+.disha-portrait-art[data-expression=thinking] .disha-pupils{transform:translate(var(--disha-eye-x),calc(var(--disha-eye-y) - 1.1px))}
+.disha-portrait-art[data-expression=idle] .disha-hair-back{animation:disha-hair-sway 7s ease-in-out infinite}
+.disha-portrait-art[data-expression=encouraging] .disha-mouth,.disha-portrait-art[data-expression=celebration] .disha-mouth{d:path('M105 174q15 19 30 0')}
+.disha-portrait-art[data-expression=greeting] .disha-head,.disha-portrait-art[data-expression=encouraging] .disha-head,.disha-portrait-art[data-expression=celebration] .disha-head{animation:disha-greet 820ms cubic-bezier(.2,.7,.2,1) both}
+.mentor-empty{width:min(100%,650px)}
+.mentor-empty-hero{display:flex;align-items:center;gap:22px;margin:0 auto 22px}
+.mentor-empty-hero>div{min-width:0}
+.mentor-empty-hero .eyebrow{font-size:10px;letter-spacing:.12em;color:var(--muted)}
+.mentor-empty-hero h2{font-size:clamp(22px,3vw,30px);margin:7px 0 0}
+.mentor-empty-hero p{margin:8px 0 0}
+.disha-hero-orbit{position:relative;display:grid;place-items:center;flex:0 0 128px;width:128px;height:128px;border-radius:50%;background:radial-gradient(circle at 45% 38%,color-mix(in srgb,var(--primary) 16%,var(--surface)),var(--surface) 70%);border:1px solid var(--line);box-shadow:0 12px 36px color-mix(in srgb,var(--primary) 9%,transparent),inset 0 0 22px color-mix(in srgb,var(--primary) 8%,transparent)}
+.disha-hero-orbit::before,.disha-hero-orbit::after{content:'';position:absolute;inset:-8px;border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);border-radius:50%}
+.disha-hero-orbit::after{inset:-16px;opacity:.55}
+.disha-hero-avatar{width:92px;height:92px;filter:drop-shadow(0 5px 8px #0002)}
+.mentor-empty>.topic-actions{justify-content:flex-start;flex-wrap:wrap}
+@keyframes disha-greet{0%{transform:translate(var(--disha-head-x),var(--disha-head-y)) rotate(var(--disha-head-tilt))}35%{transform:translate(var(--disha-head-x),calc(var(--disha-head-y) - 1.4px)) rotate(calc(var(--disha-head-tilt) + 2deg))}70%{transform:translate(var(--disha-head-x),calc(var(--disha-head-y) + .6px)) rotate(calc(var(--disha-head-tilt) - 1.2deg))}100%{transform:translate(var(--disha-head-x),var(--disha-head-y)) rotate(var(--disha-head-tilt))}}
+@keyframes disha-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-.7px)}}
+@keyframes disha-hair-sway{0%,100%{transform:rotate(0)}50%{transform:rotate(.35deg)}}
+@media(max-width:600px){.mentor-empty-hero{gap:14px}.disha-hero-orbit{flex-basis:88px;width:88px;height:88px}.disha-hero-orbit::before{inset:-5px}.disha-hero-orbit::after{inset:-10px}.disha-hero-avatar{width:66px;height:66px}.mentor-empty-hero p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.disha-head,.disha-eyes{transition:none!important}.disha-portrait-art,.disha-hair-back{animation:none!important}.disha-portrait-art[data-expression=greeting] .disha-head,.disha-portrait-art[data-expression=encouraging] .disha-head{animation:none!important}}
+
+/* The portrait itself is DISHA's launcher; the study setup remains a separate action. */
+.disha-floating{right:22px;bottom:14px;gap:4px;max-width:min(260px,calc(100vw - 24px))}
+.disha-companion-wrap{display:flex;align-items:center;flex-direction:column;gap:2px;width:min(244px,calc(100vw - 28px))}
+.disha-companion{position:relative;isolation:isolate;display:flex;align-items:center;flex-direction:column;justify-content:flex-end;width:100%;padding:0 8px;border:0;border-radius:0;background:transparent;color:var(--text);cursor:pointer;overflow:visible}
+.disha-companion:focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:22px}
+.disha-companion-glow{position:absolute;z-index:-2;top:24px;width:210px;max-width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 48% 40%,color-mix(in srgb,var(--primary) 28%,var(--surface)),color-mix(in srgb,var(--accent) 20%,var(--surface)) 48%,transparent 72%);filter:blur(2px)}
+.disha-companion-orbit{position:absolute;z-index:-1;top:52px;width:196px;max-width:84%;aspect-ratio:1;border:1px solid color-mix(in srgb,var(--primary) 34%,transparent);border-radius:48% 52% 47% 53%;box-shadow:0 0 0 14px color-mix(in srgb,var(--accent) 8%,transparent),0 0 44px color-mix(in srgb,var(--primary) 14%,transparent);transform:rotate(-8deg)}
+.disha-companion-art{display:block;width:220px;height:294px;max-width:100%;filter:drop-shadow(0 14px 15px #271a2725);transform-origin:center bottom}
+.disha-companion-caption{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 8px;width:100%;margin-top:-4px;padding:9px 12px;border:1px solid color-mix(in srgb,var(--control-border) 68%,transparent);border-radius:14px;background:color-mix(in srgb,var(--surface) 92%,transparent);text-align:left;box-shadow:0 8px 24px #1d263019;backdrop-filter:blur(10px)}
+.disha-companion-caption strong{font-size:12px;letter-spacing:.1em;color:var(--primary)}
+.disha-companion-caption small{grid-column:1;color:var(--muted);font-size:10px}
+.disha-companion-caption>span{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600}
+.disha-companion-caption>span svg{color:var(--primary)}
+.disha-setup-link{display:flex;align-items:center;gap:6px;min-height:32px;padding:4px 10px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:11px;cursor:pointer}
+.disha-setup-link:hover{background:var(--tint);color:var(--text)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.disha-companion-art{transition:filter 220ms ease,transform 300ms cubic-bezier(.2,.7,.2,1)}.disha-companion:hover .disha-companion-art,.disha-companion:focus-visible .disha-companion-art{filter:drop-shadow(0 16px 19px #271a2733);transform:translateY(-3px)}.disha-companion-caption{transition:transform 200ms ease}.disha-companion:hover .disha-companion-caption{transform:translateY(-2px)}}
+@media(min-width:900px){body:has(.disha-floating):has(.workspace-sidebar) main{padding-bottom:340px}.mentor-header .disha-portrait{width:66px;height:88px}.mentor-header{min-height:96px}}
+@media(max-width:760px){.disha-floating{right:10px;bottom:calc(12px + env(safe-area-inset-bottom));gap:0}.disha-companion-wrap{width:132px}.disha-companion{padding:0 4px}.disha-companion-art{width:124px;height:166px;filter:drop-shadow(0 8px 9px #271a2725)}.disha-companion-glow{top:12px;width:120px}.disha-companion-orbit{top:28px;width:112px;box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 8%,transparent)}.disha-companion-caption{grid-template-columns:1fr auto;gap:0 4px;padding:6px 8px;border-radius:11px}.disha-companion-caption strong{font-size:10px}.disha-companion-caption small{font-size:9px}.disha-companion-caption>span{font-size:9px}.disha-companion-caption>span svg{width:12px;height:12px}.disha-setup-link{min-height:28px;padding:3px 7px;font-size:10px}body:has(.disha-floating):has(.mobile-nav) main{padding-bottom:300px}.mentor-header .disha-portrait{width:52px;height:70px}.mentor-header{min-height:76px}}
+@media(prefers-reduced-motion:reduce){.disha-companion-art,.disha-companion-caption{transition:none!important}.disha-companion:hover .disha-companion-art{transform:none}}
