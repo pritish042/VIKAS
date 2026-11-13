@@ -1,0 +1,44 @@
+{
+  "samples": [
+    {
+      "headersMs": 138,
+      "completeMs": 142.01
+    },
+    {
+      "headersMs": 11.69,
+      "completeMs": 16.37
+    },
+    {
+      "headersMs": 12.89,
+      "completeMs": 14.96
+    },
+    {
+      "headersMs": 8.36,
+      "completeMs": 10.77
+    },
+    {
+      "headersMs": 7.77,
+      "completeMs": 9.94
+    },
+    {
+      "headersMs": 7.05,
+      "completeMs": 9.23
+    }
+  ],
+  "medianWarmHeadersMs": 8.36,
+  "medianWarmCompleteMs": 10.77,
+  "htmlDecodedBytes": 58632,
+  "htmlGzipBytes": 10783,
+  "scripts": {
+    "files": 11,
+    "decodedBytes": 1198784,
+    "gzipBytes": 335918
+  },
+  "styles": {
+    "files": 2,
+    "decodedBytes": 85376,
+    "gzipBytes": 18097
+  },
+  "headlineInInitialHTML": true,
+  "limitations": "Local production HTTP and initial linked asset sizes only. gzip sizes computed from decoded responses; no browser LCP/CLS/FPS or CPU claim."
+}

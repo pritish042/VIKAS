@@ -8,6 +8,7 @@ import {normalizeProfile} from '@/lib/education';
 import {containsCredential,mergeOnboardingDraft,onboardingContext,sessionDraftAction,type OnboardingStep} from '@/lib/onboarding-contract';
 import {StudyForm} from './study-form';
 import {DishaGuide} from './disha-guide';
+import {notifyCompanion} from '@/lib/companion-events';
 import {DishaCompanion} from './disha-companion';
 import {startGuide,type GuideTour} from '@/lib/guide-actions';
 import {DishaAvatar} from './disha-avatar';
@@ -24,16 +25,15 @@ async function request(path:string,data?:unknown){
 }
 export function DishaOnboarding(){
  const router=useRouter(),pathname=usePathname();
- const [open,setOpen]=useState(false),[welcome,setWelcome]=useState(false),[phase,setPhase]=useState<Phase>('menu');
+ const [open,setOpen]=useState(false),[phase,setPhase]=useState<Phase>('menu');
  const [viewport,setViewport]=useState({height:0,inset:0});
  const [draft,setDraft]=useState<Profile>({...emptyProfile,weeklyHours:0}),[step,setStep]=useState<OnboardingStep>('stage');
  const [snapshot,setSnapshot]=useState<Snapshot|null>(null),[userId,setUserId]=useState<string|null>(null),[checked,setChecked]=useState(false);
  const [error,setError]=useState(''),[busy,setBusy]=useState(false),[question,setQuestion]=useState(''),[answer,setAnswer]=useState(''),[aiBusy,setAiBusy]=useState(false),[retry,setRetry]=useState('');
- const heading=useRef<HTMLHeadingElement>(null),touched=useRef(new Set<string>()),saving=useRef(false),handoff=useRef(false),bound=useRef<string|null>(null),draftOwner=useRef<string|null>(null),refreshId=useRef(0),aiRequest=useRef<AbortController|null>(null),seen=useRef(false);
+ const heading=useRef<HTMLHeadingElement>(null),touched=useRef(new Set<string>()),saving=useRef(false),handoff=useRef(false),bound=useRef<string|null>(null),draftOwner=useRef<string|null>(null),refreshId=useRef(0),aiRequest=useRef<AbortController|null>(null);
  const phaseRef=useRef(phase);phaseRef.current=phase;
  const draftRef=useRef(draft);draftRef.current=draft;
- const dismiss=useCallback(()=>{setWelcome(false);try{localStorage.setItem('vikas-disha-welcome-seen','1');}catch{/* Only an appearance preference; setup stays in memory. */}},[]);
- const close=useCallback(()=>{setOpen(false);aiRequest.current?.abort();setAiBusy(false);dismiss();document.querySelector<HTMLButtonElement>('.disha-companion')?.focus();},[dismiss]);
+ const close=useCallback(()=>{setOpen(false);aiRequest.current?.abort();setAiBusy(false);document.querySelector<HTMLButtonElement>('.disha-companion')?.focus();},[]);
  const refresh=useCallback(async(force=false)=>{
   const id=++refreshId.current;
   try{
@@ -57,13 +57,12 @@ export function DishaOnboarding(){
  useEffect(()=>{void refresh();const update=()=>void refresh();window.addEventListener('focus',update);const signedOut=()=>{clearDishaAuthHandoff();draftOwner.current=null;bound.current=null;handoff.current=false;setUserId(null);setSnapshot(null);setDraft({...emptyProfile,weeklyHours:0});touched.current.clear();setStep('stage');setPhase('menu');setQuestion('');setAnswer('');aiRequest.current?.abort();setAiBusy(false);void refresh();};window.addEventListener('vikas:signed-out',signedOut);window.addEventListener('vikas:auth-changed',update);window.addEventListener('vikas:profile-changed',update);return()=>{++refreshId.current;window.removeEventListener('focus',update);window.removeEventListener('vikas:signed-out',signedOut);window.removeEventListener('vikas:auth-changed',update);window.removeEventListener('vikas:profile-changed',update);};},[refresh]);
  useEffect(()=>{if(phase!=='authentication')return;const timer=setInterval(()=>void refresh(),5000);return()=>clearInterval(timer);},[phase,refresh]);
  useEffect(()=>{const view=window.visualViewport;if(!view)return;const update=()=>setViewport({height:view.height,inset:Math.max(0,window.innerHeight-view.height-view.offsetTop)});update();view.addEventListener('resize',update);view.addEventListener('scroll',update);return()=>{view.removeEventListener('resize',update);view.removeEventListener('scroll',update);};},[]);
- useEffect(()=>{if(seen.current)return;seen.current=true;try{if(localStorage.getItem('vikas-disha-welcome-seen')||localStorage.getItem('vikas-guide-dismissed'))return;localStorage.setItem('vikas-disha-welcome-seen','1');}catch{}setWelcome(true);},[]);
  useEffect(()=>{if(open){heading.current?.focus();const key=(event:KeyboardEvent)=>{if(event.key==='Escape'){event.preventDefault();close();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);}},[open,close]);
  useEffect(()=>{aiRequest.current?.abort();setAiBusy(false);setAnswer('');setRetry('');},[step,draft]);
  function change(next:Profile){for(const key of ['interests','goal','weeklyHours','bio'] as const)if(JSON.stringify(next[key])!==JSON.stringify(draft[key]))touched.current.add(key);setDraft(next);setError('');}
- function start(){dismiss();setError('');if(snapshot?.profile){setPhase('existing');return;}setPhase('editing');}
+ function start(){setError('');if(snapshot?.profile){setPhase('existing');return;}setPhase('editing');}
  function authenticate(path:'signup'|'login'){
-  beginDishaAuthHandoff();handoff.current=true;setPhase('authentication');setOpen(false);dismiss();router.push(`/${path}`);
+  beginDishaAuthHandoff();handoff.current=true;setPhase('authentication');setOpen(false);router.push(`/${path}`);
  }
  async function finish(candidate:Profile){
   if(saving.current)return;
@@ -75,7 +74,7 @@ export function DishaOnboarding(){
    if(session.data.user.id!==userId){await refresh();throw new Error('Your account changed. Start setup again for this account.');}
    const result=await request('profile',{profile,expectedRevision:snapshot.revision,confirmed:true}) as Snapshot;
    if(bound.current!==userId||result.accountId!==userId)return;
-   setSnapshot(result);setPhase('complete');window.dispatchEvent(new Event('vikas:profile-changed'));
+   setSnapshot(result);setPhase('complete');notifyCompanion('progress:saved',{metadata:{source:'profile'}});window.dispatchEvent(new Event('vikas:profile-changed'));
   }catch(e){const failure=e as Error&{status?:number};setError(failure.message);if(failure.status===401)setPhase('authentication');if(failure.status===409){await refresh(true);setPhase('existing');}}
   finally{saving.current=false;setBusy(false);}
  }
@@ -90,7 +89,6 @@ export function DishaOnboarding(){
  }
  const inChat=/^\/(?:disha|mentor)\/?$/.test(pathname);
  return <><DishaGuide owner={userId||'guest'}/>{!inChat&&<aside className="disha-floating" data-keyboard={viewport.inset>120?'true':undefined} style={viewport.height?{'--disha-viewport-height':`${viewport.height}px`,'--disha-keyboard-inset':`${viewport.inset}px`} as CSSProperties:undefined} aria-label="DISHA onboarding assistant">
-  {welcome&&!open&&!/^\/(?:login|signup|reset|forgot)\/?$/.test(pathname)&&<div className="disha-welcome" role="status"><button className="icon-button" aria-label="Dismiss DISHA welcome" onClick={dismiss}><X size={16}/></button><p>Hi, I’m DISHA. Would you like help getting started?</p><button className="text-button" onClick={()=>{dismiss();setOpen(true);}}>Get started</button></div>}
   {open&&<section id="disha-onboarding-panel" className="disha-panel" role="dialog" aria-modal="false" aria-labelledby="disha-heading">
    <header><span className="disha-portrait"><DishaAvatar/></span><div><h2 id="disha-heading" ref={heading} tabIndex={-1}>DISHA</h2><small>Your guide & setup helper</small></div><button className="icon-button" aria-label="Minimise DISHA" onClick={close}><Minus size={18}/></button><button className="icon-button" aria-label="Close DISHA" onClick={close}><X size={18}/></button></header>
    <div className="disha-content">
@@ -104,6 +102,6 @@ export function DishaOnboarding(){
     {phase==='complete'&&<div className="disha-menu"><h3>Your studies are saved.</h3><p>Your existing learning records remain attached to your account.</p><button className="primary" onClick={()=>{close();router.push('/today');}}>Open my space</button><button className="text-button" onClick={()=>setPhase('menu')}>Back to DISHA</button></div>}
    </div>
   </section>}
-  <DishaCompanion expression={aiBusy?'thinking':question.trim()?'listening':open?'greeting':'idle'} onOpenTutor={()=>{setOpen(false);aiRequest.current?.abort();setAiBusy(false);dismiss();router.push('/disha');}} onOpenSetup={()=>{if(open)close();else{dismiss();setOpen(true);}}}/>
+  <DishaCompanion suspended={open} expression={aiBusy?'thinking':question.trim()?'listening':open?'greeting':'idle'} onOpenTutor={()=>{if(!window.dispatchEvent(new Event('aprajita:leave',{cancelable:true})))return;setOpen(false);aiRequest.current?.abort();setAiBusy(false);router.push('/disha');}} onOpenSetup={()=>{if(open)close();else{setOpen(true);}}}/>
  </aside>}</>;
 }

@@ -734,3 +734,83 @@ h1,.next-step h3,.landing-section-heading h2,.landing-pathways h2,.landing-final
 @media(prefers-reduced-motion:reduce){.disha-companion-art,.disha-companion-caption{transition:none!important}.disha-companion:hover .disha-companion-art{transform:none}}
 @media(max-width:760px){body:has(.lp-hero) .disha-setup-link,body:has(.lp-hero) .disha-companion-caption{display:none}}
 @media(max-width:360px){body:has(.lp-hero) .disha-floating{top:136px;bottom:auto}body:has(.lp-hero) .disha-companion-glow,body:has(.lp-hero) .disha-companion-orbit{display:none}}
+
+/* Living companion V2: one viewport-bounded rail, independent head and gaze. */
+.disha-living{position:fixed;right:max(18px,env(safe-area-inset-right));top:0;transform:translateY(var(--companion-y,40vh));width:244px;transition:transform 650ms cubic-bezier(.22,.8,.24,1);pointer-events:none}
+.disha-living[hidden],.disha-living[data-suspended=true]{display:none}
+.disha-living button,.disha-speech{pointer-events:auto}
+.disha-companion-tools{display:flex;gap:4px;border-radius:24px;background:var(--surface);border:1px solid var(--line);box-shadow:0 4px 18px #0001}
+.disha-companion-tools button,.disha-speech button{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer}
+.disha-companion-tools button:hover,.disha-speech button:hover{background:var(--tint);color:var(--text)}
+.disha-speech{position:relative;width:100%;padding:14px 38px 14px 16px;margin-bottom:12px;border:1px solid var(--control-border);border-radius:20px 20px 8px 20px;background:var(--surface);color:var(--text);box-shadow:0 12px 35px #0002;animation:disha-speech-in 220ms ease both}
+.disha-speech small{font-size:10px;letter-spacing:.14em;color:var(--primary)}
+.disha-speech p{font-size:13px;line-height:1.55;margin:5px 0 0}
+.disha-speech button{position:absolute;right:0;top:0;width:36px;height:36px}
+.disha-speech[data-leaving=true]{animation:disha-speech-out 220ms ease both}
+.disha-living[data-compact=true]{width:144px}
+.disha-living[data-compact=true] .disha-companion-art{width:64px;height:72px;object-fit:cover}
+.disha-living[data-compact=true] .disha-companion-caption,.disha-living[data-compact=true] .disha-companion-glow,.disha-living[data-compact=true] .disha-companion-orbit{display:none}
+.disha-living[data-compact=true] .disha-speech{width:min(244px,calc(100vw - 36px));align-self:flex-end}
+.disha-living[data-quiet=true] .disha-portrait-art,.disha-living[data-quiet=true] .disha-hair-back{animation:none}
+.disha-living[data-quiet=true]{opacity:.65}
+.disha-portrait-art[data-expression=concerned] .disha-mouth{d:path('M109 180q11 -4 22 0')}
+.disha-portrait-art[data-expression=concerned] .disha-brows{transform:translateY(-1px)}
+.disha-head,.disha-mouth,.disha-brows{transition:transform 260ms ease,d 260ms ease}
+.disha-companion:hover .disha-companion-art{transform:none}
+@keyframes disha-speech-in{from{opacity:0;transform:translateY(5px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes disha-speech-out{to{opacity:0;transform:translateY(3px)}}
+@media(prefers-reduced-motion:reduce){.disha-living,.disha-mouth,.disha-brows{transition:none!important}.disha-portrait-art *{animation:none!important}.disha-speech{animation:none!important}}
+@media(max-width:899px){.disha-living{right:max(12px,env(safe-area-inset-right))}.disha-living[data-quiet=true]{visibility:hidden}}
+
+/* The rendered face replaces the old vector anatomy, not just its palette. */
+.disha-rendered-art .disha-head{transform-origin:120px 198px}
+.disha-rendered-art .disha-rendered-blink{opacity:0;transition:opacity 65ms ease}
+.disha-rendered-art[data-blinking=true] .disha-rendered-blink{opacity:1}
+.disha-rendered-art[data-blinking=true] .disha-rendered-eyes{opacity:0}
+.disha-rendered-art .disha-rendered-eyes{transition:opacity 65ms ease}
+.disha-rendered-art{border-radius:0 0 32% 32%}
+.disha-living[data-compact=true] .disha-rendered-art{height:78px;width:60px}
+@media(prefers-reduced-motion:reduce){.disha-rendered-art *{transition:none!important}}
+.disha-portrait-art[data-paused=true],.disha-portrait-art[data-paused=true] *{animation-play-state:paused!important}
+.disha-rendered-art[data-expression=concerned] .disha-head{transform:translate(var(--disha-head-x),var(--disha-head-y)) rotate(calc(var(--disha-head-tilt) - 1deg))}
+.disha-rendered-art[data-expression=concerned] .disha-pupils{transform:translate(var(--disha-eye-x),calc(var(--disha-eye-y) + .5px))}
+@media(max-width:899px){.disha-living{transform:translateY(var(--companion-y,calc(100dvh - 180px)))}}
+
+/* Cinematic presentation: original layout, immediate visible content, finite motion. */
+html[data-theme=dark]{--bg:#0B0F14;--surface:#111827;--surface2:#182631;--text:#F5F1E9;--muted:#B8C4C7;--line:#34424D;--control-border:#788D95;--primary:#9BCFC4;--primary-hover:#B8E3DA;--on-primary:#102822;--tint:#192C30;--accent:#A7B8A0;--accent-text:#D6E2D1;--accent-soft:#25332D;--support-ink:#9BCFC4;--illustration-paper:#141E29;--focus:#9BCFC4;--shadow:0 12px 36px #00000024;--shadow-overlay:0 20px 64px #0007;--cinema-burgundy:#752D48}
+html[data-theme=dark] body{background-image:radial-gradient(ellipse at 85% 0%,#752D481A,transparent 48%),linear-gradient(165deg,#11182745,transparent 65%);background-repeat:no-repeat}
+html[data-theme=dark] .landing-header,html[data-theme=dark] .header{background:linear-gradient(110deg,#111827,#0B0F14);box-shadow:0 1px 0 #9BCFC408}
+html[data-theme=dark] .process-illustration{background:radial-gradient(ellipse at 85% 5%,#9BCFC417,transparent 60%),radial-gradient(ellipse at 0% 100%,#752D4829,transparent 65%),linear-gradient(145deg,#172431,#111827);box-shadow:inset 0 1px 0 #F5F1E90D,0 24px 70px #0004}
+html[data-theme=dark] .process-steps li{background:linear-gradient(130deg,#1C2935,#151E29);border-color:#45555F;box-shadow:0 6px 16px #0002}
+html[data-theme=dark] :is(.panel,.landing-tool-grid article,.landing-pathways,.resource-card){background-image:linear-gradient(135deg,#9BCFC407,transparent 70%);box-shadow:inset 0 1px 0 #F5F1E908,var(--shadow)}
+html[data-theme=dark] .landing .primary{background:#752D48;color:#F5F1E9;border:1px solid #AB647D;box-shadow:0 6px 24px #752D4833,inset 0 1px 0 #FFFFFF16}
+html[data-theme=dark] .landing .primary:hover{background:#8B3857;color:#F5F1E9}
+html[data-theme=dark] .disha-speech,html[data-theme=dark] .disha-companion-caption{background:linear-gradient(135deg,#1B2C36,#111827);border-color:#627D83;box-shadow:0 12px 36px #0005,inset 0 1px 0 #9BCFC413}
+.landing-hero::before{inset:8% -2% auto auto;width:54%;height:78%;border:0;border-radius:40%;background:radial-gradient(ellipse,color-mix(in srgb,var(--support-ink) 14%,transparent),transparent 70%);transform:translate(var(--atmosphere-x,0px),var(--atmosphere-y,0px));pointer-events:none}
+.landing-intro h1 .hero-line{display:block}
+.landing-intro h1{letter-spacing:-.045em;line-height:1.12}
+.process-illustration{transform:translate(calc(var(--atmosphere-x,0px)*-.45),calc(var(--atmosphere-y,0px)*-.45));isolation:isolate}
+@keyframes cinema-enter{from{opacity:.78;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cinema-wordmark{from{opacity:.8;filter:blur(.6px);transform:translateY(3px)}to{opacity:1;filter:none;transform:none}}
+@keyframes cinema-light{from{opacity:.35}to{opacity:.65}}
+@keyframes cinema-disha{from{opacity:.8;transform:rotate(-2deg)}to{opacity:1;transform:rotate(0)}}
+@media(prefers-reduced-motion:no-preference){
+ body,.header,.landing-header,.panel,.landing-tool-grid article,.landing-pathways,.disha-speech{transition:background-color 240ms ease,color 200ms ease,border-color 240ms ease,box-shadow 240ms ease}
+ .landing-header .brand{animation:cinema-wordmark 550ms ease-out both}
+ .landing-header nav{animation:cinema-enter 460ms ease-out both}
+ .landing-intro.landing-reveal{animation:none}
+ .landing-intro .hero-line{animation:cinema-enter 560ms cubic-bezier(.2,.7,.2,1) both}
+ .landing-intro .hero-line:nth-child(2){animation-duration:640ms}
+ .landing-intro .hero-line:nth-child(3){animation-duration:720ms}
+ .landing-hero::before{animation:cinema-light 700ms ease-out both}
+ .process-illustration.landing-reveal{animation:cinema-enter 700ms ease-out backwards}
+ .landing [data-arrived=true]{animation:cinema-enter 500ms ease-out both}
+ .disha-living .disha-companion{animation:cinema-disha 700ms ease-out both;transform-origin:50% 85%}
+ .primary,.secondary,.landing-tool-grid article,.resource-card{transition:transform 180ms ease,background-color 220ms ease,border-color 220ms ease,box-shadow 220ms ease}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .landing-tool-grid article:hover,.resource-card:hover{transform:translateY(-3px);border-color:var(--control-border);box-shadow:var(--shadow-overlay)}
+ .primary:hover,.secondary:hover{transform:translateY(-1px)}
+ .primary:active,.secondary:active{transform:translateY(0) scale(.985)}
+}
+@media(prefers-reduced-motion:reduce){.landing-hero::before,.process-illustration{transform:none!important}.landing .hero-line,.landing-header *,.landing [data-arrived],.disha-living .disha-companion{animation:none!important}body,.panel,.landing-pathways{transition:none!important}}
