@@ -1,0 +1,113 @@
+/* Neural Cosmos / Neural Dawn. Landing-only motion; readable without JS or WebGL. */
+.landing.neural-landing{
+ --landing-canvas:#0B0912;--landing-surface:#181522;--landing-surface-raised:#201B2D;
+ --bg:var(--landing-canvas);--surface:var(--landing-surface);--text:#F5F1EC;--muted:#C2BACE;
+ --primary:#CEBAF4;--primary-hover:#E4D6FF;--on-primary:#281638;--tint:#2A2238;
+ --line:#4A405C;--control-border:#9385A7;--support-ink:#C5AFED;--focus:#D7C3FF;
+ --landing-title-accent:#D0B6F1;--landing-grid:#DBCCFF08;
+ --landing-glow:rgba(124,76,218,.16);--landing-shadow:0 16px 48px #00000024;
+ position:relative;isolation:isolate;background-color:var(--landing-canvas);color:var(--text);
+ transition:background-color var(--motion-theme,500ms) ease,color var(--motion-theme,500ms) ease;
+}
+html[data-theme=light] .landing.neural-landing{
+ --landing-canvas:#F7F3EC;--landing-surface:#FFFDFA;--landing-surface-raised:#F0F4ED;
+ --text:#29362F;--muted:#56665D;--primary:#743348;--primary-hover:#5B2639;--on-primary:#FFF9F3;
+ --tint:#E3EEE7;--line:#CFD9D0;--control-border:#7D8E82;--support-ink:#426859;--focus:#743348;
+ --landing-title-accent:#537462;--landing-grid:#506B5E08;
+ --landing-glow:rgba(156,204,190,.2);--landing-shadow:0 12px 36px #4F685D0D;
+}
+/* Both environments exist from the first render; opacity gives gradients a real crossfade. */
+.landing-atmosphere{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.landing-world{position:absolute;inset:0;transition:opacity var(--motion-theme,500ms) ease}
+.landing-world-cosmos{opacity:1;background:radial-gradient(ellipse at 15% 51%,#5B345E0B,transparent 38%),radial-gradient(ellipse at 88% 76%,#4A3B8A0C,transparent 36%)}
+.landing-world-dawn{opacity:0;background:radial-gradient(ellipse at 10% 48%,#C4D9CB29,transparent 42%),radial-gradient(ellipse at 90% 75%,#DAD0E225,transparent 40%)}
+html[data-theme=light] .landing-world-cosmos{opacity:0}
+html[data-theme=light] .landing-world-dawn{opacity:1}
+.landing-world-field{position:absolute;top:20px;left:-5%;width:110%;height:min(1180px,125svh);transform-origin:70% 35%;opacity:.8}
+.landing-world-cosmos .landing-world-field{background:radial-gradient(ellipse at 77% 43%,#643EBE2A,transparent 43%),radial-gradient(ellipse at 94% 19%,#304D9321,transparent 40%),radial-gradient(ellipse at 14% 11%,#50233E18,transparent 36%)}
+.landing-world-dawn .landing-world-field{background:radial-gradient(ellipse at 76% 42%,#B9DCD65C,transparent 42%),radial-gradient(ellipse at 96% 11%,#D8CBEB42,transparent 40%),radial-gradient(ellipse at 12% 13%,#DFE9D65C,transparent 38%)}
+.landing-atmosphere-grid{position:absolute;inset:0;background-image:linear-gradient(90deg,var(--landing-grid) 1px,transparent 1px),linear-gradient(var(--landing-grid) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(transparent,#0008 12%,#0004 65%,transparent);opacity:.7}
+.landing.neural-landing .landing-hero::before{content:none}
+.landing.neural-landing .landing-header{background:color-mix(in srgb,var(--landing-canvas) 94%,var(--landing-surface));box-shadow:0 1px 0 color-mix(in srgb,var(--primary) 4%,transparent);border-color:var(--line)}
+.landing.neural-landing .landing-header .brand::after{background:var(--primary);box-shadow:0 0 8px color-mix(in srgb,var(--primary) 38%,transparent)}
+.landing.neural-landing :is(.landing-header,.benefit-list article,.landing-tool-grid article,.landing-pathways,.neural-link,.neural-toggle){
+ transition:color var(--motion-theme,500ms) ease,background-color var(--motion-theme,500ms) ease,border-color var(--motion-theme,500ms) ease,box-shadow var(--motion-theme,500ms) ease,transform var(--motion-control,180ms) var(--motion-ease,ease);
+}
+.landing.neural-landing :is(a,button,h1,h2,h3,p,em,.hero-line,.eyebrow,.section-label,.benefit-icon){
+ transition:color var(--motion-theme,500ms) ease,background-color var(--motion-theme,500ms) ease,border-color var(--motion-theme,500ms) ease,box-shadow var(--motion-theme,500ms) ease,transform var(--motion-control,180ms) var(--motion-ease,ease);
+}
+.landing.neural-landing :is(.benefit-list article,.landing-tool-grid article,.landing-pathways){background-color:var(--landing-surface);background-image:linear-gradient(135deg,#FFFFFF05,transparent 70%);border-color:var(--line);box-shadow:inset 0 1px 0 #FFFFFF08,var(--landing-shadow)}
+.landing.neural-landing .landing-tool-grid article{position:relative}
+.landing.neural-landing .landing-pathways{background-color:var(--landing-surface-raised)}
+.landing.neural-landing .landing-intro h1 .hero-line:nth-child(2){color:var(--landing-title-accent)}
+.landing.neural-landing .landing-intro h1 em{color:var(--primary)}
+.landing.neural-landing .primary{background:color-mix(in srgb,var(--landing-surface) 70%,var(--tint));color:var(--text);border-color:var(--control-border);box-shadow:inset 0 1px 0 #FFFFFF0A,0 0 24px color-mix(in srgb,var(--primary) 7%,transparent)}
+html[data-theme=light] .landing.neural-landing .primary{background:#743348;color:#FFF9F3;border-color:#743348;box-shadow:0 5px 16px #74334816}
+.landing.neural-landing .neural-toggle{background-color:var(--landing-surface);color:var(--primary)}
+.landing.neural-landing .neural-link{background:var(--landing-surface);color:var(--text);box-shadow:var(--landing-shadow)}
+.landing.neural-landing .neural-link small{color:var(--muted)}
+.landing.neural-landing .neural-sculpture{position:relative}
+.landing.neural-landing .sculpture-stage::before,.landing.neural-landing .sculpture-stage::after{content:'';position:absolute;inset:8% 0;z-index:-1;pointer-events:none;border-radius:50%;transition:opacity var(--motion-theme,500ms) ease;transform:translate(var(--atmosphere-x,0px),calc(var(--atmosphere-y,0px) - var(--hero-progress,0)*12px))}
+.landing.neural-landing .sculpture-stage::before{background:radial-gradient(ellipse at 48% 48%,#8757D42B,transparent 65%),radial-gradient(ellipse at 71% 37%,#315CAC12,transparent 62%);opacity:calc(.6 + var(--neural-energy,0)*.16)}
+.landing.neural-landing .sculpture-stage::after{background:radial-gradient(ellipse at 48% 48%,#C4DCD74A,transparent 64%),radial-gradient(ellipse at 67% 35%,#E4D9F24D,transparent 62%);opacity:0}
+html[data-theme=light] .landing.neural-landing .sculpture-stage::before{opacity:0}
+html[data-theme=light] .landing.neural-landing .sculpture-stage::after{opacity:calc(.7 + var(--neural-energy,0)*.1)}
+.landing.neural-landing .sculpture-stage canvas{transition:opacity var(--motion-section,480ms) var(--motion-ease,ease)}
+.landing.neural-landing .neural-fallback{transition:opacity var(--motion-section,480ms) var(--motion-ease,ease)}
+.landing.neural-landing .neural-fallback img{opacity:.94}
+.landing-scroll-cue{position:absolute;bottom:18px;left:0;display:inline-flex;align-items:center;gap:18px;min-height:44px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.landing-scroll-cue>span:last-child{color:var(--primary);font-size:18px;transition:transform var(--motion-control,180ms) var(--motion-ease,ease)}
+/* No inherited parent reveal: each hero line/supporting element has one finite entrance. */
+.landing.neural-landing :is(.landing-intro,.landing-intro>h1,.landing-intro>p,.landing-actions,.landing-benefits,.landing-tools,.landing-pathways,.landing-final){animation:none}
+@keyframes neural-enter{from{opacity:.76;transform:translate3d(0,8px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes neural-brand-enter{from{opacity:.82;transform:translate3d(0,3px,0)}to{opacity:1;transform:none}}
+@keyframes neural-brain-enter{from{opacity:.78;transform:translate3d(0,5px,0)}to{opacity:1;transform:none}}
+@keyframes neural-ambient-drift{
+ 0%,100%{transform:translate3d(var(--atmosphere-x,0px),calc(var(--atmosphere-y,0px) - var(--hero-progress,0)*24px),0) scale(1)}
+ 50%{transform:translate3d(calc(var(--atmosphere-x,0px) - 12px),calc(var(--atmosphere-y,0px) + 8px - var(--hero-progress,0)*24px),0) scale(1.025)}
+}
+@media(prefers-reduced-motion:no-preference){
+ .landing.neural-landing .landing-header .brand{animation:neural-brand-enter 600ms var(--motion-ease,ease) both}
+ .landing.neural-landing .landing-header nav{animation:neural-enter 560ms var(--motion-ease,ease) both}
+ .landing.neural-landing .hero-line{animation:neural-enter var(--motion-entrance,640ms) var(--motion-ease,ease) both}
+ .landing.neural-landing .hero-line:nth-child(2){animation-delay:70ms}
+ .landing.neural-landing .hero-line:nth-child(3){animation-delay:140ms}
+ .landing.neural-landing .landing-intro>.eyebrow{animation:neural-enter 560ms var(--motion-ease,ease) both}
+ .landing.neural-landing .landing-intro>p:not(.landing-note){animation:neural-enter 620ms var(--motion-ease,ease) 90ms both}
+ .landing.neural-landing .landing-actions{animation:neural-enter 620ms var(--motion-ease,ease) 160ms both}
+ .landing.neural-landing .landing-intro>.landing-note{animation:neural-enter 620ms var(--motion-ease,ease) 180ms both}
+ .landing.neural-landing .neural-sculpture{animation:neural-brain-enter 820ms var(--motion-ease,ease) both}
+ .landing.neural-landing :is(.landing-benefits,.landing-tools,.landing-pathways,.landing-final)[data-arrived=true]{animation:neural-enter var(--motion-section,480ms) var(--motion-ease,ease) backwards}
+ .landing.neural-landing .landing-world-field{animation:neural-ambient-drift 18s ease-in-out infinite}
+ .landing.neural-landing[data-hero-active=false] .landing-world-field,.landing.neural-landing[data-page-visible=false] .landing-world-field{animation-play-state:paused}
+ body:has(.neural-landing) .disha-living .disha-companion{animation:neural-brain-enter 760ms var(--motion-ease,cubic-bezier(.22,.7,.2,1)) both}
+ .landing.neural-landing .neural-link{animation:neural-enter 260ms var(--motion-ease,ease) both}
+}
+/* Immediate, high-contrast focus; hover glows never resize or obscure a control. */
+.landing.neural-landing :is(a,button):focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.landing.neural-landing .landing-header nav>a{position:relative}
+.landing.neural-landing .landing-header nav>a:not(.primary)::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform var(--motion-control,180ms) var(--motion-ease,ease)}
+@media(hover:hover){
+ .landing.neural-landing .landing-header nav>a:hover::after{transform:scaleX(1)}
+ .landing.neural-landing .primary:hover{background:var(--tint);color:var(--text);border-color:var(--primary);box-shadow:inset 0 1px 0 #FFFFFF10,0 0 22px color-mix(in srgb,var(--primary) 12%,transparent);transform:translateY(-1px)}
+ html[data-theme=light] .landing.neural-landing .primary:hover{background:#5B2639;color:#FFF9F3;box-shadow:0 7px 20px #74334820}
+ .landing.neural-landing :is(.benefit-list article,.landing-tool-grid article):hover{transform:translateY(-2px);border-color:var(--control-border);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--primary) 12%,transparent),var(--landing-shadow)}
+ .landing.neural-landing .neural-link:hover{background:var(--tint);border-color:var(--primary)}
+ .landing.neural-landing .landing-scroll-cue:hover>span:last-child{transform:translateY(2px)}
+}
+.landing.neural-landing :is(.primary,.secondary,.neural-toggle):active{transform:translateY(1px)}
+body:has(.neural-landing) .disha-companion-glow,body:has(.neural-landing) .disha-companion-orbit{transition:background-color 500ms ease,border-color 500ms ease,box-shadow 500ms ease}
+html[data-theme=light] body:has(.neural-landing) .disha-floating{--primary:#743348;--accent:#A7B8A0;--surface:#FFFDFA;--muted:#56665D;--line:#CFD9D0;--tint:#E3EEE7}
+html[data-theme=light] body:has(.neural-landing) .disha-companion-caption{background:#FFFDFAF5;border-color:#8A9B90;box-shadow:0 8px 30px #526B5910}
+@media(max-width:700px){
+ .landing-world-field{height:1100px;width:120%;left:-10%}
+ .landing-scroll-cue{position:static;grid-column:1/-1;margin-top:22px;font-size:8px}
+ .landing.neural-landing .landing-hero{padding-bottom:30px}
+ .landing.neural-landing .landing-atmosphere-grid{background-size:56px 56px;opacity:.5}
+}
+@media(prefers-reduced-motion:reduce){
+ .landing.neural-landing,.landing.neural-landing *,.landing.neural-landing *::before,.landing.neural-landing *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .landing-world-field,.landing.neural-landing .sculpture-stage::before,.landing.neural-landing .sculpture-stage::after{transform:none!important}
+ .landing.neural-landing :is(a,button,article):hover,.landing.neural-landing :is(a,button):active{transform:none!important}
+}
+html[data-theme] body:has(.neural-landing) :is(.disha-speech,.disha-companion-caption,.disha-companion-tools){background:var(--surface);background-image:linear-gradient(135deg,#FFFFFF06,transparent);transition:background-color 500ms ease,color 500ms ease,border-color 500ms ease,box-shadow 500ms ease}

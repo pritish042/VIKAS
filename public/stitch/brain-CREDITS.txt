@@ -1,0 +1,25 @@
+VIKAS anatomical brain artwork — CC BY-SA 4.0
+
+Source atlas: Brain Project by itayinbarr and contributors
+https://github.com/itayinbarr/brainproject
+Model: brain-atlas/models/brain.glb
+
+Original anatomical geometry:
+Z-Anatomy — https://www.z-anatomy.com/ — https://github.com/Z-Anatomy
+BodyParts3D, Copyright The Database Center for Life Science (DBCLS)
+https://lifesciencedb.jp/bp3d/
+
+License: Creative Commons Attribution-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-sa/4.0/
+The derived GLB and rendered preview remain under that license.
+See brain-LICENSE.txt for the source project's asset licensing notice.
+
+VIKAS modifications: retained cortex, cerebellum and brainstem; removed hidden
+systems, source materials and metadata not required for rendering; simplified
+mesh and retained Draco compression; normalized and merged at runtime;
+applied custom violet/blue/lavender physical material and lighting;
+created a model-rendered transparent preview. No anatomical parts are
+separated or deformed for the interaction. Surface glows and connection
+lines are decorative and do not represent measured neural activity.
+
+This is an educational anatomical illustration, not a clinical model.

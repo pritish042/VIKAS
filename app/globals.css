@@ -635,10 +635,6 @@ body .main.mentor-main{height:var(--mentor-workspace-height,calc(100dvh - 186px)
 @media(prefers-reduced-motion:no-preference){
  button,a{transition:color 180ms ease,background-color 180ms ease,border-color 180ms ease,transform 180ms ease}
  .primary:not(:disabled):active,.secondary:not(:disabled):active,.small-button:not(:disabled):active{transform:scale(.98)}
- .landing-reveal,.process-steps li{animation:vikas-section-in 400ms ease-out backwards}.process-steps li:nth-child(2){animation-delay:50ms}.process-steps li:nth-child(3){animation-delay:100ms}.process-steps li:nth-child(4){animation-delay:150ms}
- .landing-intro>h1,.landing-intro>p,.landing-actions{animation:vikas-section-in 380ms ease-out backwards}.landing-intro>p{animation-delay:50ms}.landing-actions{animation-delay:100ms}.landing-intro.landing-reveal{animation:none}
- .landing-hero::before{animation:vikas-background-settle 420ms ease-out}
- .landing-benefits,.landing-pathways,.landing-final{animation:vikas-section-in 400ms ease-out backwards}.landing-benefits{animation-delay:60ms}.landing-pathways{animation-delay:120ms}.landing-final{animation-delay:180ms}
  .dashboard[data-motion-first] .next-step,.dashboard[data-motion-first] .dashboard-progress{animation:vikas-section-in 350ms ease-out backwards}.dashboard[data-motion-first] .dashboard-progress{animation-delay:60ms}
  .motion-progress i{transition:transform 320ms ease-out}
  .question-transition{animation:vikas-control-in 200ms ease-out}
@@ -796,15 +792,7 @@ html[data-theme=dark] .disha-speech,html[data-theme=dark] .disha-companion-capti
 @keyframes cinema-disha{from{opacity:.8;transform:rotate(-2deg)}to{opacity:1;transform:rotate(0)}}
 @media(prefers-reduced-motion:no-preference){
  body,.header,.landing-header,.panel,.landing-tool-grid article,.landing-pathways,.disha-speech{transition:background-color 240ms ease,color 200ms ease,border-color 240ms ease,box-shadow 240ms ease}
- .landing-header .brand{animation:cinema-wordmark 550ms ease-out both}
- .landing-header nav{animation:cinema-enter 460ms ease-out both}
- .landing-intro.landing-reveal{animation:none}
- .landing-intro .hero-line{animation:cinema-enter 560ms cubic-bezier(.2,.7,.2,1) both}
- .landing-intro .hero-line:nth-child(2){animation-duration:640ms}
- .landing-intro .hero-line:nth-child(3){animation-duration:720ms}
- .landing-hero::before{animation:cinema-light 700ms ease-out both}
  .process-illustration.landing-reveal{animation:cinema-enter 700ms ease-out backwards}
- .landing [data-arrived=true]{animation:cinema-enter 500ms ease-out both}
  .disha-living .disha-companion{animation:cinema-disha 700ms ease-out both;transform-origin:50% 85%}
  .primary,.secondary,.landing-tool-grid article,.resource-card{transition:transform 180ms ease,background-color 220ms ease,border-color 220ms ease,box-shadow 220ms ease}
 }
